@@ -1,0 +1,299 @@
+<template>
+    <!-- The Modal -->
+    <div :id="gallery + '-modal'" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="slideShow">
+                <div :class="['mySlides', gallery]">
+                  <img src="@/assets/partner.jpg" />
+                </div>
+
+                <div :class="['mySlides', gallery]">
+                  <img src="@/assets/töö2.jpg" />
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" @click="plusSlides(-1, `${gallery}`)">&#10094;</a>
+                <a class="next" @click="plusSlides(1, `${gallery}`)">&#10095;</a>
+              </div>
+
+              <div class="modal-text">
+                <h1>OLEREX</h1>
+                <p>meie meeskond läbis põhjaliku ülevaatuse kõigi tanklate ja kütusemahutitega seotud süsteemide üle. See hõlmas visuaalset kontrolli, lekkekatsetusi ning vajadusel ka süsteemide testimist ja hooldust. Meie kogenud tehnikud teostasid vajalikud reguleerimised ja parandused, et tagada süsteemide ohutu ja efektiivne toimimine.</p>
+                <div class="feedback">
+                    <q>Väga põhjalik ja korralik töö! Olen rahul!</q>
+                <p> - Olerexi juht</p>
+              </div>
+                <a class="button cta-contact-partner">Tutvu kliendiga!</a>
+              </div>
+
+              <span class="close">&times;</span>
+            </div>
+          </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import PostToShow from "@/components/PostToShow.vue";
+import Show from "@/components/Show.vue";
+
+export default {
+  components: {
+    PostToShow,
+    Show
+  },
+  props: {
+    gallery: { 
+        type: String,
+        required: true,
+    },
+    ids: {
+      type: Array,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      slideIndexes: {
+        first: 1, // Initialize slideIndex for the first gallery
+        second: 1, // Initialize slideIndex for the second gallery
+        third: 1, // Initialize slideIndex for the third gallery
+      },
+    };
+  },
+  mounted() {
+    console.log("Gallery:", this.gallery)
+    this.showSlides(1, "first"); // Initialize the first gallery
+    this.showSlides(1, "second"); // Initialize the second gallery
+    this.showSlides(1, "third"); // Initialize the third gallery
+
+    // Get the <span> element that closes the modal
+    var closeBtns = document.querySelectorAll(".close");
+    var allImages = document.querySelectorAll(".container");
+
+    // When the user clicks on the button, open the modal
+    allImages.forEach((image) => {
+      image.addEventListener("click", (e) => {
+        
+        // Get the button that opens the modal
+
+        if (image.contains(e.target)) {
+          image.nextElementSibling.style.display = "block";
+        }
+      });
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    closeBtns.forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".modal").forEach((modal) => {
+          modal.style.display = "none";
+        });
+      });
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener("click", () => {
+      if (event.target.classList.contains("modal")) {
+        document.querySelectorAll(".modal").forEach((modal) => {
+          modal.style.display = "none";
+        });
+      }
+    });
+  },
+
+  methods: {
+    // Next/previous controls for the specified gallery
+    plusSlides(n, gallery) {
+        console.log(n, gallery);
+      this.showSlides((this.slideIndexes[gallery] += n), gallery);
+    },
+
+    // Thumbnail image controls for the specified gallery
+    currentSlide(n, gallery) {
+      this.showSlides((this.slideIndexes[gallery] = n), gallery);
+    },
+
+    showSlides(n, gallery) {
+      let i;
+      let slides = document.querySelectorAll(`.${gallery}.mySlides`);
+      console.log("SLIDES", slides);
+      if (n > slides.length) {
+        this.slideIndexes[gallery] = 1;
+      }
+      if (n < 1) {
+        this.slideIndexes[gallery] = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      console.log();
+      slides[this.slideIndexes[gallery] - 1].style.display = "block";
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+@media screen and (min-width: 0px) {
+
+  /* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 5%;
+  border: 1px solid #888;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+  
+.slideShow {
+    position: relative;
+    display: inline-block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%);
+  color: white;
+  text-decoration: none;
+  z-index: 5;
+  padding: 2%;
+  cursor: pointer;
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+img {
+  max-width: 100%;
+}
+
+.modal-text {
+  max-height: 60vh;
+  overflow: auto;
+  padding: 2% 5%;
+}
+
+.modal-text > h1 {
+  font-size: 2em;
+  margin-bottom: 2%;
+}
+
+.feedback {
+  margin: 10% 0;
+  padding: 2% 2%;
+  border: 1px solid grey;
+  text-align: center;
+}
+
+q {
+  text-align: center;
+  font-style: italic;
+}
+
+.cta-contact-partner {
+  display: flex;
+  justify-content: center;
+  margin: 0%;
+  border-radius: 5px;
+  font-size: 1.25em;
+  color: white;
+  background-color: var(--darker);
+  background-image: linear-gradient(45deg, var(--bold) 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background-position 0.5s ease-in-out;
+  &:hover {
+    background-position: 0;
+  }
+}
+
+.close {
+  top: 0;
+  right: .2em;
+  font-size: 1.75em;
+  position: absolute;
+  margin-left: 1em;
+  cursor: pointer;
+  color: #aaa;
+  align-self: right;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #575757;
+}
+  
+}
+
+@media screen and (min-width: 400px) {
+  .modal-text {
+    max-height: 50vh;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .modal-text {
+    max-height: 40vh;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .modal-text {
+    max-height: 30vh;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .modal-content {
+    flex-direction: row;
+  }
+
+  .slideShow {
+    width: 50%;
+  }
+
+  .modal-text {
+    max-height: 70vh;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .modal-content {
+    margin-top: 5%;
+  }
+}
+
+</style>
