@@ -22,8 +22,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('public')); //to access the files in public folder
-app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
+app.use(express.static(path.join(__dirname, '../nathanservice/dist')));
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+  }));
 // We need to include "credentials: true" to allow cookies to be represented  
 // Also "credentials: 'include'" need to be added in Fetch API in the Vue.js App
 
