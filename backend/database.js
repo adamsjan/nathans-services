@@ -1,5 +1,6 @@
 // database.js
 const Pool = require('pg').Pool;
+const multer = require('multer');
 
 const pool = new Pool({
     user: "postgres",
