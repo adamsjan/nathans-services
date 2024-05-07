@@ -25,7 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../nathanservice/dist')));
 app.use(cors({
     origin: process.env.FRONTEND_URL,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200
   }));
 
