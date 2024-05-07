@@ -236,16 +236,22 @@ export default {
 
   .ctas .button {
     margin-top: 0;
+    margin-bottom: 5%;
   }
 
   .catch {
     padding-bottom: 10%;
   }
 
-  .services p {
-    width: fit-content;
+  .services {
+    margin-bottom: 10%;
   }
 
+  .services p {
+    width: fit-content;
+    margin: 2% 0% 4% 2%;
+  } 
+   
   .services p:nth-child(1) {
     margin-left: 15%;
   }

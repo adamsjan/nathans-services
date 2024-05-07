@@ -62,10 +62,10 @@ export default {
 
 img {
   width: auto;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
   overflow: hidden;
-  object-position: center;
+  object-position: 50% 0%;
 }
 
 .partner img {
