@@ -25,8 +25,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../nathanservice/dist')));
 app.use(cors({
     origin: process.env.FRONTEND_URL,
-    credentials: true
+    credentials: true,
+    optionsSuccessStatus: 200
   }));
+
 // We need to include "credentials: true" to allow cookies to be represented  
 // Also "credentials: 'include'" need to be added in Fetch API in the Vue.js App
 
