@@ -9,7 +9,6 @@ const bcrypt = require('bcrypt');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
-const multer = require('multer');
 const path = require('path');
 
 const port = process.env.PORT || 3000;
@@ -145,10 +144,6 @@ app.post('/auth/signup', async(req, res) => {
 app.get('/auth/logout', (req, res) => {
     console.log('delete jwt request arrived');
     res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
-});
-
-const imageUpload = multer({
-    dest: 'images',
 });
 
 const knex = require('knex');
