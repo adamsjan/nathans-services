@@ -160,25 +160,9 @@ const db = knex(
       connection: process.env.DATABASE_URL,
     }
    );
-// Image Upload Routes
-app.post('/image', imageUpload.single('image'), (req, res) => {
-    console.log("upload IMAGE", req.file);
-    const { filename, mimetype, size } = req.file;
-    const filepath = req.file.path;
-    db
-     .insert({
-      filename,
-      filepath,
-      mimetype,
-      size,
-     })
-     .into('images')
-     .then(() => res.json({ success: true, filename }))
-     .catch(err => res.json({ success: false, message: 'upload failed', stack: err.stack })); 
-   });
 
 // Image Get Routes
-app.get('/image/:id', (req, res) => {
+app.get('/image/:id', async(req, res) => {
     const { id } = req.params;
     db
         .select('*')
@@ -209,25 +193,6 @@ app.get('/image/:id', (req, res) => {
                           ),
         );
 });
-
-app.put('/image/:id', imageUpload.single('image'), (req, res) => {
-    console.log("upload single IMAGE", req.file);
-    const { id } = req.params;
-    const { filename, mimetype, size } = req.file;
-    const filepath = req.file.path;
-    db
-     .where({id})
-     .update({
-      filename,
-      filepath,
-      mimetype,
-      size,
-     })
-     .into('images')
-     .then(() => res.json({ success: true, filename }))
-     .catch(err => res.json({ success: false, message: 'upload failed', stack: err.stack })); 
-   });
-
 
 // Task 2
 app.get('/api/posts', async(req, res) => {
@@ -265,7 +230,7 @@ app.get('/api/posts/:id', async(req, res) => {
 
 // auth middleware
 app.use(async (req, res, next) => {
-	console.log('authentication middleware');
+	console.log('authentication middleware for', req);
     const token = req.cookies.jwt; // assign the token named jwt to the token const
     console.log("TOKEN IS ", token)
     //console.log("token " + token);
@@ -340,6 +305,43 @@ app.put('/api/posts/:id', async(req, res) => {
         console.error(err.message);
     }
 });
+
+
+// Image Upload Routes
+app.post('/image', imageUpload.single('image'), (req, res) => {
+    console.log("upload IMAGE", req.file);
+    const { filename, mimetype, size } = req.file;
+    const filepath = req.file.path;
+    db
+     .insert({
+      filename,
+      filepath,
+      mimetype,
+      size,
+     })
+     .into('images')
+     .then(() => res.json({ success: true, filename }))
+     .catch(err => res.json({ success: false, message: 'upload failed', stack: err.stack })); 
+   });
+
+app.put('/image/:id', imageUpload.single('image'), (req, res) => {
+    console.log("upload single IMAGE", req.file);
+    const { id } = req.params;
+    const { filename, mimetype, size } = req.file;
+    const filepath = req.file.path;
+    db
+     .where({id})
+     .update({
+      filename,
+      filepath,
+      mimetype,
+      size,
+     })
+     .into('images')
+     .then(() => res.json({ success: true, filename }))
+     .catch(err => res.json({ success: false, message: 'upload failed', stack: err.stack })); 
+   });
+
 
 
 
