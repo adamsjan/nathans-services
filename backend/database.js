@@ -3,11 +3,18 @@ const Pool = require('pg').Pool;
 const multer = require('multer');
 
 const pool = new Pool({
-    user: "postgres",
-    password: "postgres",
-    database: "testWad",
-    host: "localhost",
-    port: "5432"
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false  // Important for Heroku
+    }
+});
+
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    console.log('Connection successful, current time:', res.rows[0]);
 });
 
 const execute = async(query) => {
