@@ -16,7 +16,6 @@ export default {
   methods: {
     async getPost() {
       try {
-        const baseurl = process.env.FRONTEND_URL;
        
         const response = await fetch(
           `/api/posts/${this.postId}`,
@@ -29,12 +28,17 @@ export default {
           }
         );
 
+        console.log("REPONSE", response)
+
         if (response.ok) {
+          const text = await response.text(); // Get response body as text
+  console.log("Response text:", text); // Log text to see what's being received
+  if (text) {
           this.post = await response.json();
-          this.$nextTick(() => {
-      
-      });
+          JSON.parse(text);
+          this.$nextTick(() => {});
           console.log("Post get successfully");
+  }
         } else {
           console.error("Failed to get post");
         }
