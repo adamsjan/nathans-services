@@ -65,12 +65,12 @@
       <div class="description" id="Hooldus-description">
         <div class="left">
           <p class="text-new">
-            <PostToShow :postId="16"></PostToShow>
+            <PostToShow :postId="17"></PostToShow>
           </p>
         </div>
         <div class="right heading trapezoid-right description-content">
           <h1>
-            <PostToShow :postId="17"></PostToShow>
+            <PostToShow :postId="16"></PostToShow>
           </h1>
         </div>
       </div>

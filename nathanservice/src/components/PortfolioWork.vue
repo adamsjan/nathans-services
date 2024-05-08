@@ -5,7 +5,7 @@
             <div class="image">
               <img src="@/assets/partner.jpg" />
               <div class="overlay">
-                <h2 class="button"><PostToShow :postId="ids[1]"></PostToShow></h2>
+                <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow></h2>
               </div>
             </div>
           </div>
