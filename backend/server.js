@@ -220,6 +220,7 @@ app.get('/api/posts/:id', async(req, res) => {
             //$1 is mapped to the first element of { id } (which is just the value of id). 
             "SELECT * FROM datatable WHERE id = $1", [id]
         );
+        console.log("POSTS", posts);
         res.json(posts.rows[0]); // we already know that the row array contains a single element, and here we are trying to access it
         // The res.json() function sends a JSON response. 
         // This method sends a response (with the correct content-type) that is the parameter converted to a JSON string using the JSON.stringify() method.
