@@ -22,7 +22,7 @@ export default {
     async getImage() {
       try {
         const response = await fetch(
-          `http://localhost:3000/image/${this.id}`,
+          `/image/${this.id}`,
           {
             method: "GET",
             "Content-Type": "multipart/form-data",
