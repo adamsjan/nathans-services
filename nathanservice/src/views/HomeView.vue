@@ -16,37 +16,37 @@
       </div>
       <div class="mission">
         <div class="left heading trapezoid-left">
-          <h1>MISSION</h1>
+          <h1><PostToShow :postId="3"></PostToShow></h1>
         </div>
         <div class="right">
-          <p class="text-new">teha nii et meie kliendid oleks õnnelikud</p>
+          <p class="text-new"><PostToShow :postId="4"></PostToShow></p>
         </div>
       </div>
       <div class="vision">
         <div class="left">
           <p class="text-new">
-            maailmas oleks iga tankla puhastatud ja hooldatud
+            <PostToShow :postId="6"></PostToShow>
           </p>
         </div>
         <div class="right heading trapezoid-right">
-          <h1>VISIOON</h1>
+          <h1><PostToShow :postId="5"></PostToShow></h1>
         </div>
       </div>
       <div class="divider-section heading">
-        <h1>MEIE INIMESED</h1>
+        <h1><PostToShow :postId="13"></PostToShow></h1>
       </div>
       <div class="card">
         <section class="three-divs">
           <div class="barrel-container">
-            <Barrel :ids="[1, 3, 4]"></Barrel>
+            <Barrel :ids="[1, 7, 8]"></Barrel>
           </div>
 
           <div class="barrel-container">
-            <Barrel :ids="[2, 5, 6]"></Barrel>
+            <Barrel :ids="[2, 9, 10]"></Barrel>
           </div>
 
           <div class="barrel-container">
-            <Barrel :ids="[3, 7, 8]"></Barrel>
+            <Barrel :ids="[3, 11, 12]"></Barrel>
           </div>
         </section>
       </div>
