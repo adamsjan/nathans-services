@@ -124,7 +124,7 @@ router.beforeEach((to, from, next) => {
     // If user is authenticated, proceed to the requested route
     // If user is not authenticated, redirect to login page or display error message
     // Example API request:
-    fetch("http://localhost:3000/auth/authenticate", {
+    fetch("/auth/authenticate", {
       method: "GET",
       credentials: 'include' // Include credentials if using cookies or tokens for authentication
     })
