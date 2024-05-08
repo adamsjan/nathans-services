@@ -18,8 +18,8 @@
               </div>
 
               <div class="modal-text">
-                <h1>OLEREX</h1>
-                <p>meie meeskond läbis põhjaliku ülevaatuse kõigi tanklate ja kütusemahutitega seotud süsteemide üle. See hõlmas visuaalset kontrolli, lekkekatsetusi ning vajadusel ka süsteemide testimist ja hooldust. Meie kogenud tehnikud teostasid vajalikud reguleerimised ja parandused, et tagada süsteemide ohutu ja efektiivne toimimine.</p>
+                <h1><PostToShow :postId="ids[1]"></PostToShow></h1>
+                <p><PostToShow :postId="ids[2]"></PostToShow></p>
                 <div class="feedback">
                     <q>Väga põhjalik ja korralik töö! Olen rahul!</q>
                 <p> - Olerexi juht</p>
@@ -227,6 +227,7 @@ q {
   margin: 0%;
   border-radius: 5px;
   font-size: 1.25em;
+  height: 1.5em;
   color: white;
   background-color: var(--darker);
   background-image: linear-gradient(45deg, var(--bold) 50%, transparent 50%);

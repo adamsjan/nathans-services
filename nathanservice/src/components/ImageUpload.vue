@@ -85,7 +85,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .button {
   min-height: 100%;
   min-width: 10%;
@@ -108,22 +108,7 @@ img {
 .image::-webkit-file-upload-button {
   visibility: hidden;
 }
-.image::before {
-  content: "Select some files";
-  display: inline-block;
-  background: linear-gradient(top, #f9f9f9, #e3e3e3);
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-}
+
 .image:hover::before {
   border-color: black;
 }
