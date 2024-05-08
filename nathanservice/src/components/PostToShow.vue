@@ -18,7 +18,7 @@ export default {
       try {
         const baseurl = process.env.FRONTEND_URL;
         const response = await fetch(
-          `${baseUrl}/api/posts/${this.postId}`,
+          `${baseurl}/api/posts/${this.postId}`,
           {
             method: "GET",
             headers: {
