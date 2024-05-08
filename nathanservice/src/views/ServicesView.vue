@@ -26,7 +26,7 @@
           >
 
           <p class="service-title">
-            <PostToShow :postId="18"></PostToShow>
+            <PostToShow :postId="14"></PostToShow>
           </p>
         </div>
         <div class="service-icon-container">
@@ -36,7 +36,7 @@
             </span></span
           >
           <p class="service-title">
-            <PostToShow :postId="14"></PostToShow>
+            <PostToShow :postId="16"></PostToShow>
           </p>
         </div>
         <div class="service-icon-container">
@@ -44,12 +44,38 @@
             ><span class="material-symbols-outlined"> handyman </span></span
           >
           <p class="service-title">
-            <PostToShow :postId="17"></PostToShow>
+            <PostToShow :postId="18"></PostToShow>
           </p>
         </div>
       </div>
 
       <div class="description active-desc" id="Haldus-description">
+        <div class="left heading trapezoid-left description-content">
+          <h1>
+            <PostToShow :postId="14"></PostToShow>
+          </h1>
+        </div>
+        <div class="right">
+          <p class="text-new">
+            <PostToShow :postId="15"></PostToShow>
+          </p>
+        </div>
+      </div>
+
+      <div class="description" id="Hooldus-description">
+        <div class="left">
+          <p class="text-new">
+            <PostToShow :postId="16"></PostToShow>
+          </p>
+        </div>
+        <div class="right heading trapezoid-right description-content">
+          <h1>
+            <PostToShow :postId="17"></PostToShow>
+          </h1>
+        </div>
+      </div>
+
+      <div class="description" id="Parandus-description">
         <div class="left heading trapezoid-left description-content">
           <h1>
             <PostToShow :postId="18"></PostToShow>
@@ -58,32 +84,6 @@
         <div class="right">
           <p class="text-new">
             <PostToShow :postId="19"></PostToShow>
-          </p>
-        </div>
-      </div>
-
-      <div class="description" id="Hooldus-description">
-        <div class="left">
-          <p class="text-new">
-            <PostToShow :postId="20"></PostToShow>
-          </p>
-        </div>
-        <div class="right heading trapezoid-right description-content">
-          <h1>
-            <PostToShow :postId="14"></PostToShow>
-          </h1>
-        </div>
-      </div>
-
-      <div class="description" id="Parandus-description">
-        <div class="left heading trapezoid-left description-content">
-          <h1>
-            <PostToShow :postId="17"></PostToShow>
-          </h1>
-        </div>
-        <div class="right">
-          <p class="text-new">
-            <PostToShow :postId="21"></PostToShow>
           </p>
         </div>
       </div>

@@ -35,7 +35,7 @@ const createPostTblQuery = `
     CREATE TABLE IF NOT EXISTS "datatable" (
 	"id" SERIAL PRIMARY KEY,         
 	"key" VARCHAR(200),
-	"value" VARCHAR(200) NOT NULL  
+	"value" VARCHAR(2000) NOT NULL  
     );`;
 
 // A function to execute the previous query   
