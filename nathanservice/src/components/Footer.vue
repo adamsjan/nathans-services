@@ -9,20 +9,20 @@
 
     <div class="general-info">
       <p>
-        <PostToShow :postId="23"></PostToShow>
+        <PostToShow :postId="35"></PostToShow>
       </p>
       <p>
-        <PostToShow :postId="24"></PostToShow>
+        <PostToShow :postId="36"></PostToShow>
       </p>
       <p>
-        <PostToShow :postId="25"></PostToShow>
+        <PostToShow :postId="37"></PostToShow>
       </p>
     </div>
 
     <div>
-      <p>Telefon: 56782890</p>
-      <p>E-post: pauli@nathanservice.ee</p>
-      <p>Tegutseme kogu Eesti piires!</p>
+      <p><PostToShow :postId="38"></PostToShow></p>
+      <p><PostToShow :postId="39"></PostToShow></p>
+      <p><PostToShow :postId="40"></PostToShow></p>
     </div>
   </footer>
 </template>
