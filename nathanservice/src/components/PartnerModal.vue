@@ -52,9 +52,7 @@ export default {
     // When the user clicks on the button, open the modal
     document.addEventListener("click", (e) => {
       partners.forEach((partner) => {
-        console.log(partner);
         if (partner.contains(e.target)) {
-          console.log(partner.nextElementSibling);
           partner.nextElementSibling.style.display = "block";
         }
       });

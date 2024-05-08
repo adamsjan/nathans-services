@@ -113,7 +113,6 @@ export default {
       const screenWidth = window.innerWidth;
 
       if (screenWidth >= 600) {
-        console.log(screenWidth, "> 600");
         elements.forEach((element) => {
           if (element === elements[1]) {
             element.children[1].className = "right heading trapezoid-right";
