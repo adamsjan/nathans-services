@@ -38,7 +38,7 @@ export default {
     async getPost() {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/posts/${this.postId}`,
+          `/api/posts/${this.postId}`,
           {
             method: "GET",
             headers: {
@@ -64,7 +64,7 @@ export default {
     async updatePost() {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/posts/${this.postId}`,
+          `/api/posts/${this.postId}`,
           {
             method: "PUT",
             headers: {

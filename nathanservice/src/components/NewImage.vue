@@ -32,7 +32,7 @@
         formData.append("image", this.$refs.fileInput.files[0]);
   
         axios
-          .post(`http://localhost:3000/image`, formData, {
+          .post(`/image`, formData, {
             headers: {
               "Content-Type": "multipart/form-data",
               credentials: "include",
