@@ -30,7 +30,6 @@ export default {
   methods: {
     autoResizeTextarea() {
       const textarea = this.$refs.textarea;
-      console.log("resize called", textarea.scrollHeight);
       textarea.style.height = 0; // Reset height to auto
       textarea.style.height = textarea.scrollHeight + "px"; // Set height to scrollHeight
     },
@@ -53,7 +52,6 @@ export default {
           this.$nextTick(() => {
             this.autoResizeTextarea();
           });
-          console.log("Post get successfully");
         } else {
           console.error("Failed to get post");
         }

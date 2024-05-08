@@ -28,12 +28,9 @@ export default {
           }
         );
 
-        console.log("REPONSE", response);
-
         if (response.ok) {
           this.post = await response.json();
           this.$nextTick(() => {});
-          console.log("Post get successfully");
         } else {
           console.error("Failed to get post");
         }

@@ -82,7 +82,6 @@ export default {
       const screenWidth = window.innerWidth;
 
       if (screenWidth >= 600) {
-        console.log(screenWidth, "> 600");
         elements.forEach((element) => {
           if (element.classList.contains("mission")) {
             element.children[0].className = "left heading trapezoid-left";

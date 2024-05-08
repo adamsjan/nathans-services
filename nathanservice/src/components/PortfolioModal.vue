@@ -62,7 +62,6 @@ export default {
     };
   },
   mounted() {
-    console.log("Gallery:", this.gallery)
     this.showSlides(1, "first"); // Initialize the first gallery
     this.showSlides(1, "second"); // Initialize the second gallery
     this.showSlides(1, "third"); // Initialize the third gallery
@@ -105,7 +104,6 @@ export default {
   methods: {
     // Next/previous controls for the specified gallery
     plusSlides(n, gallery) {
-        console.log(n, gallery);
       this.showSlides((this.slideIndexes[gallery] += n), gallery);
     },
 
@@ -117,7 +115,6 @@ export default {
     showSlides(n, gallery) {
       let i;
       let slides = document.querySelectorAll(`.${gallery}.mySlides`);
-      console.log("SLIDES", slides);
       if (n > slides.length) {
         this.slideIndexes[gallery] = 1;
       }
@@ -128,7 +125,6 @@ export default {
         slides[i].style.display = "none";
       }
 
-      console.log();
       slides[this.slideIndexes[gallery] - 1].style.display = "block";
     },
   },
