@@ -6,6 +6,9 @@
               <img src="@/assets/partner.jpg" />
               <div class="overlay">
                 <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow></h2>
+                <svg width="100%" height="100%">
+                  <rect x="0" y="0" fill="none" width="100%" height="100%" />
+                </svg>
               </div>
             </div>
           </div>
@@ -77,5 +80,23 @@ img {
   width: 100%;
   object-fit: cover;
 }
+
+.button {
+    color: white;
+    background: var(--bold);
+
+    rect {
+      stroke: white;
+    }
+  }
+
+  .button:hover {
+    color: white;
+    background: var(--bold);
+
+    rect {
+      stroke: white;
+    }
+  }
 
 </style>
