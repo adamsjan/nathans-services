@@ -45,7 +45,7 @@ export default {
       formData.append("image", this.$refs.fileInput.files[0]);
 
       axios
-        .put(`http://localhost:3000/image/${this.id}`, formData, {
+        .put(`/image/${this.id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
             credentials: 'include',

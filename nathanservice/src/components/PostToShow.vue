@@ -39,7 +39,7 @@ export default {
           console.error("Failed to get post");
         }
       } catch (error) {
-        console.error("Error getting post:", error);
+        console.error("Error getting post:", this.postId, error);
       }
     },
   },
