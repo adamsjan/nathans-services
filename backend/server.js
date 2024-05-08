@@ -232,7 +232,7 @@ app.get('/api/posts/:id', async(req, res) => {
 
 // auth middleware
 app.use(async (req, res, next) => {
-	console.log('authentication middleware for', req);
+	console.log('authentication middleware');
     const token = req.cookies.jwt; // assign the token named jwt to the token const
     console.log("TOKEN IS ", token)
     //console.log("token " + token);

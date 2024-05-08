@@ -16,8 +16,9 @@ export default {
   methods: {
     async getPost() {
       try {
+        const baseurl = process.env.FRONTEND_URL;
         const response = await fetch(
-          `http://localhost:3000/api/posts/${this.postId}`,
+          `${baseUrl}/api/posts/${this.postId}`,
           {
             method: "GET",
             headers: {
