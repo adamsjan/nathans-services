@@ -17,20 +17,20 @@
         </section>
       </div>
       <div class="mission">
-        <div class="left heading trapezoid-left">MISSION</div>
+        <div class="left heading trapezoid-left"><PostToEdit :postId="3"></PostToEdit></div>
         <div class="right">
-          <div class="text-new">teha nii et meie kliendid oleks õnnelikud</div>
+          <div class="text-new"><PostToEdit :postId="4"></PostToEdit></div>
         </div>
       </div>
       <div class="vision">
         <div class="left">
           <div class="text-new">
-            maailmas oleks iga tankla puhastatud ja hooldatud
+            <PostToEdit :postId="6"></PostToEdit>
           </div>
         </div>
-        <div class="right heading trapezoid-right">VISIOON</div>
+        <div class="right heading trapezoid-right"><PostToEdit :postId="5"></PostToEdit></div>
       </div>
-      <div class="divider-section heading">MEIE INIMESED</div>
+      <div class="divider-section heading"><PostToEdit :postId="13"></PostToEdit></div>
       <div class="card" id="card-3">
         <section class="three-divs">
           <div class="barrel">
@@ -38,10 +38,10 @@
 
             <div class="text">
               <h1>
-                <PostToEdit :postId="3"></PostToEdit>
+                <PostToEdit :postId="7"></PostToEdit>
               </h1>
               <p>
-                <PostToEdit :postId="4"></PostToEdit>
+                <PostToEdit :postId="8"></PostToEdit>
               </p>
             </div>
           </div>
@@ -51,10 +51,10 @@
 
             <div class="text">
               <h1>
-                <PostToEdit :postId="5"></PostToEdit>
+                <PostToEdit :postId="9"></PostToEdit>
               </h1>
               <p>
-                <PostToEdit :postId="6"></PostToEdit>
+                <PostToEdit :postId="10"></PostToEdit>
               </p>
             </div>
           </div>
@@ -64,10 +64,10 @@
             
             <div class="text">
               <h1>
-                <PostToEdit :postId="7"></PostToEdit>
+                <PostToEdit :postId="11"></PostToEdit>
               </h1>
               <p>
-                <PostToEdit :postId="8"></PostToEdit>
+                <PostToEdit :postId="12"></PostToEdit>
               </p>
             </div>
           </div>
