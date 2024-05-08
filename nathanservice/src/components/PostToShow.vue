@@ -17,6 +17,7 @@ export default {
     async getPost() {
       try {
         const baseurl = process.env.FRONTEND_URL;
+        console.log("URL", `${baseurl}`);
         const response = await fetch(
           `${baseurl}/api/posts/${this.postId}`,
           {
