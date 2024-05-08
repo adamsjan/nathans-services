@@ -67,7 +67,7 @@ export default {
 
 .overlay>h2 {
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -82,7 +82,8 @@ img {
   object-fit: cover;
 }
 
-.button {
+.overlay .button {
+    width: fit-content;
     color: white;
     background: var(--bold);
 

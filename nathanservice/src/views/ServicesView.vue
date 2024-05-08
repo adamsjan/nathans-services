@@ -382,11 +382,11 @@ export default {
     flex-direction: row;
   }
 
-  main .description[data-v-1a3d87dd]:nth-of-type(2n) {
+  main .description:nth-of-type(even) {
     flex-direction: row;
   }
 
-  main .description[data-v-1a3d87dd]:last-of-type {
+  main .description:last-of-type {
     margin-bottom: 10%;
   }
 

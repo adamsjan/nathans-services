@@ -9,21 +9,21 @@
 
       <section class="three-divs">
         <div class="partner">
-          <Barrel :ids="[4, 28, 29]"></Barrel>
+          <Barrel :ids="[4, 26, 27]"></Barrel>
 
-          <PartnerModal :ids="[4, 28, 29]"></PartnerModal>
+          <PartnerModal :ids="[4, 26, 28]"></PartnerModal>
         </div>
 
         <div class="partner">
-          <Barrel :ids="[5, 30, 32]"></Barrel>
+          <Barrel :ids="[5, 29, 30]"></Barrel>
 
-          <PartnerModal :ids="[5, 30, 32]"></PartnerModal>
+          <PartnerModal :ids="[5, 29, 31]"></PartnerModal>
         </div>
 
         <div class="partner">
-          <Barrel :ids="[6, 33, 34]"></Barrel>
+          <Barrel :ids="[6, 32, 33]"></Barrel>
 
-          <PartnerModal :ids="[6, 33, 34]"></PartnerModal>
+          <PartnerModal :ids="[6, 32, 34]"></PartnerModal>
         </div>
       </section>
     </main>

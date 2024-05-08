@@ -205,6 +205,7 @@ img {
 }
 
 .modal-text > h1 {
+  text-transform: uppercase;
   font-size: 2em;
   margin-bottom: 2%;
 }
