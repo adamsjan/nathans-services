@@ -379,6 +379,7 @@ export default {
 
   .active-desc {
     display: flex;
+    flex-direction: row;
   }
 
   main .description[data-v-1a3d87dd]:nth-of-type(2n) {
