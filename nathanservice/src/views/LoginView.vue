@@ -63,7 +63,7 @@ export default {
       if (this.email == "" || this.password == "") {
         return;
       }
-      fetch("/auth/signup", {
+      fetch("/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
