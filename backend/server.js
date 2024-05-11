@@ -163,18 +163,6 @@ const db = knex(
     }
    );
 
-   app.get('/api/posts', async(req, res) => {
-    try {
-        console.log("get posts request has arrived");
-        const posts = await pool.query(
-            "SELECT * FROM datatable"
-        );
-        res.json(posts.rows);
-    } catch (err) {
-        console.error(err.message);
-    }
-});
-
    app.get('/images', async(req, res) => {
     try {
         console.log("get images request has arrived");
@@ -200,36 +188,32 @@ const db = knex(
 
 // Image Get Routes
 app.get('/image/:id', async(req, res) => {
-    const { id } = req.params;
-    db
-        .select('*')
-        .from('images')
-        .where({ id })
-        .then(images => {
-            if (images[0]) {
-                const dirname = path.resolve();
-                const fullfilepath = path.join(
-                                         dirname, 
-                                         images[0].filepath);
-                return res
-                           .type(images[0].mimetype)
-                           .sendFile(fullfilepath);
-            }
-            return Promise.reject(
-                new Error('Image does not exist')
-            );
-        })
-        .catch(err => res
-                          .status(404)
-                          .json(
-                              {
-                                  success: false, 
-                                  message: 'not found', 
-                                  stack: err.stack,
-                               }
-                          ),
+    try {
+        console.log("get a post with route parameter  request has arrived");
+        // The req.params property is an object containing properties mapped to the named route "parameters". 
+        // For example, if you have the route /posts/:id, then the "id" property is available as req.params.id.
+        const { id } = req.params; // assigning all route "parameters" to the id "object"
+        const posts = await pool.query( // pool.query runs a single query on the database.
+            //$1 is mapped to the first element of { id } (which is just the value of id). 
+            "SELECT * FROM datatable WHERE id = $1", [id]
         );
-});
+        const images = result.rows; // Get rows from the result
+
+        if (images.length[0]) {
+            const dirname = path.resolve();
+            const fullfilepath = path.join(dirname, images[0].filepath);
+
+            res.type(images[0].mimetype)
+                .sendFile(fullfilepath);
+        } else {
+            res.status(404).send('No images found');
+        }
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+})
 
 // Task 2
 app.get('/api/posts', async(req, res) => {
