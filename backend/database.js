@@ -67,10 +67,7 @@ execute(createUserTblQuery).then(result => {
 const createImageTblQuery = `
     CREATE TABLE IF NOT EXISTS images(
         id SERIAL NOT NULL PRIMARY KEY,
-        filename TEXT UNIQUE NOT NULL,
-        filepath TEXT NOT NULL,
-        mimetype TEXT NOT NULL,
-        size BIGINT NOT NULL
+        url TEXT NOT NULL
     );`;
 
 execute(createImageTblQuery).then(result => {

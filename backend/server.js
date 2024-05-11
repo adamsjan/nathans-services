@@ -210,9 +210,9 @@ app.get('/image/:id', async(req, res) => {
         );
 
         if (result.rows.length > 0) {
-            const image = result.rows[0];
+            const image = result.rows[0].url;
             console.log("image is", image)
-            res.json({ success: true, image: image });
+            res.json({ success: true, url: rows[0].url });
         } else {
             res.status(404).json({ success: false, message: 'Image not found' });
         }
@@ -343,11 +343,11 @@ app.post('/image', imageUpload.single('image'), async(req, res) => {
             return res.status(400).send('No file uploaded.');
         }
 
-        // Call the Azure Blob service to upload the file
-        const imageUrl = await azureBlobService(req.file);
-
-        // Send back the URL of the uploaded image in Azure Blob Storage
-        res.status(201).send({ success: true, message: "Image uploaded successfully!", imageUrl: imageUrl });
+        const { rows } = await pool.query(
+            "INSERT INTO images (url) VALUES ($1) RETURNING id", 
+            [imageUrl]
+        );
+        res.json({ success: true, id: rows[0].id, url: imageUrl });
     } catch (error) {
         console.error('Upload failed:', error.message);
         res.status(500).send({ success: false, message: 'Failed to upload image.', error: error.message });

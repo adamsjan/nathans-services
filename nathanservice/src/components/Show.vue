@@ -31,9 +31,7 @@ export default {
         );
 
         if (response.ok) {
-          const imageBlob = await response.blob();  // Get the image as a blob
-          const imageUrl = URL.createObjectURL(imageBlob);  // Create a URL for the blob
-          this.imgSrc = imageUrl;  // Assuming `imageSrc` is a data property in your Vue component
+          this.imgSrc = response.url;  // Assuming `imageSrc` is a data property in your Vue component
         }
       } catch (error) {
         console.error("Error getting post:", error);
