@@ -365,33 +365,14 @@ app.put('/image/:id', imageUpload.single('image'), async(req, res) => {
         const imageUrl = await azureBlobService(req.file);
         const { rows } = await pool.query(
             "UPDATE images SET url = $1 WHERE id = $2 RETURNING id",
-            [imageUrl], req.params
+            [imageUrl, req.params.id]
         );
         res.json({ success: true, id: rows[0].id, url: imageUrl });
     } catch (error) {
         console.error('Upload failed:', error.message);
         res.status(500).send({ success: false, message: 'Failed to upload image.', error: error.message });
     }
-
-    console.log("upload single IMAGE", req.file);
-    const { id } = req.params;
-    const { filename, mimetype, size } = req.file;
-    const filepath = req.file.path;
-    db
-     .where({id})
-     .update({
-      filename,
-      filepath,
-      mimetype,
-      size,
-     })
-     .into('images')
-     .then(() => res.json({ success: true, filename }))
-     .catch(err => res.json({ success: false, message: 'upload failed', stack: err.stack })); 
-   });
-
-
-
+});
 
 //``````````````
 app.listen(port, () => {
