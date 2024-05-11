@@ -5,7 +5,7 @@
             <div class="modal-content">
               <div class="slideShow">
                 <div :class="['mySlides', gallery]">
-                  <img src="@/assets/partner.jpg" />
+                  <Show :id="ids[0]"></Show>
                 </div>
 
                 <div :class="['mySlides', gallery]">

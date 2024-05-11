@@ -3,7 +3,7 @@
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">
-              <img src="@/assets/partner.jpg" />
+              <Show :id="ids[1]"></Show>
               <div class="overlay">
                 <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow>
                 <svg width="100%" height="100%">
