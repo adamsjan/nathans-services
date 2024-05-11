@@ -155,7 +155,7 @@ export default {
   }
 
   main {
-    margin-top: 10%;
+    margin-top: 15%;
   }
 
   .introduction-section {

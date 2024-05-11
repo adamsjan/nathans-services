@@ -34,7 +34,8 @@
       <div class="card" id="card-3">
         <section class="three-divs">
           <div class="barrel">
-            <NewImage :id="1"></NewImage>
+            <NewImage></NewImage>
+            <ImageUpload :id="1"></ImageUpload>
 
             <div class="text">
               <h1>
