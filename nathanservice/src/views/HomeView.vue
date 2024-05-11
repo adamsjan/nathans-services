@@ -9,7 +9,7 @@
         </div>
 
         <div class="who-are-we">
-          <p>
+          <p class="text-new">
             <PostToShow :postId="2"></PostToShow>
           </p>
         </div>
