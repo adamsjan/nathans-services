@@ -31,6 +31,7 @@ export default {
         );
 
         if (response.ok) {
+          console.log("Image to show is", response);
           this.imgSrc = response.url;  // Assuming `imageSrc` is a data property in your Vue component
         }
       } catch (error) {
