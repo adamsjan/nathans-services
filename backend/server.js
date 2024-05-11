@@ -200,7 +200,7 @@ app.get('/image/:id', async(req, res) => {
 
         if (result.rows.length > 0) {
             const image = result.rows[0];
-            const dirname = path.resolve('images');
+            const dirname = path.resolve();
             const fullfilepath = path.join(dirname, image.filepath);
 
             res.type(image.mimetype).sendFile(fullfilepath);
