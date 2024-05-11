@@ -213,7 +213,7 @@ app.get('/image/:id', async(req, res) => {
         if (result.rows.length > 0) {
             const image = result.rows[0].url;
             console.log("image is", image)
-            res.json({ success: true, url: result.rows[0].url });
+            res.json({ success: true, url: image });
         } else {
             res.status(404).json({ success: false, message: 'Image not found' });
         }

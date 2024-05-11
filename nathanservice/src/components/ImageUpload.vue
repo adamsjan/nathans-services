@@ -53,7 +53,8 @@ export default {
         console.log(response);
 
         if (response.ok) {
-          this.imgSrc = response.url; // Assuming `imageSrc` is a data property in your Vue component
+          const data = await response.json();
+          this.imgSrc = data.json(); // Assuming `imageSrc` is a data property in your Vue component
         }
       } catch (error) {
         console.error("Error getting post:", error);
