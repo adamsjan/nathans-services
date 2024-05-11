@@ -195,7 +195,7 @@ app.get('/image/:id', async(req, res) => {
         const { id } = req.params; // assigning all route "parameters" to the id "object"
         const posts = await pool.query( // pool.query runs a single query on the database.
             //$1 is mapped to the first element of { id } (which is just the value of id). 
-            "SELECT * FROM datatable WHERE id = $1", [id]
+            "SELECT * FROM images WHERE id = $1", [id]
         );
 
         if (result.rows.length > 0) {
@@ -329,21 +329,29 @@ app.put('/api/posts/:id', async(req, res) => {
 
 
 // Image Upload Routes
-app.post('/image', imageUpload.single('image'), (req, res) => {
-    console.log("upload IMAGE", req.file);
-    const { filename, mimetype, size } = req.file;
-    const filepath = req.file.path;
-    db
-     .insert({
-      filename,
-      filepath,
-      mimetype,
-      size,
-     })
-     .into('images')
-     .then(() => res.json({ success: true, filename }))
-     .catch(err => res.json({ success: false, message: 'upload failed', stack: err.stack })); 
-   });
+app.post('/image', imageUpload.single('image'), async(req, res) => {
+    try {
+        console.log("An image post request has arrived");
+        const { filename, mimetype, size } = req.file;
+        const filepath = req.file.path;
+    
+        // The SQL query should match the number of columns and parameters.
+        const newImage = await pool.query(
+            "INSERT INTO images(filename, filepath, mimetype, size) VALUES ($1, $2, $3, $4) RETURNING *",
+            [filename, filepath, mimetype, size]
+        );
+    
+        // Respond with the newly inserted image's details, assuming that 'newImage.rows[0]' contains the expected data.
+        if (newImage.rows.length > 0) {
+            res.json({ success: true, image: newImage.rows[0] });
+        } else {
+            res.status(400).json({ success: false, message: "Failed to insert image" });
+        }
+    } catch (err) {
+        console.error("Error posting new image:", err.message);
+        res.status(500).json({ success: false, message: "Server error" });
+    }
+});
 
 app.put('/image/:id', imageUpload.single('image'), (req, res) => {
     console.log("upload single IMAGE", req.file);
