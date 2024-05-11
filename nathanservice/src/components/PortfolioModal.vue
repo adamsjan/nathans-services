@@ -24,7 +24,7 @@
                     <q><PostToShow :postId="ids[2]"></PostToShow></q>
                 <p><PostToShow :postId="ids[3]"></PostToShow></p>
               </div>
-                <a class="button cta-contact-partner">Tutvu kliendiga!</a>
+                <a href="google.com" class="button cta-contact-partner">Tutvu kliendiga!</a>
               </div>
 
               <span class="close">&times;</span>
@@ -224,7 +224,6 @@ q {
   margin: 0%;
   border-radius: 5px;
   font-size: 1.25em;
-  height: 1.5em;
   color: white;
   background-color: var(--darker);
   background-image: linear-gradient(45deg, var(--bold) 50%, transparent 50%);

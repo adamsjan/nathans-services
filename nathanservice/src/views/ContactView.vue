@@ -6,7 +6,7 @@
       <div class="flex-column">
         <div class="title">
           <h1>VÕTA MEIEGA ÜHENDUST!</h1>
-          <p>Küsi hinnapakkumist ja arutame sinu ideed.</p>
+          <p>Küsi hinnapakkumist ja arutame sinu ideed!</p>
 
           <p>Telefon: 56782890</p>
           <p>E-post: pauli@nathanservice.ee</p>
@@ -64,7 +64,7 @@ import Footer from "@/components/Footer.vue";
 import emailjs from "emailjs-com";
 
 export default {
-  name: "HomeView",
+  name: "ContactView",
   components: {
     Header,
     Footer,
@@ -209,7 +209,7 @@ export default {
 
   .button:hover {
     color: white;
-    background: var(--bold);
+    background: var(--darker);
 
     rect {
       stroke: white;

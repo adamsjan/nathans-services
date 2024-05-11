@@ -1,5 +1,5 @@
 <template>
-  <img :style="customStyle" v-bind:src="imgSrc"/>
+  <img :style="customStyle" v-bind:src="imgSrc" alt="Image"/>
 </template>
   
 <script>

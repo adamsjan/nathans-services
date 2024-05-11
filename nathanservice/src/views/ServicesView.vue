@@ -252,10 +252,6 @@ export default {
     flex-direction: column-reverse;
   }
 
-  main .description:last-of-type {
-    margin-bottom: 20%;
-  }
-
   .divider-section {
     width: 100vw;
     margin: 20% 0% 0%;
@@ -372,7 +368,7 @@ export default {
 
   .description {
     flex-direction: row;
-    padding: 5% 0%;
+    padding: 5% 0% 0%;
     display: none;
   }
 
@@ -383,10 +379,6 @@ export default {
 
   main .description:nth-of-type(even) {
     flex-direction: row;
-  }
-
-  main .description:last-of-type {
-    margin-bottom: 10%;
   }
 
   .heading {

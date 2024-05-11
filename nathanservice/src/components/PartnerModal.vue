@@ -164,16 +164,22 @@ img {
 }
 
 @media screen and (min-width: 500px) {
+ 
   .modal-content {
+    flex-direction: row;
     margin-top: 5%;
+  }
+
+  .modal-content img {
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+    max-width: 50%;
   }
 
   .cta-contact-partner {
     margin: 5% 0% 0%;
   }
 }
-
-
-
 
 </style>

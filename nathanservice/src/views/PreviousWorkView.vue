@@ -50,7 +50,7 @@ export default {
 <style scoped>
 @media screen and (min-width: 0px) {
   main {
-    margin-top: 10%;
+    margin-top: 15%;
   }
 
   .divider-section {
@@ -87,6 +87,10 @@ export default {
     margin: 5% auto;
   }
 
+  img {
+    max-height: 300px;
+  }
+
 }
 
 @media screen and (min-width: 400px) {
@@ -98,11 +102,6 @@ export default {
   }
 }
 
-@media screen and (min-width: 500px) {
-  main {
-    margin-top: 10%;
-  }
-}
 
 @media screen and (min-width: 600px) {
   main {

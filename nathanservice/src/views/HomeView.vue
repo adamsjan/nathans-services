@@ -204,7 +204,7 @@ export default {
     position: relative;
     font-size: 2em;
     font-weight: bold;
-    color: var(--bold);
+    color: var(--darker);
   }
 
   .mission,
@@ -267,6 +267,7 @@ export default {
 
   .text-new {
     padding: 5% 5%;
+    font-size: 1em;
   }
 
   .trapezoid-left {
