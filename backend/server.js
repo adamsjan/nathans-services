@@ -189,7 +189,7 @@ const db = knex(
 // Image Get Routes
 app.get('/image/:id', async(req, res) => {
     try {
-        console.log("get a post with route parameter  request has arrived");
+        console.log("get a image with route parameter  request has arrived");
         // The req.params property is an object containing properties mapped to the named route "parameters". 
         // For example, if you have the route /posts/:id, then the "id" property is available as req.params.id.
         const { id } = req.params; // assigning all route "parameters" to the id "object"
@@ -197,13 +197,13 @@ app.get('/image/:id', async(req, res) => {
             //$1 is mapped to the first element of { id } (which is just the value of id). 
             "SELECT * FROM datatable WHERE id = $1", [id]
         );
-        const images = result.rows; // Get rows from the result
 
-        if (images.length[0]) {
+        if (result.rows.length > 0) {
+            const image = result.rows[0];
             const dirname = path.resolve();
-            const fullfilepath = path.join(dirname, images[0].filepath);
+            const fullfilepath = path.join(dirname, image.filepath);
 
-            res.type(images[0].mimetype)
+            res.type(image.mimetype)
                 .sendFile(fullfilepath);
         } else {
             res.status(404).send('No images found');
