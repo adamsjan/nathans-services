@@ -50,8 +50,10 @@ export default {
           credentials: "include",
         });
 
-        if (response.ok) {
-          this.imgSrc = response; // Assuming `imageSrc` is a data property in your Vue component
+        console.log(response);
+
+        if (response.success) {
+          this.imgSrc = response.url; // Assuming `imageSrc` is a data property in your Vue component
         }
       } catch (error) {
         console.error("Error getting post:", error);
