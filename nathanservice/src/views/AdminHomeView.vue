@@ -83,6 +83,7 @@ import AdminHeader from "@/components/AdminHeader.vue";
 /*import AdminFooter from "@/components/AdminFooter.vue";*/
 import PostToEdit from "@/components/PostToEdit.vue";
 import ImageUpload from "@/components/ImageUpload.vue";
+import NewImage from "@/components/NewImage.vue";
 import axios from 'axios';
 
 export default {
@@ -91,7 +92,8 @@ export default {
     AdminHeader,
     /*AdminFooter,*/
     PostToEdit,
-    ImageUpload
+    ImageUpload,
+    NewImage
   },
   data() {
     return {
