@@ -343,6 +343,7 @@ app.post('/image', imageUpload.single('image'), async(req, res) => {
             return res.status(400).send('No file uploaded.');
         }
 
+        const imageUrl = await azureBlobService(req.file);
         const { rows } = await pool.query(
             "INSERT INTO images (url) VALUES ($1) RETURNING id", 
             [imageUrl]
