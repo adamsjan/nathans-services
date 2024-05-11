@@ -193,7 +193,7 @@ app.get('/image/:id', async(req, res) => {
         // The req.params property is an object containing properties mapped to the named route "parameters". 
         // For example, if you have the route /posts/:id, then the "id" property is available as req.params.id.
         const { id } = req.params; // assigning all route "parameters" to the id "object"
-        const posts = await pool.query( // pool.query runs a single query on the database.
+        const result = await pool.query( // pool.query runs a single query on the database.
             //$1 is mapped to the first element of { id } (which is just the value of id). 
             "SELECT * FROM images WHERE id = $1", [id]
         );
@@ -203,8 +203,7 @@ app.get('/image/:id', async(req, res) => {
             const dirname = path.resolve('images');
             const fullfilepath = path.join(dirname, image.filepath);
 
-            res.type(image.mimetype)
-                .sendFile(fullfilepath);
+            res.type(image.mimetype).sendFile(fullfilepath);
         } else {
             res.status(404).send('No images found');
         }
