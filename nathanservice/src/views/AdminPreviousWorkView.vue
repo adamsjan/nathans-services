@@ -1,300 +1,127 @@
 <template>
-  <div>
-      <Header></Header>
+    <Header></Header>
   
-      <main>
-          <div class="user-feedback">
-              <div class="feedback-content">
-                  <p>Keskmine hinnang</p>
-                  <h2>4,8</h2>
-                  <div>
-                      <span class="material-symbols-outlined star checked">star</span>
-                      <span class="material-symbols-outlined star checked">star</span>
-                      <span class="material-symbols-outlined star checked">star</span>
-                      <span class="material-symbols-outlined star checked">star</span>
-                      <span class="material-symbols-outlined star checked">star_half</span>
-                  </div>
-                  <div>
-                      <q>Parim tanklateenus üldse.</q>
-                      <p class="author">- Olerexi juht</p>
-                  </div>
-              </div>
-          </div>
+    <main>
+      <div class="divider-section heading">
+        <h1>TEHTUD TÖÖD</h1>
+      </div>
   
-          <div class="images">
+      <div class="images">
+        <div class="content">
+          <PortfolioWork :gallery="'first'" :ids="[20]"></PortfolioWork>
   
-              <div class="content">
-                  <!-- Container for the image gallery -->
-                  <div class="container first">
-                      <!-- Full-width images with number text -->
-                      <div class="mySlides">
-                          <img src="@/assets/partner.jpg" />
-                          <div class="overlay">
-                              <div class="text">OLEREX</div>
-                          </div>
-                      </div>
+          <PortfolioModal :gallery="'first'" :ids="[4, 20, 21]"></PortfolioModal>
+        </div>
   
-                      <div class="mySlides">
-                          <img src="@/assets/töö2.jpg" />
-                          <div class="overlay">
-                              <div class="text">Selles tanklas tegime nii ja naa</div>
-                          </div>
-                      </div>
+        <div class="content">
+          <PortfolioWork :gallery="'second'" :ids="[22]"></PortfolioWork>
   
-                      <!-- Next and previous buttons -->
-                      <a class="prev" @click="plusSlides(-1, 'first')">&#10094;</a>
-                      <a class="next" @click="plusSlides(1, 'first')">&#10095;</a>
+          <PortfolioModal :gallery="'second'" :ids="[5, 22, 23]"></PortfolioModal>
+        </div>
   
-                  </div>
-              </div>
+        <div class="content">
+          <PortfolioWork :gallery="'third'" :ids="[24]"></PortfolioWork>
   
-              <div class="content">
-  
-                  <!-- Container for the image gallery -->
-                  <div class="container second">
-                      <!-- Full-width images with number text -->
-                      <div class="mySlides">
-                          <img src="@/assets/töö1.jpg" />
-                          <div class="overlay">
-                              <div class="text">CIRCLE K</div>
-                          </div>
-                      </div>
-  
-                      <div class="mySlides">
-                          <img src="@/assets/töö3.jpg" />
-                          <div class="overlay">
-                              <div class="text">Teises tanklas pesime, parandasime ja hooldasime</div>
-                          </div>
-                      </div>
-  
-                      <!-- Next and previous buttons -->
-                      <a class="prev" @click="plusSlides(-1, 'second')">&#10094;</a>
-                      <a class="next" @click="plusSlides(1, 'second')">&#10095;</a>
-  
-                  </div>
-              </div>
-          </div>
-      </main>
-      <Footer></Footer>
-  </div>
+          <PortfolioModal :gallery="'third'" :ids="[6, 24, 25]"></PortfolioModal>
+        </div>
+      </div>
+    </main>
+    <Footer></Footer>
   </template>
   
   <script>
   // @ is an alias to /src
-  import Header from "@/components/AdminHeader.vue";
-  import Footer from "@/components/AdminFooter.vue";
+  import Header from "@/components/Header.vue";
+  import Footer from "@/components/Footer.vue";
+  import PortfolioModal from "@/components/PortfolioModal.vue";
+  import PortfolioWork from "@/components/PortfolioWork.vue";
   
   export default {
-      name: "HomeView",
-      components: {
-          Header,
-          Footer,
-      },
-      data() {
-          return {
-              slideIndexes: {
-                  first: 1, // Initialize slideIndex for the first gallery
-                  second: 1, // Initialize slideIndex for the second gallery
-              },
-          };
-      },
-      mounted() {
-          document.addEventListener("scroll", function () {
-              var header = document.querySelector(".sticky-header");
-              var heroImageHeight =
-                  document.querySelector(".logo-container").offsetHeight;
-  
-              if (window.scrollY > heroImageHeight * 0.9) {
-                  // Adjust this value as needed
-                  header.classList.add("sticky");
-              } else {
-                  header.classList.remove("sticky");
-              }
-          });
-          this.showSlides(1, 'first'); // Initialize the first gallery
-          this.showSlides(1, 'second'); // Initialize the second gallery
-      },
-  
-      methods: {
-          // Next/previous controls for the specified gallery
-          plusSlides(n, gallery) {
-              this.showSlides((this.slideIndexes[gallery] += n), gallery);
-          },
-  
-          // Thumbnail image controls for the specified gallery
-          currentSlide(n, gallery) {
-              this.showSlides((this.slideIndexes[gallery] = n), gallery);
-          },
-  
-          showSlides(n, gallery) {
-              let i;
-              let slides = document.querySelectorAll(`.${gallery} .mySlides`); // Select slides for the specified gallery
-              if (n > slides.length) {
-                  this.slideIndexes[gallery] = 1;
-              }
-              if (n < 1) {
-                  this.slideIndexes[gallery] = slides.length;
-              }
-              for (i = 0; i < slides.length; i++) {
-                  slides[i].style.display = "none";
-              }
-              slides[this.slideIndexes[gallery] - 1].style.display = "block";
-          },
-      },
+    name: "PreviousWorkView",
+    components: {
+      Header,
+      Footer,
+      PortfolioModal,
+      PortfolioWork,
+    },
   };
   </script>
   
   <style scoped>
-  .active {
-      text-decoration: underline;
-  }
+  @media screen and (min-width: 0px) {
+    main {
+      margin-top: 10%;
+    }
   
-  main {
-      width: 100%;
-      position: relative;
-      text-align: center;
-      color: white;
+    .divider-section {
+      width: 100vw;
+      margin: 5% 0%;
+      padding: 8% 5%;
+    }
   
-  }
-  
-  main>div {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-  
-  }
-  
-  .content {
-      padding: 5% 2%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: black;
-  }
-  
-  .container {
-      position: relative;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .mySlides:hover .overlay {
-      opacity: 0.9;
-  }
-  
-  .mySlides {
-      display: none;
-      position: relative;
-  }
-  
-  .overlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
-      transition: .5s ease;
-      background-color: var(--dark);
+    .heading {
+      background-color: var(--darker);
       display: flex;
       justify-content: center;
-      align-items: center;
-  }
-  
-  .text {
-      color: white;
-      font-size: 20px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      position: relative;
       text-align: center;
-  }
+    }
   
-  img {
-      display: block;
-      width: 500px;
-      height: 300px;
-      object-fit: cover;
-  }
-  
-  .prev,
-  .next {
-      cursor: pointer;
-      position: absolute;
-      top: 40%;
-      width: auto;
-      padding: 16px;
-      color: white;
+    .heading h1 {
+      font-size: 3em;
       font-weight: bold;
-      font-size: 20px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      -webkit-user-select: none;
-      z-index: 5;
-  }
+      color: #fff;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+    }
   
-  .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-  }
-  
-  .prev {
-      left: 0;
-      border-radius: 3px 0 0 3px;
-  }
-  
-  .prev:hover,
-  .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .user-feedback {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      margin: 5% auto;
-      padding: 5% 5%;
+    .images {
+      margin: 5% 5%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: var(--light);
-      color: var(--darker);
-      width: 50%;
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+  
+    .content {
+      width: 100%;
+      margin: 5% auto;
+    }
+  
   }
   
-  q {
-      font-style: italic;
+  @media screen and (min-width: 400px) {
+    main {
+      margin-top: 15%;
+    }
+    .content {
+      width: 80%;
+    }
   }
   
-  .feedback-content>div {
-      margin: 2% 0%;
+  @media screen and (min-width: 500px) {
+    main {
+      margin-top: 10%;
+    }
   }
   
-  .star {
-      color: black;
-  }
+  @media screen and (min-width: 600px) {
+    main {
+      margin-top: 0%;
+    }
   
-  .checked {
-      color: orange;
-      font-variation-settings: "FILL"1, "wght"400, "GRAD"0, "opsz"24;
-  }
+    .heading h1 {
+      font-size: 4em;
+    }
   
-  @media (max-width: 600px) {
-      .user-feedback {
-          width: 80%;
-          margin: 10%;
-      }
+    .images {
+      display: flex;
+      flex-flow: row wrap;
+    }
   
-      .images {
-          flex-direction: column;
-          margin: 5% 5%;
-      }
-  
-      img {
-          max-width: 100%;
-      }
+    .content {
+      width: 46%;
+      margin: 1% 3% 3% 1%;
+    }
   }
   </style>
   
