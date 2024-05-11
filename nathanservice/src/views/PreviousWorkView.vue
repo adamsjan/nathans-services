@@ -10,19 +10,19 @@
       <div class="content">
         <PortfolioWork :gallery="'first'" :ids="[20,4]"></PortfolioWork>
 
-        <PortfolioModal :gallery="'first'" :ids="[4, 20, 21]"></PortfolioModal>
+        <PortfolioModal :gallery="'first'" :ids="[20, 21, 41, 42, 4,5]"></PortfolioModal>
       </div>
 
       <div class="content">
         <PortfolioWork :gallery="'second'" :ids="[22,6]"></PortfolioWork>
 
-        <PortfolioModal :gallery="'second'" :ids="[6, 22, 23]"></PortfolioModal>
+        <PortfolioModal :gallery="'second'" :ids="[22, 23,43, 44,6,7]"></PortfolioModal>
       </div>
 
       <div class="content">
         <PortfolioWork :gallery="'third'" :ids="[24,8]"></PortfolioWork>
 
-        <PortfolioModal :gallery="'third'" :ids="[8, 24, 25]"></PortfolioModal>
+        <PortfolioModal :gallery="'third'" :ids="[24, 25,45,46,8,9]"></PortfolioModal>
       </div>
     </div>
   </main>

@@ -5,11 +5,11 @@
             <div class="modal-content">
               <div class="slideShow">
                 <div :class="['mySlides', gallery]">
-                  <Show :id="ids[0]"></Show>
+                  <Show :id="ids[4]"></Show>
                 </div>
 
                 <div :class="['mySlides', gallery]">
-                  <img src="@/assets/töö2.jpg" />
+                  <Show :id="ids[5]"></Show>
                 </div>
 
                 <!-- Next and previous buttons -->
@@ -18,11 +18,11 @@
               </div>
 
               <div class="modal-text">
-                <h1><PostToShow :postId="ids[1]"></PostToShow></h1>
-                <p><PostToShow :postId="ids[2]"></PostToShow></p>
+                <h1><PostToShow :postId="ids[0]"></PostToShow></h1>
+                <p><PostToShow :postId="ids[1]"></PostToShow></p>
                 <div class="feedback">
-                    <q>Väga põhjalik ja korralik töö! Olen rahul!</q>
-                <p> - Olerexi juht</p>
+                    <q><PostToShow :postId="ids[2]"></PostToShow></q>
+                <p><PostToShow :postId="ids[3]"></PostToShow></p>
               </div>
                 <a class="button cta-contact-partner">Tutvu kliendiga!</a>
               </div>
