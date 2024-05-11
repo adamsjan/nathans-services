@@ -166,10 +166,8 @@ const azureBlobService = async (file) => {
 };
 module.exports = azureBlobService;
 
-
-const imageUpload = multer({
-    dest: 'images',
-});
+const storage = multer.memoryStorage(); // Use memory storage to pass file data directly to Azure
+const imageUpload = multer({ storage: storage });
 
 const knex = require('knex');
 const db = knex(
