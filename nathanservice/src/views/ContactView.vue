@@ -252,8 +252,7 @@ export default {
   .title {
     max-width: 40%;
     margin: 0% 10% 0% 0%;
-    word-break: break-all;
-    text-overflow: ellipsis;
+    overflow-wrap: break-word;
   }
 
   .form-fields {
