@@ -48,7 +48,7 @@
           </div>
 
           <div class="barrel">
-            <!--<ImageUpload :id="2"></ImageUpload>-->
+            <ImageUpload :id="2"></ImageUpload>
 
             <div class="text">
               <h1>
@@ -61,7 +61,7 @@
           </div>
 
           <div class="barrel">
-            <!--<ImageUpload :id="3"></ImageUpload>-->
+            <ImageUpload :id="3"></ImageUpload>
             
             <div class="text">
               <h1>
