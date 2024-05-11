@@ -16,13 +16,13 @@
         <div class="content">
           <PortfolioWork :gallery="'second'" :ids="[22]"></PortfolioWork>
   
-          <PortfolioModal :gallery="'second'" :ids="[5, 22, 23]"></PortfolioModal>
+          <PortfolioModal :gallery="'second'" :ids="[6, 22, 23]"></PortfolioModal>
         </div>
   
         <div class="content">
           <PortfolioWork :gallery="'third'" :ids="[24]"></PortfolioWork>
   
-          <PortfolioModal :gallery="'third'" :ids="[6, 24, 25]"></PortfolioModal>
+          <PortfolioModal :gallery="'third'" :ids="[8, 24, 25]"></PortfolioModal>
         </div>
       </div>
     </main>
