@@ -151,6 +151,22 @@ app.get('/auth/logout', (req, res) => {
     res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
 });
 
+const { BlobServiceClient } = require('@azure/storage-blob');
+const azureBlobService = async (file) => {
+    const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
+
+    const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
+    const containerClient = blobServiceClient.getContainerClient('images');
+
+    const blockBlobClient = containerClient.getBlockBlobClient(file.originalname);
+    const uploadBlobResponse = await blockBlobClient.uploadData(file.buffer);
+
+    console.log(`Upload block blob ${file.originalname} successfully`, uploadBlobResponse.requestId);
+    return blockBlobClient.url;
+};
+module.exports = azureBlobService;
+
+
 const imageUpload = multer({
     dest: 'images',
 });
@@ -330,25 +346,18 @@ app.put('/api/posts/:id', async(req, res) => {
 // Image Upload Routes
 app.post('/image', imageUpload.single('image'), async(req, res) => {
     try {
-        console.log("An image post request has arrived");
-        const { filename, mimetype, size } = req.file;
-        const filepath = req.file.path;
-    
-        // The SQL query should match the number of columns and parameters.
-        const newImage = await pool.query(
-            "INSERT INTO images(filename, filepath, mimetype, size) VALUES ($1, $2, $3, $4) RETURNING *",
-            [filename, filepath, mimetype, size]
-        );
-    
-        // Respond with the newly inserted image's details, assuming that 'newImage.rows[0]' contains the expected data.
-        if (newImage.rows.length > 0) {
-            res.json({ success: true, image: newImage.rows[0] });
-        } else {
-            res.status(400).json({ success: false, message: "Failed to insert image" });
+        if (!req.file) {
+            return res.status(400).send('No file uploaded.');
         }
-    } catch (err) {
-        console.error("Error posting new image:", err.message);
-        res.status(500).json({ success: false, message: "Server error" });
+
+        // Call the Azure Blob service to upload the file
+        const imageUrl = await azureBlobService(req.file);
+
+        // Send back the URL of the uploaded image in Azure Blob Storage
+        res.status(201).send({ success: true, message: "Image uploaded successfully!", imageUrl: imageUrl });
+    } catch (error) {
+        console.error('Upload failed:', error.message);
+        res.status(500).send({ success: false, message: 'Failed to upload image.', error: error.message });
     }
 });
 
