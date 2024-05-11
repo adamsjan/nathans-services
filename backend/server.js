@@ -208,6 +208,7 @@ app.get('/image/:id', async(req, res) => {
             //$1 is mapped to the first element of { id } (which is just the value of id). 
             "SELECT * FROM images WHERE id = $1", [id]
         );
+        console.log("got the image", result);
 
         if (result.length > 0) {
             const image = result[0].url;
