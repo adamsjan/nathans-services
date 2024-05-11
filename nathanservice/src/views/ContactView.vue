@@ -124,12 +124,11 @@ export default {
 @media screen and (min-width: 0px) {
   main {
     position: relative;
-    top: 10%;
-    margin: 15% 0 0 0;
+    margin-top: 15%;
     background-image: linear-gradient(130deg, var(--darker) 54%, white 46%);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding: 0 5%;
+    padding: 5% 5% 0 5%;
   }
 
   .flex-column {
@@ -239,11 +238,6 @@ export default {
   }
 }
 
-@media screen and (min-width: 542px) {
-  main {
-    margin-top: 10%;
-  }
-}
 
 @media screen and (min-width: 600px) {
   main {
@@ -256,8 +250,10 @@ export default {
   }
 
   .title {
-    width: 40%;
+    max-width: 40%;
     margin: 0% 10% 0% 0%;
+    word-break: break-all;
+    text-overflow: ellipsis;
   }
 
   .form-fields {
