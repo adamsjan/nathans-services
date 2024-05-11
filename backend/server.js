@@ -163,6 +163,41 @@ const db = knex(
     }
    );
 
+   app.get('/api/posts', async(req, res) => {
+    try {
+        console.log("get posts request has arrived");
+        const posts = await pool.query(
+            "SELECT * FROM datatable"
+        );
+        res.json(posts.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+   app.get('/images', async(req, res) => {
+    try {
+        console.log("get images request has arrived");
+        const result = await pool.query(
+            "SELECT * FROM images"
+        );
+        const images = result.rows; // Get rows from the result
+
+        if (images.length > 0) {
+            const dirname = path.resolve();
+            const fullfilepath = path.join(dirname, images[0].filepath);
+
+            res.type(images[0].mimetype)
+                .sendFile(fullfilepath);
+        } else {
+            res.status(404).send('No images found');
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
 // Image Get Routes
 app.get('/image/:id', async(req, res) => {
     const { id } = req.params;
