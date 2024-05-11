@@ -186,11 +186,8 @@ const db = knex(
         const images = result.rows; // Get rows from the result
 
         if (images.length > 0) {
-            const dirname = path.resolve();
-            const fullfilepath = path.join(dirname, images[0].filepath);
-
-            res.type(images[0].mimetype)
-                .sendFile(fullfilepath);
+            const images = await listBlobs();
+            res.json({ success: true, images });
         } else {
             res.status(404).send('No images found');
         }
@@ -214,12 +211,9 @@ app.get('/image/:id', async(req, res) => {
 
         if (result.rows.length > 0) {
             const image = result.rows[0];
-            const dirname = "https://nathansimages.blob.core.windows.net/images/";
-            const fullfilepath = path.join(dirname, image.filepath);
-
-            res.type(image.mimetype).sendFile(fullfilepath);
+            res.json({ success: true, image: image });
         } else {
-            res.status(404).send('No images found');
+            res.status(404).json({ success: false, message: 'Image not found' });
         }
 
     } catch (err) {
