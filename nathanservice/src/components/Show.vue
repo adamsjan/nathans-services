@@ -44,8 +44,11 @@ export default {
           }
         );
 
+        console.log("Get image response:", response);
+
         if (response.ok) {
           const data = await response.json();
+          console.log("Get image data", data);
           this.imgSrc = data.url; // Assuming `imageSrc` is a data property in your Vue component
         }
       } catch (error) {
