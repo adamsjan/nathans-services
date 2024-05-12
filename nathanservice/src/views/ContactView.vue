@@ -8,8 +8,8 @@
           <h1>VÕTA MEIEGA ÜHENDUST!</h1>
           <p>Küsi hinnapakkumist ja arutame sinu ideed!</p>
 
-          <p>Telefon: 56782890</p>
-          <p>E-post: pauli@nathanservice.ee</p>
+          <p><PostToShow :postId="38"></PostToShow></p>
+          <p><PostToShow :postId="39"></PostToShow></p>
 
           <p>Või võta meiega ühendust kontaktvormi kaudu!</p>
           <!--<img src="@/assets/arrow-right.png">-->

@@ -42,11 +42,11 @@
           </div>
 
           <div class="barrel-container">
-            <Barrel :ids="[2, 9, 10]"></Barrel>
+            <Barrel :ids="[4, 9, 10]"></Barrel>
           </div>
 
           <div class="barrel-container">
-            <Barrel :ids="[3, 11, 12]"></Barrel>
+            <Barrel :ids="[5, 11, 12]"></Barrel>
           </div>
         </section>
       </div>
