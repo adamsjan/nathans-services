@@ -84,8 +84,8 @@ export default {
 <style scoped>
 
 picture img {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   overflow: hidden;
   object-position: 50% 0%;
