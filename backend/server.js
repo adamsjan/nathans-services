@@ -378,8 +378,8 @@ app.post('/image', imageUpload.single('image'), async(req, res) => {
 
         console.log(rows);
 
-        if (newImage.rows.length > 0) {
-            res.json({ success: true, image: newImage.rows[0] });
+        if (rows.length > 0) {
+            res.json({ success: true, image: rows[0] });
         } else {
             res.status(400).json({ success: false, message: "Failed to insert image" });
         }
