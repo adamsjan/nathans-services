@@ -60,16 +60,20 @@ export default {
   align-items: stretch; /* Stretch children vertically */
 }
 
+picture {
+  max-height: 300px;
+}
+
+.partner picture {
+  max-height: 150px;
+}
+
 img {
   width: auto;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   overflow: hidden;
   object-position: 50% 0%;
-}
-
-.partner img {
-  height: 150px;
 }
 
 }
