@@ -236,6 +236,7 @@ app.get('/image/:id/:size', async (req, res) => {
                 default:
                     return res.status(400).json({ success: false, message: "Invalid size parameter" });
             }
+            console.log("Image url is:", imageUrl);
             res.json({ success: true, url: imageUrl });
         } else {
             res.status(404).json({ success: false, message: "Image not found" });
