@@ -60,20 +60,12 @@ export default {
   align-items: stretch; /* Stretch children vertically */
 }
 
-picture {
+.barrel-container picture {
   max-height: 300px;
 }
 
 .partner picture {
   max-height: 150px;
-}
-
-picture img {
-  width: auto;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
-  object-position: 50% 0%;
 }
 
 }

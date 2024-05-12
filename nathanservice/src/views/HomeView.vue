@@ -236,12 +236,6 @@ export default {
     margin: 5% 2%;
   }
 
-  img {
-  width: 100%;
-  max-width: 100% ;
-  object-fit: cover;
-  object-position: 50% 0%;
-}
 }
 
 @media screen and (min-width: 550px) {

@@ -81,3 +81,15 @@ export default {
 }
 </script>
 
+<style scoped>
+
+picture img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: 50% 0%;
+}
+
+</style>
+
