@@ -31,6 +31,11 @@ app.use(cors({
     optionsSuccessStatus: 200
   }));
 
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'public, max-age=3600');
+    next();
+});
+
 // We need to include "credentials: true" to allow cookies to be represented  
 // Also "credentials: 'include'" need to be added in Fetch API in the Vue.js App
 
@@ -151,31 +156,42 @@ app.get('/auth/logout', (req, res) => {
     res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
 });
 
+const sharp = require('sharp');
 const { BlobServiceClient } = require('@azure/storage-blob');
+const sizes = [320, 480, 768, 1024]; 
+
 const azureBlobService = async (file) => {
     const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
-
     const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
     const containerClient = blobServiceClient.getContainerClient('images');
 
-    const blockBlobClient = containerClient.getBlockBlobClient(file.originalname);
-    const uploadBlobResponse = await blockBlobClient.uploadData(file.buffer);
+    // Define the sizes you want
+    const sizes = {
+        small: 300,
+        medium: 600,
+        large: 1200,
+    };
 
-    console.log(`Upload block blob ${file.originalname} successfully`, uploadBlobResponse.requestId);
-    return blockBlobClient.url;
+    const urls = {};
+
+    for (const size in sizes) {
+        const buffer = await sharp(file.buffer)
+            .resize(sizes[size])
+            .toBuffer();
+
+        const blockBlobClient = containerClient.getBlockBlobClient(`${size}-${file.originalname}`);
+        await blockBlobClient.uploadData(buffer);
+        urls[size] = blockBlobClient.url;
+    }
+
+    return urls;
 };
+
 module.exports = azureBlobService;
+
 
 const storage = multer.memoryStorage(); // Use memory storage to pass file data directly to Azure
 const imageUpload = multer({ storage: storage });
-
-const knex = require('knex');
-const db = knex(
-    {
-      client: 'pg',
-      connection: process.env.DATABASE_URL,
-    }
-   );
 
    app.get('/images', async(req, res) => {
     try {
@@ -197,32 +213,38 @@ const db = knex(
     }
 });
 
-// Image Get Routes
-app.get('/image/:id', async(req, res) => {
+app.get('/image/:id/:size', async (req, res) => {
     try {
-        console.log("get a image with route parameter  request has arrived");
-        // The req.params property is an object containing properties mapped to the named route "parameters". 
-        // For example, if you have the route /posts/:id, then the "id" property is available as req.params.id.
-        const { id } = req.params; // assigning all route "parameters" to the id "object"
-        const result = await pool.query( // pool.query runs a single query on the database.
-            //$1 is mapped to the first element of { id } (which is just the value of id). 
-            "SELECT * FROM images WHERE id = $1", [id]
-        );
-        console.log("got the image", result);
+        console.log("get a post with route parameter request has arrived");
+        const { id, size } = req.params; // Get the id and size from the route parameters
+
+        const result = await pool.query("SELECT * FROM images WHERE id = $1", [id]);
 
         if (result.rows.length > 0) {
-            const image = result.rows[0].url;
-            console.log("image is", image)
-            res.json({ success: true, url: image });
+            const image = result.rows[0];
+            let imageUrl;
+            switch (size) {
+                case 'small':
+                    imageUrl = image.url_small;
+                    break;
+                case 'medium':
+                    imageUrl = image.url_medium;
+                    break;
+                case 'large':
+                    imageUrl = image.url_large;
+                    break;
+                default:
+                    return res.status(400).json({ success: false, message: "Invalid size parameter" });
+            }
+            res.json({ success: true, url: imageUrl });
         } else {
-            res.status(404).json({ success: false, message: 'Image not found' });
+            res.status(404).json({ success: false, message: "Image not found" });
         }
-
     } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server error');
+        console.error("Error getting image:", err.message);
+        res.status(500).json({ success: false, message: "Server error" });
     }
-})
+});
 
 // Task 2
 app.get('/api/posts', async(req, res) => {
@@ -344,15 +366,18 @@ app.post('/image', imageUpload.single('image'), async(req, res) => {
             return res.status(400).send('No file uploaded.');
         }
 
-        const imageUrl = await azureBlobService(req.file);
+        const urls = await azureBlobService(req.file);
         const { rows } = await pool.query(
-            "INSERT INTO images (url) VALUES ($1) RETURNING id", 
-            [imageUrl]
+            "INSERT INTO images (url_small, url_medium, url_large) VALUES ($1, $2, $3) RETURNING *", 
+            [urls.small, urls.medium, urls.large]
         );
-        res.json({ success: true, id: rows[0].id, url: imageUrl });
+        if (newImage.rows.length > 0) {
+            res.json({ success: true, image: newImage.rows[0] });
+        } else {
+            res.status(400).json({ success: false, message: "Failed to insert image" });
+        }
     } catch (error) {
-        console.error('Upload failed:', error.message);
-        res.status(500).send({ success: false, message: 'Failed to upload image.', error: error.message });
+        res.status(500).send({ success: false, message: 'Server error:', error: error.message });
     }
 });
 
@@ -362,12 +387,12 @@ app.put('/image/:id', imageUpload.single('image'), async(req, res) => {
             return res.status(400).send('No file uploaded.');
         }
 
-        const imageUrl = await azureBlobService(req.file);
+        const urls = await azureBlobService(req.file);
         const { rows } = await pool.query(
-            "UPDATE images SET url = $1 WHERE id = $2 RETURNING id",
-            [imageUrl, req.params.id]
+            "UPDATE images SET url_small = $1, url_medium = $2, url_large = $3 WHERE id = $4 RETURNING id",
+            [urls.small, urls.medium, urls.large, req.params.id]
         );
-        res.json({ success: true, id: rows[0].id, url: imageUrl });
+        res.json({ success: true, id: rows[0].id, url: urls.small });
     } catch (error) {
         console.error('Upload failed:', error.message);
         res.status(500).send({ success: false, message: 'Failed to upload image.', error: error.message });

@@ -1,5 +1,7 @@
 <template>
-  <img :style="customStyle" v-bind:src="imgSrc" alt="Image"/>
+  <picture>
+    <img :style="customStyle" v-bind:src="imgSrc" alt="Image"/>
+  </picture>
 </template>
   
 <script>
@@ -19,10 +21,22 @@ export default {
 },
   props: ["id"],
   methods: {
+    sizeImageSrc() {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 300) {
+        return "small";
+      } else if (screenWidth >= 300 && screenWidth < 600) {
+        return "medium";
+      } else {
+        return "large";
+      }
+    },
+
     async getImage() {
       try {
+        const size = this.sizeImageSrc();
         const response = await fetch(
-          `/image/${this.id}`,
+          `/image/${this.id}/${size}`,
           {
             method: "GET",
             "Content-Type": "multipart/form-data",

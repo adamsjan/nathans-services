@@ -239,7 +239,7 @@ export default {
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 670px) {
   main {
     margin-top: 7%;
   }

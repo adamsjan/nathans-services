@@ -65,10 +65,12 @@ execute(createUserTblQuery).then(result => {
 
 /* Create table to upload images */
 const createImageTblQuery = `
-    CREATE TABLE IF NOT EXISTS images(
-        id SERIAL NOT NULL PRIMARY KEY,
-        url TEXT NOT NULL
-    );`;
+CREATE TABLE images (
+    id SERIAL PRIMARY KEY,
+    url_small VARCHAR(255),
+    url_medium VARCHAR(255),
+    url_large VARCHAR(255)
+);`;
 
 execute(createImageTblQuery).then(result => {
     if (result) {

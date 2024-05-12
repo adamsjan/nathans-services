@@ -76,10 +76,11 @@ export default {
   transform: translate(-50%, -50%);
 }
 
-img {
+picture img {
   display: block;
   width: 100%;
   object-fit: cover;
+  max-height: 300px;
 }
 
 .overlay .button {
