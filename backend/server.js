@@ -365,12 +365,19 @@ app.post('/image', imageUpload.single('image'), async(req, res) => {
         if (!req.file) {
             return res.status(400).send('No file uploaded.');
         }
+        console.log("post image");
 
         const urls = await azureBlobService(req.file);
+
+        console.log("urls", urls);
+
         const { rows } = await pool.query(
             "INSERT INTO images (url_small, url_medium, url_large) VALUES ($1, $2, $3) RETURNING *", 
             [urls.small, urls.medium, urls.large]
         );
+
+        console.log(rows);
+
         if (newImage.rows.length > 0) {
             res.json({ success: true, image: newImage.rows[0] });
         } else {
