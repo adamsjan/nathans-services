@@ -68,7 +68,7 @@ picture {
   max-height: 150px;
 }
 
-img {
+picture img {
   width: auto;
   height: 100%;
   object-fit: cover;
