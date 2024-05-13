@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script>
+<script defer>
 export default {
   name: "AdminHeader",
   beforeMount() {
