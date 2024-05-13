@@ -73,7 +73,7 @@ export default {
     // When the user clicks on the button, open the modal
     allImages.forEach((image) => {
       image.addEventListener("click", (e) => {
-        import('../assets/protfoliomodal.css')
+        import('../assets/portfoliomodal.css')
         // Get the button that opens the modal
 
         if (image.contains(e.target)) {
