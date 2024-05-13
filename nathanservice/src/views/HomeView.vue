@@ -77,7 +77,7 @@ export default {
       posts: [],
     };
   },
-  mounted() {
+  beforeMount() {
     import('../assets/home.css')
     if (window.innerWidth > 550) {
       import('../assets/home-desktop.css')
@@ -89,37 +89,12 @@ export default {
         })
         .catch(err => console.error('Failed to load desktop CSS:', err));
     }
-
-    function updateClasses() {
-      const elements = document.querySelectorAll(".mission, .vision");
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 600) {
-        elements.forEach((element) => {
-          if (element.classList.contains("mission")) {
-            element.children[0].className = "left heading trapezoid-left";
-            element.children[1].className = "right";
-          } else {
-            element.children[1].className = "right heading trapezoid-right";
-            element.children[0].className = "left";
-          }
-        });
-      } else {
-        elements.forEach((element) => {
-          if (element.classList.contains("mission")) {
-            element.children[0].className = "divider-section heading";
-            element.children[1].className = "who-are-we";
-          } else {
-            element.children[1].className = "divider-section heading";
-            element.children[0].className = "who-are-we";
-          }
-        });
-      }
-    }
-
     // Call the function on initial load
     updateClasses();
 
+  },
+  mounted() {
+    
     // Add an event listener to update classes on window resize
     window.addEventListener("resize", updateClasses);
 
@@ -149,6 +124,34 @@ export default {
       // Tell the observer which elements to track
       observerForLeftRight.observe(document.querySelector(".mission"));
       observerForLeftRight.observe(document.querySelector(".vision"));
+    }
+  },
+  methods: {
+  updateClasses() {
+      const elements = document.querySelectorAll(".mission, .vision");
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth >= 600) {
+        elements.forEach((element) => {
+          if (element.classList.contains("mission")) {
+            element.children[0].className = "left heading trapezoid-left";
+            element.children[1].className = "right";
+          } else {
+            element.children[1].className = "right heading trapezoid-right";
+            element.children[0].className = "left";
+          }
+        });
+      } else {
+        elements.forEach((element) => {
+          if (element.classList.contains("mission")) {
+            element.children[0].className = "divider-section heading";
+            element.children[1].className = "who-are-we";
+          } else {
+            element.children[1].className = "divider-section heading";
+            element.children[0].className = "who-are-we";
+          }
+        });
+      }
     }
   }
 };

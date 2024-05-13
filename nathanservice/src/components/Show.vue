@@ -66,5 +66,9 @@ picture img {
   object-position: 50% 0%;
 }
 
+img {
+  width: 300px;
+}
+
 </style>
 
