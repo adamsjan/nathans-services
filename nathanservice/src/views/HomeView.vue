@@ -90,13 +90,13 @@ export default {
         .catch(err => console.error('Failed to load desktop CSS:', err));
     }
     // Call the function on initial load
-    updateClasses();
+    this.$updateClasses();
 
   },
   mounted() {
     
     // Add an event listener to update classes on window resize
-    window.addEventListener("resize", updateClasses);
+    window.addEventListener("resize", this.updateClasses);
 
     const screenWidth = window.innerWidth;
 
@@ -107,9 +107,7 @@ export default {
           if (entry.isIntersecting) {
             // It's visible. Add the animation class here!
             entry.target.querySelector(".left").classList.add("left-animation");
-            entry.target
-              .querySelector(".right")
-              .classList.add("right-animation");
+            entry.target.querySelector(".right").classList.add("right-animation");
           } else {
             entry.target
               .querySelector(".left")
