@@ -22,7 +22,6 @@
 
 
 <script>
-// @ is an alias to /src
 import PostToShow from "@/components/PostToShow.vue";
 import Show from "@/components/Show.vue";
 
@@ -65,15 +64,6 @@ export default {
           modal.style.display = "none";
         });
       });
-    });
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.addEventListener("click", () => {
-      if (event.target.classList.contains("modal")) {
-        document.querySelectorAll(".modal").forEach((modal) => {
-          modal.style.display = "none";
-        });
-      }
     });
   },
 };

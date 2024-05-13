@@ -68,7 +68,6 @@ export default {
         e.preventDefault();
         var overlay = document.querySelector(".overlay");
         overlay.classList.add("ripple");
-        overlay.textContent = "Tutvu teenustega";
         setTimeout(() => {
           window.location.href = btn.href;
         }, 2000);

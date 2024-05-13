@@ -106,8 +106,6 @@ export default {
     PostToShow,
   },
   mounted() {
-    window.scrollTo(0, 0);
-
     function updateClasses() {
       const elements = document.querySelectorAll(".description");
       const screenWidth = window.innerWidth;
@@ -161,12 +159,6 @@ export default {
           button.classList.add("dot-active");
         });
       });
-
-      const startAnimation = (entries, observer) => {
-        entries.forEach((entry) => {
-          entry.target.classList.add("scrolled");
-        });
-      };
 
       // Create the observer
       const observerForLeftRight = new IntersectionObserver((entries) => {

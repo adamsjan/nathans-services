@@ -79,7 +79,7 @@ export default {
   methods: {
     sendEmail() {
       (function () {
-        emailjs.init("FZG1mXWjxkNibIWvF"); // Replace YOUR_USER_ID with your actual EmailJS user ID
+        emailjs.init("FZG1mXWjxkNibIWvF");
       })();
       emailjs
         .sendForm("service_2rgvnti", "template_u9m7hlg", this.$refs.form)
@@ -94,13 +94,12 @@ export default {
             notification.classList.remove("hiddenElement");
 
             // After a delay, hide the notification
-
             setTimeout(function () {
               notification.classList.add("hiddenElement");
-            }, 3000); // 3000 milliseconds (3 seconds)
+            }, 3000); 
           },
           (error) => {
-            console.log("FAILED...", error.text);
+            console.log("Failed to send:", error.text);
             // To fade "data copied" message
             var notification = document.querySelector(".notification");
             notification.classList.add("background-error");

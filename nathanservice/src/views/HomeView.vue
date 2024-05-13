@@ -110,12 +110,6 @@ export default {
     // Add an event listener to update classes on window resize
     window.addEventListener("resize", updateClasses);
 
-    const startAnimation = (entries, observer) => {
-      entries.forEach((entry) => {
-        entry.target.classList.add("scrolled");
-      });
-    };
-
     const screenWidth = window.innerWidth;
 
     if (screenWidth >= 600) {
@@ -143,8 +137,7 @@ export default {
       observerForLeftRight.observe(document.querySelector(".mission"));
       observerForLeftRight.observe(document.querySelector(".vision"));
     }
-  },
-  methods: {},
+  }
 };
 </script>
 

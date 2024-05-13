@@ -41,7 +41,7 @@ import Barrel from "@/components/Barrel.vue";
 import PartnerModal from "@/components/PartnerModal.vue";
 
 export default {
-  name: "HomeView",
+  name: "PartnersView",
   components: {
     Header,
     Footer,

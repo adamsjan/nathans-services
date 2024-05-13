@@ -90,15 +90,6 @@ export default {
         });
       });
     });
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.addEventListener("click", () => {
-      if (event.target.classList.contains("modal")) {
-        document.querySelectorAll(".modal").forEach((modal) => {
-          modal.style.display = "none";
-        });
-      }
-    });
   },
 
   methods: {

@@ -107,11 +107,6 @@ export default {
     };
   },
   mounted() {
-    const startAnimation = (entries, observer) => {
-      entries.forEach((entry) => {
-        entry.target.classList.add("scrolled");
-      });
-    };
 
     // Create the observer
     const observerForLeftRight = new IntersectionObserver((entries) => {
@@ -132,9 +127,6 @@ export default {
     // Tell the observer which elements to track
     observerForLeftRight.observe(document.querySelector(".mission"));
     observerForLeftRight.observe(document.querySelector(".vision"));
-  },
-  methods: {
-    
   },
 };
 </script>

@@ -5,8 +5,6 @@
 </template>
   
 <script>
-import axios from 'axios';
-
 export default {
     data() {
     return {
@@ -54,29 +52,7 @@ export default {
       } catch (error) {
         console.error("Error getting post:", error);
       }
-    },
-
-    async uploadFile() {
-      const formData = new FormData();
-      formData.append("image", this.$refs.fileInput.files[0]);
-
-      axios
-        .put(`/image/${this.id}`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            credentials: 'include',
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-          this.getImage();
-          // Handle success
-        })
-        .catch((error) => {
-          console.error("Error uploading file:", error.message);
-          // Handle error
-        });
-    },
+    }
   }
 }
 </script>
