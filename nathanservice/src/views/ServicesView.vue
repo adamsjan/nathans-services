@@ -195,6 +195,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style src="../assets/services.css" scoped>
 
 </style>

@@ -47,6 +47,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style src="../assets/portfolio.css" scoped>
 
 </style>

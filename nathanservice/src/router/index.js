@@ -146,19 +146,6 @@ router.beforeEach((to, from, next) => {
     });
   } else {
     // If the route does not require authentication, proceed to the requested route
-    if (to.path === "/") {
-      require("../assets/landing.css")
-    } else if (to.path === "/meist") {
-      require("../assets/home.css")
-    } else if (to.path === "/teenused") {
-      require("../assets/services.css")
-    } else if (to.path === "/tehtud-tood") {
-      require("../assets/portfolio.css")
-    } else if (to.path === "/kontakt") {
-      require("../assets/contact.css")
-    } else if (to.path === "/partnerid") {
-      require("../assets/partners.css")
-    }
     next();
   }
 });

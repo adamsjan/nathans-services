@@ -141,6 +141,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style src="../assets/home.css" scoped>
 
 </style>

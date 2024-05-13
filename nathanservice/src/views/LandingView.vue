@@ -77,7 +77,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style src="../assets/landing.css" scoped>
+
 
 
 </style>
