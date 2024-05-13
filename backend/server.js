@@ -50,8 +50,14 @@ const generateJWT = (id) => {
         //jwt.sign(payload, secret, [options, callback]), and it returns the JWT as string
 }
 
+app.disable('x-powered-by');
+
 app.use((req, res, next) => {
     res.set('Cache-Control', 'public, max-age=3600');
+    res.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline'; frame-ancestors 'self'; img-src 'self' https://nathansimages.blob.core.windows.net;");
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
     next();
 });
 
