@@ -1,6 +1,10 @@
 <template>
-  <picture>
+  <picture><div v-if="loading">
+    <div class="skeleton-picture"></div>
+  </div>
+  <div v-else>
     <img v-bind:src="imgSrc" alt="Image"/>
+  </div>
   </picture>
 </template>
   
@@ -10,6 +14,7 @@ export default {
     data() {
     return {
       imgSrc: "",
+      loading: true
     };
   },
   beforeMount() {
@@ -45,7 +50,8 @@ export default {
         if (response.ok) {
           const data = await response.json();
           console.log("Get image data", data);
-          this.imgSrc = data.url; // Assuming `imageSrc` is a data property in your Vue component
+          this.imgSrc = data.url;
+          this.loading = false;
         }
       } catch (error) {
         console.error("Error getting post:", error);
@@ -57,6 +63,12 @@ export default {
 
 <style scoped>
 
+.skeleton-picture {
+  height: 300px;
+  background-color: #ccc;
+  width: 100%;
+}
+
 picture img {
   width: 100%;
   height: auto;
@@ -67,7 +79,8 @@ picture img {
 }
 
 img {
-  width: 300px;
+  width: 1000px;
+  height: 500px;
 }
 
 </style>
