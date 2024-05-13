@@ -50,10 +50,9 @@ export default {
     Barrel,
     PartnerModal,
   },
+  beforeMount() {
+    import('../assets/partners.css');
+  },
   mounted() {},
 };
 </script>
-
-<style src="../assets/partners.css" scoped>
-
-</style>

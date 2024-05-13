@@ -76,6 +76,9 @@ export default {
       message: "",
     };
   },
+  beforeMount() {
+    import('../assets/contact.css');
+  },
   methods: {
     sendEmail() {
       (function () {
@@ -119,6 +122,4 @@ export default {
 };
 </script>
 
-<style src="../assets/contact.css" scoped>
 
-</style>

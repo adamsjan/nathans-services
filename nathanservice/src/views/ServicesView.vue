@@ -105,36 +105,12 @@ export default {
     Footer,
     PostToShow,
   },
+  beforeMount() {
+    import('../assets/services.css');
+
+    this.updateClasses();
+  },
   mounted() {
-    function updateClasses() {
-      const elements = document.querySelectorAll(".description");
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 600) {
-        elements.forEach((element) => {
-          if (element === elements[1]) {
-            element.children[1].className = "right heading trapezoid-right";
-            element.children[0].className = "left";
-          } else {
-            element.children[0].className = "left heading trapezoid-left";
-            element.children[1].className = "right";
-          }
-        });
-      } else {
-        elements.forEach((element) => {
-          if (element === elements[1]) {
-            element.children[1].className = "divider-section heading";
-            element.children[0].className = "who-are-we";
-          } else {
-            element.children[0].className = "divider-section heading";
-            element.children[1].className = "who-are-we";
-          }
-        });
-      }
-    }
-
-    // Call the function on initial load
-    updateClasses();
 
     // Add an event listener to update classes on window resize
     window.addEventListener("resize", updateClasses);
@@ -192,9 +168,33 @@ export default {
       );
     }
   },
+  methods: {
+    updateClasses() {
+      const elements = document.querySelectorAll(".description");
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth >= 600) {
+        elements.forEach((element) => {
+          if (element === elements[1]) {
+            element.children[1].className = "right heading trapezoid-right";
+            element.children[0].className = "left";
+          } else {
+            element.children[0].className = "left heading trapezoid-left";
+            element.children[1].className = "right";
+          }
+        });
+      } else {
+        elements.forEach((element) => {
+          if (element === elements[1]) {
+            element.children[1].className = "divider-section heading";
+            element.children[0].className = "who-are-we";
+          } else {
+            element.children[0].className = "divider-section heading";
+            element.children[1].className = "who-are-we";
+          }
+        });
+      }
+    }
+  }
 };
 </script>
-
-<style src="../assets/services.css" scoped>
-
-</style>

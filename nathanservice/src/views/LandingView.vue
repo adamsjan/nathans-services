@@ -61,6 +61,9 @@ export default {
     Header,
     Footer,
   },
+  beforeMount() {
+    import('../assets/landing.css');
+  },
   mounted() {
     const btns = document.querySelectorAll(".button");
     btns.forEach((btn) => {
@@ -76,9 +79,5 @@ export default {
   },
 };
 </script>
-
-<style src="../assets/landing.css" scoped>
-
-
 
 </style>
