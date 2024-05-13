@@ -55,7 +55,6 @@
   </div>
 </template>
 
-<style src="../assets/home.css" scoped></style>
 
 <script defer>
 import Header from "@/components/Header.vue";
@@ -79,6 +78,7 @@ export default {
     };
   },
   mounted() {
+    import('../assets/home.css')
     if (window.innerWidth > 550) {
       import('../assets/home-desktop.css')
         .then(() => {
