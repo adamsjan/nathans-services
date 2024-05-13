@@ -11,10 +11,13 @@ const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
+const compression = require('compression');
 
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+app.use(compression());
 
 app.use(morgan('dev'));
 

@@ -87,11 +87,12 @@ export default {
     display: block;
     cursor: pointer;
     padding: 4% 4%;
+    height: 100%;
   }
 
   svg {
     height: 100%;
-    width: 100%;
+    width: 20%;
   }
 
   line {

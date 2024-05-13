@@ -15,20 +15,20 @@
         </div>
       </div>
       <div class="mission">
-        <div class="left heading trapezoid-left">
+        <div class="divider-section heading">
           <h1><PostToShow :postId="3"></PostToShow></h1>
         </div>
-        <div class="right">
+        <div class="who-are-we">
           <p class="text-new"><PostToShow :postId="4"></PostToShow></p>
         </div>
       </div>
       <div class="vision">
-        <div class="left">
+        <div class="who-are-we">
           <p class="text-new">
             <PostToShow :postId="6"></PostToShow>
           </p>
         </div>
-        <div class="right heading trapezoid-right">
+        <div class="divider-section heading">
           <h1><PostToShow :postId="5"></PostToShow></h1>
         </div>
       </div>
@@ -77,6 +77,10 @@ export default {
     };
   },
   mounted() {
+    if (window.innerWidth > 550) {
+        import('../assets/home-desktop.css');
+    }
+
     function updateClasses() {
       const elements = document.querySelectorAll(".mission, .vision");
       const screenWidth = window.innerWidth;

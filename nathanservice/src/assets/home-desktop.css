@@ -1,0 +1,82 @@
+@media screen and (min-width: 550px) {
+    .three-divs {
+      flex-flow: row wrap;
+    }
+  
+    .barrel-container {
+      width: 45%;
+    }
+  }
+  
+  @media screen and (min-width: 600px) {
+    main {
+      margin-top: 0;
+    }
+  
+    .mission, .vision {
+      display: flex;
+      flex-direction: row;
+      height: 90vh;
+    }
+  
+    .text-new {
+      padding: 5% 5%;
+      font-size: 1em;
+    }
+  
+    .trapezoid-left {
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    }
+  
+    .trapezoid-right {
+      clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    .left,
+    .right {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-grow: 1;
+      transition: flex-grow 0.5s ease-in-out; /* Smooth transition */
+      height: 80%;
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+      .left-animation {
+        animation: flyFromLeft 1s forwards;
+      }
+  
+      .right-animation {
+        animation: flyFromRight 1s forwards;
+      }
+  
+      .bottom-animation {
+        animation: flyFromBottom 1s forwards;
+      }
+    }
+  
+    @keyframes flyFromLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  
+    @keyframes flyFromRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  }
+  
+  @media screen and (min-width: 700px) {
+    .barrel-container {
+      width: 29%;
+    }
+  }
