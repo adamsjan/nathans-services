@@ -37,7 +37,20 @@
 <script>
 export default {
   name: "HeaderComponent",
-  
+  beforeMount() {
+  import('../assets/header.css').then((cssModule) => {
+    const css = cssModule.default || cssModule;
+    const head = document.head || document.getElementsByTagName('head')[0];
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet){
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+    head.appendChild(style);
+  });
+},
   mounted() {
     document.querySelector(".menu-toggle").addEventListener("click", () => {
       this.openNav();
