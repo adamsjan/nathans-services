@@ -147,17 +147,17 @@ router.beforeEach((to, from, next) => {
   } else {
     // If the route does not require authentication, proceed to the requested route
     if (to.path === "/") {
-      require("./landing.css")
+      require("../assets/landing.css")
     } else if (to.path === "/meist") {
-      require("./home.css")
+      require("../assets/home.css")
     } else if (to.path === "/teenused") {
-      require("./services.css")
+      require("../assets/services.css")
     } else if (to.path === "/tehtud-tood") {
-      require("./portfolio.css")
+      require("../assets/portfolio.css")
     } else if (to.path === "/kontakt") {
-      require("./contect.css")
+      require("../assets/contact.css")
     } else if (to.path === "/partnerid") {
-      require("./partners.css")
+      require("../assets/partners.css")
     }
     next();
   }
