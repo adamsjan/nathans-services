@@ -10,7 +10,7 @@ export default {
       post: {},
     };
   },
-  mounted() {
+  beforeMount() {
   this.getPost();
 },
   props: ["postId"],

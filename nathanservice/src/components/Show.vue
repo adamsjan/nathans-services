@@ -12,7 +12,7 @@ export default {
       imgSrc: "",
     };
   },
-  mounted() {
+  beforeMount() {
     this.getImage();
 },
   props: ["id"],
