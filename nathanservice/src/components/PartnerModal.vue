@@ -12,7 +12,7 @@
         <p>
           <PostToShow :postId="ids[2]"></PostToShow>
         </p>
-        <a class="button cta-contact-partner">Tutvu partneriga!</a>
+        <a href="google.com" class="button cta-contact-partner">Tutvu partneriga!</a>
       </div>
 
       <span class="close">&times;</span>

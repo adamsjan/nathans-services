@@ -13,8 +13,8 @@
                 </div>
 
                 <!-- Next and previous buttons -->
-                <a class="prev" @click="plusSlides(-1, `${gallery}`)">&#10094;</a>
-                <a class="next" @click="plusSlides(1, `${gallery}`)">&#10095;</a>
+                <div class="prev" @click="plusSlides(-1, `${gallery}`)">&#10094;</div>
+                <div class="next" @click="plusSlides(1, `${gallery}`)">&#10095;</div>
               </div>
 
               <div class="modal-text">

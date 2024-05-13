@@ -19,9 +19,9 @@ export default {
   methods: {
     sizeImageSrc() {
       const screenWidth = window.innerWidth;
-      if (screenWidth < 300) {
+      if (screenWidth < 600) {
         return "small";
-      } else if (screenWidth >= 300 && screenWidth < 600) {
+      } else if (screenWidth >= 600 && screenWidth < 1200) {
         return "medium";
       } else {
         return "large";

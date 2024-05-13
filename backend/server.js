@@ -160,7 +160,6 @@ app.get('/auth/logout', (req, res) => {
 
 const sharp = require('sharp');
 const { BlobServiceClient } = require('@azure/storage-blob');
-const sizes = [320, 480, 768, 1024]; 
 
 const azureBlobService = async (file) => {
     const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
