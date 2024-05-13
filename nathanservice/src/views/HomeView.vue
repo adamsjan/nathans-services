@@ -90,13 +90,13 @@ export default {
         .catch(err => console.error('Failed to load desktop CSS:', err));
     }
     // Call the function on initial load
-    this.$updateClasses();
+    this.updateClasses();
 
   },
   mounted() {
     
     // Add an event listener to update classes on window resize
-    window.addEventListener("resize", this.updateClasses);
+    window.addEventListener("resize", this.updateClasses());
 
     const screenWidth = window.innerWidth;
 
