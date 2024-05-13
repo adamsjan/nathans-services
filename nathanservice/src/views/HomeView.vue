@@ -57,11 +57,11 @@
 
 
 <script defer>
-const Header = () => import('@/components/Header.vue');
-const Footer = () => import('@/components/Footer.vue')
-const PostToShow = () => import('@/components/PostToShow.vue')
-const Show = () => import('@/components/Show.vue')
-const Barrel = () => import('@/components/Barrel.vue')
+const Header = () => import('../components/Header.vue');
+const Footer = () => import('../components/Footer.vue')
+const PostToShow = () => import('../components/PostToShow.vue')
+const Show = () => import('../components/Show.vue')
+const Barrel = () => import('../components/Barrel.vue')
 
 export default {
   name: "HomeView",
