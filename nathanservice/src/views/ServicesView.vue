@@ -94,9 +94,9 @@
 
 <script>
 // @ is an alias to /src
-const Header = () => import('@/components/Header.vue');
-const Footer = () => import('@/components/Footer.vue');
-const PostToShow = () => import('@/components/PostToShow.vue');
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import PostToShow from "@/components/PostToShow.vue";
 
 export default {
   name: "HomeView",
