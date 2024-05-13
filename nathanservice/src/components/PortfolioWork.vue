@@ -3,9 +3,9 @@
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">
-              <Show v-if="componentsLoaded" :id="ids[1]"></Show>
+              <Show :id="ids[1]"></Show>
               <div class="overlay">
-                <h2 class="button"><PostToShow v-if="componentsLoaded" :postId="ids[0]"></PostToShow>
+                <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow>
                 <svg width="100%" height="100%">
                   <rect x="0" y="0" fill="none" width="100%" height="100%" />
                 </svg>
@@ -16,22 +16,14 @@
 </template>
 
 <script>
+  import PostToShow from '@/components/PostToShow.vue';
+  import Show from '@/components/Show.vue';
 
 export default {
-  data() {
-    return {
-      componentsLoaded: false, // State to track loading of components
-    };
-  },
+
   components: {
-    PostToShow: import( '@/components/PostToShow.vue').then(component => {
-        this.componentsLoaded = true;
-        return component;
-      }),
-    Show: import( '@/components/Show.vue').then(component => {
-        this.componentsLoaded = true;
-        return component;
-      })
+    PostToShow,
+    Show
   },
   props: {
     gallery: { 
@@ -42,72 +34,13 @@ export default {
       type: Array,
       required: true,
     }
+  },
+  beforeMount() {
+    import('../assets/portfoliowork.css')
   }
 }
 </script>
 
 <style scoped>
-
-.container {
-  position: relative;
-  width: 100%;
-}
-
-.image {
-  display: block;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transition: 0.5s ease;
-  background-color: var(--bold);
-}
-
-.image:hover .overlay {
-  opacity: 0.9;
-  cursor: pointer;
-}
-
-.overlay>h2 {
-  color: white;
-  font-size: 2em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-picture img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  max-height: 300px;
-}
-
-.overlay .button {
-    width: fit-content;
-    color: white;
-    background: var(--bold);
-
-    rect {
-      stroke: white;
-    }
-  }
-
-  .button:hover {
-    color: white;
-    background: var(--bold);
-
-    rect {
-      stroke: white;
-    }
-  }
 
 </style>

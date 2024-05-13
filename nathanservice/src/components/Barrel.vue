@@ -33,40 +33,14 @@ export default {
     return {
       posts: [],
     };
+  },
+  beforeMount() {
+    import('../assets/barrel.css')
+    
   }
 };
 </script>
 
 <style scoped>
 
-@media screen and (min-width: 0px){
-.barrel {
-  background-color: var(--light);
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.text {
-  height: fit-content;
-  padding: 10% 10% 20% 10%;
-}
-
-.text p {
-  flex: 1; /* Flex grow to take available space */
-  display: flex; /* Nested flex container for vertical centering */
-  align-items: stretch; /* Stretch children vertically */
-}
-
-.barrel-container picture {
-  max-height: 400px;
-}
-
-.partner picture {
-  max-height: 150px;
-}
-
-}
 </style>
