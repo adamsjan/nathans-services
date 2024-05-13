@@ -45,7 +45,7 @@ export default {
     PortfolioWork,
   },
   beforeMount() {
-    import('../assets/prtofolio.css');
+    import('../assets/portfolio.css');
   },
 };
 </script>
