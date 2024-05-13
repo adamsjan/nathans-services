@@ -3,7 +3,7 @@
   
     <div class="hero">
       <div class="logo-container" id="MainLogo">
-        <img class="logo" src="" alt="Nathan's Services" />
+        <img class="logo" src="" width="800" height="350" alt="Nathan's Services" />
       </div>
     </div>
     <main>
@@ -12,8 +12,7 @@
         <svg>
           <rect x="0" y="0"/>
         </svg>
-        Tutvu teenustega</a
-      >
+        Tutvu teenustega</a>
       <a class="button" href="#/kontakt">
         <svg>
           <rect x="0" y="0"/>
@@ -62,7 +61,18 @@ export default {
     Footer,
   },
   beforeMount() {
-    import('../assets/landing.css');
+    import('../assets/landing.css').then((cssModule) => {
+    const css = cssModule.default || cssModule;
+    const head = document.head || document.getElementsByTagName('head')[0];
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet){
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+    head.appendChild(style);
+  });
   },
   mounted() {
     const btns = document.querySelectorAll(".button");

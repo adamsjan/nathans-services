@@ -21,7 +21,7 @@
       </div>
 
       <nav class="mobile-nav">
-        <a class="mobile-button close-button">&times;</a>
+        <span class="mobile-button close-button">&times;</span>
         <router-link class="mobile-button" to="/meist" exact>MEIST</router-link>
         <router-link class="mobile-button" to="/teenused">TEENUSED</router-link>
         <router-link class="mobile-button" to="/tehtud-tood"
