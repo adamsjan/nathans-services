@@ -119,6 +119,6 @@ export default {
 };
 </script>
 
-<style src="../assets/contect.css" scoped>
+<style src="../assets/contact.css" scoped>
 
 </style>
