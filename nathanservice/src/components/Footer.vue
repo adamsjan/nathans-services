@@ -37,10 +37,7 @@ export default {
   },
   beforeMount() {
     import('../assets/footer.css')
-    
   }
 };
 </script>
 
-<style scoped>
-</style>

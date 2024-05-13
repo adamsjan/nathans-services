@@ -4,9 +4,7 @@
       <nav class="web-nav">
         <router-link class="nav-button" to="/meist" exact>MEIST</router-link>
         <router-link class="nav-button" to="/teenused">TEENUSED</router-link>
-        <router-link class="nav-button" to="/tehtud-tood"
-          >TEHTUD TÖÖD</router-link
-        >
+        <router-link class="nav-button" to="/tehtud-tood">TEHTUD TÖÖD</router-link>
         <router-link class="nav-button" to="/kontakt">KONTAKT</router-link>
         <router-link class="nav-button" to="/partnerid">PARTNERID</router-link>
       </nav>
@@ -39,10 +37,7 @@
 <script>
 export default {
   name: "HeaderComponent",
-  beforeMount() {
-    import('../assets/header.css')
-    
-  },
+  
   mounted() {
     document.querySelector(".menu-toggle").addEventListener("click", () => {
       this.openNav();

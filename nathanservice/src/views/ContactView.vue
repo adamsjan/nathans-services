@@ -12,7 +12,6 @@
           <p><PostToShow :postId="39"></PostToShow></p>
 
           <p>Või võta meiega ühendust kontaktvormi kaudu!</p>
-          <!--<img src="@/assets/arrow-right.png">-->
         </div>
         <div class="form-fields">
           <form ref="form" id="contact_form" @submit.prevent="sendEmail">

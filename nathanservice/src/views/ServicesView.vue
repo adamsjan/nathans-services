@@ -113,7 +113,7 @@ export default {
   mounted() {
 
     // Add an event listener to update classes on window resize
-    window.addEventListener("resize", updateClasses);
+    window.addEventListener("resize", this.updateClasses());
 
     const screenWidth = window.innerWidth;
 
