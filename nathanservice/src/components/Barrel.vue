@@ -61,7 +61,7 @@ export default {
 }
 
 .barrel-container picture {
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .partner picture {
