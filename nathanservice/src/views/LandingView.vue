@@ -3,7 +3,7 @@
   
     <div class="hero">
       <div class="logo-container" id="MainLogo">
-        <p logo= "Nathan's Services"></p>
+        <p class="logo">Nathan's Services</p>
       </div>
     </div>
     <main>

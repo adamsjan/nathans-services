@@ -12,10 +12,33 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const compression = require('compression');
+import { renderToString } from '@vue/server-renderer';
+import { createApp } from '../nathanservice/main.js';
 
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+
+app.get('*', async (req, res) => {
+    const { app, router } = createApp();
+  
+    router.push(req.url);
+    await router.isReady();
+  
+    renderToString(app).then((html) => {
+      res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+          <head><title>My Vue App</title></head>
+          <body>${html}</body>
+        </html>
+      `);
+    }).catch((err) => {
+      res.status(500).end('Internal Server Error');
+      console.error(err);
+    });
+  });
 
 app.use(compression());
 
