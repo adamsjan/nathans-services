@@ -1,18 +1,16 @@
 <template>
   <picture>
-    <img :style="customStyle" v-bind:src="imgSrc" alt="Image"/>
+    <img v-bind:src="imgSrc" alt="Image"/>
   </picture>
 </template>
   
 <script>
 export default {
+  name: 'Show',
     data() {
     return {
       imgSrc: "",
     };
-  },
-  props: {
-    customStyle: Object
   },
   mounted() {
     this.getImage();
