@@ -81,7 +81,12 @@ export default {
   mounted() {
     if (window.innerWidth > 550) {
       import('../assets/home-desktop.css')
-        .then(() => console.log('Desktop CSS loaded successfully'))
+        .then(() => {
+            // Force browser to re-calculate styles
+            this.$nextTick(() => {
+              document.body.offsetHeight; // This forces the browser to reflow
+            });
+        })
         .catch(err => console.error('Failed to load desktop CSS:', err));
     }
 
