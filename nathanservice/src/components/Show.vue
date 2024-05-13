@@ -1,10 +1,9 @@
 <template>
-  <picture><div v-if="loading">
+  <picture v-if="loading">
     <div class="skeleton-picture"></div>
-  </div>
-  <div v-else>
-    <img v-bind:src="imgSrc" alt="Image"/>
-  </div>
+  </picture>
+  <picture v-else>
+    <img width="200" height="350" v-bind:src="imgSrc" alt="Image"/>
   </picture>
 </template>
   
@@ -64,7 +63,7 @@ export default {
 <style scoped>
 
 .skeleton-picture {
-  height: 300px;
+  height: 400px;
   background-color: #ccc;
   width: 100%;
 }
@@ -76,11 +75,6 @@ picture img {
   object-fit: cover;
   overflow: hidden;
   object-position: 50% 0%;
-}
-
-img {
-  width: 1000px;
-  height: 500px;
 }
 
 </style>
