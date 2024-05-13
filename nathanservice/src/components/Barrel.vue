@@ -14,8 +14,8 @@
 </template>
 
 <script>
-const PostToShow = () => import('@/components/PostToShow.vue')
-const Show = () => import('@/components/Show.vue')
+import PostToShow from '@/components/PostToShow.vue';
+import Show from '@/components/Show.vue';
 
 export default {
   name: "Barrel",
