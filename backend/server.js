@@ -36,11 +36,6 @@ app.use(cors({
     preflightContinue: true
   }));
 
-app.use((req, res, next) => {
-    res.set('Cache-Control', 'public, max-age=3600');
-    next();
-});
-
 // We need to include "credentials: true" to allow cookies to be represented  
 // Also "credentials: 'include'" need to be added in Fetch API in the Vue.js App
 
@@ -54,6 +49,11 @@ const generateJWT = (id) => {
     return jwt.sign({ id }, secret, { expiresIn: maxAge })
         //jwt.sign(payload, secret, [options, callback]), and it returns the JWT as string
 }
+
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'public, max-age=3600');
+    next();
+});
 
 //``````````````
   // Code will go here

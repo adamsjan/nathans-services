@@ -1,6 +1,6 @@
 <template>
   <div class="barrel">
-    <Show :id="ids[0]"/>
+    <Show :id="ids[0]" :loadingType="index > 2 ? 'lazy' : 'eager'" />
 
     <div class="text">
       <h2>

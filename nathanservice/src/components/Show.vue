@@ -3,7 +3,7 @@
     <div class="skeleton-picture"></div>
   </picture>
   <picture v-else>
-    <img width="200" height="350" v-bind:src="imgSrc" alt="Image"/>
+    <img width="200" height="350" v-bind:src="imgSrc" :loading="loadingType" :alt="alt"/>
   </picture>
 </template>
   
@@ -12,14 +12,21 @@ export default {
   name: 'Show',
     data() {
     return {
-      imgSrc: "",
-      loading: true
+      imgSrc: ""
     };
   },
+
   beforeMount() {
     this.getImage();
 },
-  props: ["id"],
+  props: {
+  id: String,
+  alt: String,
+  loadingType: {
+      type: String,
+      default: 'eager' // Default loading behavior
+    }
+  },
   methods: {
     sizeImageSrc() {
       const screenWidth = window.innerWidth;
