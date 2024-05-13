@@ -78,7 +78,9 @@ export default {
   },
   mounted() {
     if (window.innerWidth > 550) {
-        import('../assets/home-desktop.css');
+      import('../assets/home-desktop.css')
+        .then(() => console.log('Desktop CSS loaded successfully'))
+        .catch(err => console.error('Failed to load desktop CSS:', err));
     }
 
     function updateClasses() {
@@ -146,4 +148,3 @@ export default {
 </script>
 
 <style src="../assets/home.css" scoped></style>
-<style src="../assets/home-desktop.css" scoped></style>
