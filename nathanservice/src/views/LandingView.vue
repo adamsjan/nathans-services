@@ -3,7 +3,7 @@
   
     <div class="hero">
       <div class="logo-container" id="MainLogo">
-        <img class="logo" src="" width="800" height="350" alt="Nathan's Services" />
+        <p logo= "Nathan's Services"></p>
       </div>
     </div>
     <main>

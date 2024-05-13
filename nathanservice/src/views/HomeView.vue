@@ -55,7 +55,6 @@
   </div>
 </template>
 
-
 <script defer>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
@@ -78,23 +77,33 @@ export default {
     };
   },
   beforeMount() {
-    import('../assets/home.css')
+    import("../assets/home.css").then((cssModule) => {
+      const css = cssModule.default || cssModule;
+      const head = document.head || document.getElementsByTagName("head")[0];
+      const style = document.createElement("style");
+      style.type = "text/css";
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      head.appendChild(style);
+    });
+
     if (window.innerWidth > 550) {
-      import('../assets/home-desktop.css')
+      import("../assets/home-desktop.css")
         .then(() => {
-            // Force browser to re-calculate styles
-            this.$nextTick(() => {
-              document.body.offsetHeight; // This forces the browser to reflow
-            });
+          // Force browser to re-calculate styles
+          this.$nextTick(() => {
+            document.body.offsetHeight; // This forces the browser to reflow
+          });
         })
-        .catch(err => console.error('Failed to load desktop CSS:', err));
+        .catch((err) => console.error("Failed to load desktop CSS:", err));
     }
     // Call the function on initial load
     this.updateClasses();
-
   },
   mounted() {
-    
     // Add an event listener to update classes on window resize
     window.addEventListener("resize", this.updateClasses());
 
@@ -107,7 +116,9 @@ export default {
           if (entry.isIntersecting) {
             // It's visible. Add the animation class here!
             entry.target.querySelector(".left").classList.add("left-animation");
-            entry.target.querySelector(".right").classList.add("right-animation");
+            entry.target
+              .querySelector(".right")
+              .classList.add("right-animation");
           } else {
             entry.target
               .querySelector(".left")
@@ -125,7 +136,7 @@ export default {
     }
   },
   methods: {
-  updateClasses() {
+    updateClasses() {
       const elements = document.querySelectorAll(".mission, .vision");
       const screenWidth = window.innerWidth;
 
@@ -150,7 +161,7 @@ export default {
           }
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
