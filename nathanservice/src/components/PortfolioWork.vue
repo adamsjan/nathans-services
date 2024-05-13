@@ -3,9 +3,9 @@
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">
-              <Show :id="ids[1]"></Show>
+              <Show v-if="componentsLoaded" :id="ids[1]"></Show>
               <div class="overlay">
-                <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow>
+                <h2 class="button"><PostToShow v-if="componentsLoaded" :postId="ids[0]"></PostToShow>
                 <svg width="100%" height="100%">
                   <rect x="0" y="0" fill="none" width="100%" height="100%" />
                 </svg>
@@ -16,13 +16,22 @@
 </template>
 
 <script>
-const PostToShow = () => import( '@/components/PostToShow.vue');
-const Show = () => import( '@/components/Show.vue');
 
 export default {
+  data() {
+    return {
+      componentsLoaded: false, // State to track loading of components
+    };
+  },
   components: {
-    PostToShow,
-    Show
+    PostToShow: import( '@/components/PostToShow.vue').then(component => {
+        this.componentsLoaded = true;
+        return component;
+      }),
+    Show: import( '@/components/Show.vue').then(component => {
+        this.componentsLoaded = true;
+        return component;
+      })
   },
   props: {
     gallery: { 

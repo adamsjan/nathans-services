@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<script>
+<script defer>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import emailjs from "emailjs-com";

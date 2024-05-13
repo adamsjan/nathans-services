@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script>
+<script defer>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import PostToShow from "@/components/PostToShow.vue";
