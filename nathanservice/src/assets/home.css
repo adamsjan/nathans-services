@@ -1,0 +1,171 @@
+@media screen and (min-width: 0px) {
+    body {
+      height: 100vh;
+    }
+  
+    main {
+      margin-top: 15%;
+    }
+  
+    .introduction-section {
+      position: relative;
+      width: 100%;
+      min-height: auto;
+      color: rgb(36, 18, 25);
+      text-align: left;
+    }
+  
+    .heading {
+      background-color: var(--darker);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .heading h1 {
+      font-size: 4em;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+  
+    .divider-section {
+      width: 100vw;
+      margin: 5% 0%;
+      padding: 8% 5%;
+    }
+  
+    .who-are-we {
+      width: 100%;
+      min-height: auto;
+      padding: 2% 15%;
+    }
+  
+    .text-new {
+      background-color: white;
+      height: 100%;
+      padding: 5% 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-size: 2em;
+      font-weight: bold;
+      color: var(--darker);
+    }
+  
+    .mission,
+    .vision {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+  
+    .mission {
+      flex-direction: column;
+    }
+  
+    .vision {
+      flex-direction: column-reverse;
+    }
+  
+    .three-divs {
+      display: flex;
+      align-content: stretch;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 5% 5%;
+      background-color: #fff;
+    }
+  
+    .barrel-container {
+      margin: 5% 2%;
+    }
+  
+  }
+  
+  @media screen and (min-width: 550px) {
+    .three-divs {
+      flex-flow: row wrap;
+    }
+  
+    .barrel-container {
+      width: 45%;
+    }
+  }
+  
+  @media screen and (min-width: 600px) {
+    main {
+      margin-top: 0;
+    }
+  
+    .mission, .vision {
+      display: flex;
+      flex-direction: row;
+      height: 90vh;
+    }
+  
+    .text-new {
+      padding: 5% 5%;
+      font-size: 1em;
+    }
+  
+    .trapezoid-left {
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    }
+  
+    .trapezoid-right {
+      clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    .left,
+    .right {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-grow: 1;
+      transition: flex-grow 0.5s ease-in-out; /* Smooth transition */
+      height: 80%;
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+      .left-animation {
+        animation: flyFromLeft 1s forwards;
+      }
+  
+      .right-animation {
+        animation: flyFromRight 1s forwards;
+      }
+  
+      .bottom-animation {
+        animation: flyFromBottom 1s forwards;
+      }
+    }
+  
+    @keyframes flyFromLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  
+    @keyframes flyFromRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  }
+  
+  @media screen and (min-width: 700px) {
+    .barrel-container {
+      width: 29%;
+    }
+  }
