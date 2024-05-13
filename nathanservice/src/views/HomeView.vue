@@ -55,6 +55,8 @@
   </div>
 </template>
 
+<style src="../assets/home.css" scoped></style>
+
 <script defer>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
@@ -146,5 +148,3 @@ export default {
   }
 };
 </script>
-
-<style src="../assets/home.css" scoped></style>
