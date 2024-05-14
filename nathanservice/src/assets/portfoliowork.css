@@ -5,9 +5,10 @@
   
   .image {
     display: block;
+    position: relative;
   }
   
-  .overlay {
+  .portfolioOverlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -18,12 +19,12 @@
     background-color: var(--bold);
   }
   
-  .image:hover .overlay {
+  .image:hover .portfolioOverlay {
     opacity: 0.9;
     cursor: pointer;
   }
   
-  .overlay>h2 {
+  .portfolioOverlay>h2 {
     color: white;
     font-size: 2em;
     position: absolute;
@@ -41,7 +42,7 @@
     max-height: 300px;
   }
   
-  .overlay .button {
+  .portfolioOverlay .button {
       width: fit-content;
       color: white;
       background: var(--bold);

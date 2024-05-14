@@ -4,7 +4,7 @@
             <!-- Full-width images with number text -->
             <div class="image">
               <Show :id="ids[1]"></Show>
-              <div class="overlay">
+              <div class="portfolioOverlay">
                 <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow>
                 <svg width="100%" height="100%">
                   <rect x="0" y="0" fill="none" width="100%" height="100%" />

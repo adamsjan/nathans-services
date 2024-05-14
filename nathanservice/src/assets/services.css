@@ -107,11 +107,7 @@
       width: 1em;
       height: 1em;
       margin: 20% 20%;
-      stroke: #fff;
-    }
-    
-    .icon svg, .icon path {
-      color: #fff;
+      
     }
   
     .service-dots-container {
