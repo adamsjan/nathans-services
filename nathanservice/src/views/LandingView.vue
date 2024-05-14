@@ -65,6 +65,7 @@ export default {
   link.rel = 'preload';
   link.as = 'style';
   link.href = '../assets/landing.css';
+  link.type = 'text/css';
   document.head.appendChild(link);
 },
   mounted() {
