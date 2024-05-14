@@ -1,5 +1,5 @@
 <template>
-    <Header></Header>
+    <AdminHeader></AdminHeader>
   
     <main>
       <div class="divider-section heading">
@@ -26,21 +26,21 @@
         </div>
       </div>
     </main>
-    <Footer></Footer>
+    <AdminFooter></AdminFooter>
   </template>
   
   <script>
   // @ is an alias to /src
-  import Header from "@/components/Header.vue";
-  import Footer from "@/components/Footer.vue";
+  import AdminHeader from "@/components/AdminHeader.vue";
+  import AdminFooter from "@/components/AdminFooter.vue";
   import PortfolioModal from "@/components/PortfolioModal.vue";
   import PortfolioWork from "@/components/PortfolioWork.vue";
   
   export default {
     name: "PreviousWorkView",
     components: {
-      Header,
-      Footer,
+      AdminHeader,
+      AdminFooter,
       PortfolioModal,
       PortfolioWork,
     },

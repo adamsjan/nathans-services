@@ -8,8 +8,8 @@
           <h1>VÕTA MEIEGA ÜHENDUST!</h1>
           <p>Küsi hinnapakkumist ja arutame sinu ideed!</p>
 
-          <p><PostToShow :postId="38"></PostToShow></p>
-          <p><PostToShow :postId="39"></PostToShow></p>
+          <p><PostToEdit :postId="38"></PostToEdit></p>
+          <p><PostToEdit :postId="39"></PostToEdit></p>
 
           <p>Või võta meiega ühendust kontaktvormi kaudu!</p>
         </div>
@@ -60,6 +60,7 @@
 <script defer>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import PostToShow from "@/components/PostToShow.vue"
 import emailjs from "emailjs-com";
 
 export default {
@@ -67,6 +68,7 @@ export default {
   components: {
     Header,
     Footer,
+    PostToShow
   },
   data() {
     return {
