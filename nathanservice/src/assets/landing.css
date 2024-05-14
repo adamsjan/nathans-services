@@ -26,7 +26,7 @@
       font-weight: 700;
     }
   
-    main {
+    .landingMain {
       background-image: linear-gradient(#021a4d, var(--darker));
       color: white;
       padding-bottom: 2%;

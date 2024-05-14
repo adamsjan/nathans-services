@@ -7,7 +7,7 @@
         <p class="logo">Nathan's Services</p>
       
     </div>
-    <main>
+    <main class="landingMain">
     <div class="ctas">
       <a class="button" href="#/teenused">
         <svg>
