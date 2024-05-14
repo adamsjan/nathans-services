@@ -129,6 +129,7 @@ router.beforeEach((to, from, next) => {
       credentials: 'include' // Include credentials if using cookies or tokens for authentication
     })
     .then(response => {
+      console.log(response);
       if (response.ok) {
         // User is authenticated, proceed to requested route
         next();
