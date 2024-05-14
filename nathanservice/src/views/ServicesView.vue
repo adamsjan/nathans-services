@@ -106,8 +106,6 @@ export default {
     PostToShow,
   },
   beforeMount() {
-    import('../assets/services.css');
-
     this.updateClasses();
   },
   mounted() {
@@ -198,3 +196,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+  @import '../assets/services.css';
+
+</style>

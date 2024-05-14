@@ -77,19 +77,6 @@ export default {
     };
   },
   beforeMount() {
-    import("../assets/home.css").then((cssModule) => {
-      const css = cssModule.default || cssModule;
-      const head = document.head || document.getElementsByTagName("head")[0];
-      const style = document.createElement("style");
-      style.type = "text/css";
-      if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-      } else {
-        style.appendChild(document.createTextNode(css));
-      }
-      head.appendChild(style);
-    });
-
     if (window.innerWidth > 550) {
       import("../assets/home-desktop.css")
         .then(() => {
@@ -165,3 +152,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+  @import '../assets/home.css';
+
+</style>

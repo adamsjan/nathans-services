@@ -50,20 +50,12 @@ export default {
     Barrel,
     PartnerModal,
   },
-  beforeMount() {
-    import("../assets/partners.css").then((cssModule) => {
-      const css = cssModule.default || cssModule;
-      const head = document.head || document.getElementsByTagName("head")[0];
-      const style = document.createElement("style");
-      style.type = "text/css";
-      if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-      } else {
-        style.appendChild(document.createTextNode(css));
-      }
-      head.appendChild(style);
-    });
-  },
   mounted() {},
 };
 </script>
+
+<style scoped>
+
+  @import '../assets/partners.css';
+
+</style>

@@ -44,8 +44,11 @@ export default {
     PortfolioModal,
     PortfolioWork,
   },
-  beforeMount() {
-    import('../assets/portfolio.css');
-  },
 };
 </script>
+
+<style scoped>
+
+  @import '../assets/portfolio.css';
+
+</style>

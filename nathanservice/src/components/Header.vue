@@ -1,5 +1,4 @@
 <template>
-  <div>
     <header class="sticky-header">
       <nav class="web-nav">
         <router-link class="nav-button" to="/meist" exact>MEIST</router-link>
@@ -33,7 +32,6 @@
         >
       </nav>
     </header>
-  </div>
 </template>
 
 <script>
