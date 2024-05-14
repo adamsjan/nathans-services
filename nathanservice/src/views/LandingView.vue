@@ -3,7 +3,7 @@
   
     <div class="hero">
       
-        <img src="../assets/hero-image.webp" width="800" height="350"/>
+        <img src="../assets/hero-image.webp" width="800" height="350" alt="Hero image"/>
         <p class="logo">Nathan's Services</p>
       
     </div>
