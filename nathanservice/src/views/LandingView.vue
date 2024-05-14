@@ -60,20 +60,13 @@ export default {
     Header,
     Footer,
   },
-  beforeMount() {
-    import('../assets/landing.css').then((cssModule) => {
-    const css = cssModule.default || cssModule;
-    const head = document.head || document.getElementsByTagName('head')[0];
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    if (style.styleSheet){
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
-    head.appendChild(style);
-  });
-  },
+  created() {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'style';
+  link.href = '../assets/landing.css';
+  document.head.appendChild(link);
+},
   mounted() {
     const btns = document.querySelectorAll(".button");
     btns.forEach((btn) => {
