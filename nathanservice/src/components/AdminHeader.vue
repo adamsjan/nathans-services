@@ -1,13 +1,13 @@
 <template>
   <header class="sticky-header">
     <nav class="web-nav">
-      <router-link class="nav-button" to="/meist" exact>MEIST</router-link>
-      <router-link class="nav-button" to="/teenused">TEENUSED</router-link>
-      <router-link class="nav-button" to="/tehtud-tood"
+      <router-link class="nav-button" to="/admin-home" exact>MEIST</router-link>
+      <router-link class="nav-button" to="/admin-services">TEENUSED</router-link>
+      <router-link class="nav-button" to="/admin-previous-work"
         >TEHTUD TÖÖD</router-link
       >
-      <router-link class="nav-button" to="/kontakt">KONTAKT</router-link>
-      <router-link class="nav-button" to="/partnerid">PARTNERID</router-link>
+      <router-link class="nav-button" to="/admin-contact">KONTAKT</router-link>
+      <router-link class="nav-button" to="/admin-partners">PARTNERID</router-link>
     </nav>
 
     <div class="menu-toggle">
@@ -21,13 +21,13 @@
 
     <nav class="mobile-nav">
       <span class="mobile-button close-button">&times;</span>
-      <router-link class="mobile-button" to="/meist" exact>MEIST</router-link>
-      <router-link class="mobile-button" to="/teenused">TEENUSED</router-link>
-      <router-link class="mobile-button" to="/tehtud-tood"
+      <router-link class="mobile-button" to="/admin-home" exact>MEIST</router-link>
+      <router-link class="mobile-button" to="/admin-services">TEENUSED</router-link>
+      <router-link class="mobile-button" to="/admin-previous-work"
         >TEHTUD TÖÖD</router-link
       >
-      <router-link class="mobile-button" to="/kontakt">KONTAKT</router-link>
-      <router-link class="mobile-button" to="/partnerid">PARTNERID</router-link>
+      <router-link class="mobile-button" to="/admin-contact">KONTAKT</router-link>
+      <router-link class="mobile-button" to="/admin-partners">PARTNERID</router-link>
     </nav>
   </header>
 
@@ -83,7 +83,7 @@ export default {
         email: this.email,
         password: this.password,
       };
-      fetch("http://localhost:3000/auth/logout", {
+      fetch("/auth/logout", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
