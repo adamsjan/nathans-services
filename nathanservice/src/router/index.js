@@ -120,10 +120,6 @@ router.beforeEach((to, from, next) => {
   console.log("router check");
   // Check if the route requires authentication
   if (to.meta.requiresAuth) {
-    // Check authentication status here, e.g., by making an API request
-    // If user is authenticated, proceed to the requested route
-    // If user is not authenticated, redirect to login page or display error message
-    // Example API request:
     fetch("/auth/authenticate", {
       method: "GET",
       credentials: 'include' // Include credentials if using cookies or tokens for authentication

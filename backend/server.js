@@ -123,6 +123,7 @@ app.post('/auth/login', async(req, res) => {
         if (!validPassword) return res.status(401).json({ error: "Incorrect password is:", password });
 
         const token = await generateJWT(user.rows[0].id);
+        console.log("Token", token);
         res.status(201)
             .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
             .json({ user_id: user.rows[0].id })
@@ -325,17 +326,7 @@ app.use(async (req, res, next) => {
 
 });
 
-
 // routes/middlewares below are always checked for valid token
-
-//"async and await make promises easier to write"
-// async makes a function return a Promise
-// The keyword async before a function makes the function return a promise.
-// Syntax:  "async(req, res) => {}"
-// await makes a function wait for a Promise
-// The await keyword can only be used inside an async function.
-// The await keyword makes the function pause the execution and wait for a resolved promise before it continues
-// Syntax:  "async(req, res) => {let value = await promise}"
 
 // Task 1
 app.post('/api/posts', async(req, res) => {
