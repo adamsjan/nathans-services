@@ -1,5 +1,5 @@
 @media screen and (min-width: 0px) {
-    main {
+    .contactMain {
       position: relative;
       margin-top: 15%;
       background-image: linear-gradient(130deg, var(--darker) 54%, white 46%);
@@ -117,7 +117,7 @@
   
   
   @media screen and (min-width: 670px) {
-    main {
+    .contactMain {
       margin-top: 7%;
     }
   
@@ -148,7 +148,7 @@
   }
   
   @media screen and (min-width: 674px) {
-    main {
+    .contactMain {
       margin-top: 5%;
     }
   }

@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
 
-    <main>
+    <main class="contactMain">
       <div class="flex-column">
         <div class="title">
           <h1>VÕTA MEIEGA ÜHENDUST!</h1>
@@ -75,9 +75,6 @@ export default {
       message: "",
     };
   },
-  beforeMount() {
-    import('../assets/contact.css');
-  },
   methods: {
     sendEmail() {
       (function () {
@@ -121,4 +118,8 @@ export default {
 };
 </script>
 
+<style scoped>
 
+  @import '../assets/contact.css';
+
+</style>
