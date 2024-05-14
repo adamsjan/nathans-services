@@ -140,10 +140,11 @@ export default {
 .edit-container {
   display: flex;
   align-items: flex-start;
-  background-color: transparent;
+  background-color: white;
   border: solid 2px var(--darker);
   padding: 3px;
   margin: 0px 3px 0px 3px;
+  width: 100%;
 }
 
 textarea {

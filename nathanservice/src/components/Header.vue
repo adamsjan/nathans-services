@@ -58,6 +58,12 @@ export default {
 </script>
 
 <style scoped>
+
+  @import '../assets/header.css';
+
+</style>
+
+<style scoped>
 @media screen and (min-width: 0px) {
     .sticky-header {
       width: 100%;
