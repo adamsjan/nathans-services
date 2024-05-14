@@ -23,6 +23,10 @@
     scroll-behavior: smooth;
 }
 
+main {
+  background-color: #fff;
+}
+
 p,
 h1, h2, label, input, textarea {
     color: var(--darker);

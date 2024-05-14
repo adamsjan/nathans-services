@@ -61,7 +61,6 @@ export default {
     Header,
     Footer,
   },
-  
   created() {
     import ("../assets/landing.css")
   },
