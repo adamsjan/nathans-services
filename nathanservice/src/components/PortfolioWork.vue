@@ -22,7 +22,7 @@
 <script>
   import PostToShow from '@/components/PostToShow.vue';
   import Show from '@/components/Show.vue';
-import PostToEdit from '@/components/PostToEdit.vue
+import PostToEdit from '@/components/PostToEdit.vue';
 import ImageUpload  from '@/components/ImageUpload.vue';
 
 export default {
@@ -43,7 +43,7 @@ export default {
       required: true,
     },
     edit: { 
-        type: String,
+        type: Boolean,
         required: false,
     },
   },
