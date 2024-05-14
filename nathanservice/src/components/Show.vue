@@ -77,8 +77,7 @@ export default {
 
 picture img {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  height: 100%;
   object-fit: cover;
   overflow: hidden;
   object-position: 50% 0%;
