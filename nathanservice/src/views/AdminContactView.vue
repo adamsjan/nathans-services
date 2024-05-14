@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <AdminHeader></AdminHeader>
 
     <main class="contactMain">
       <div class="flex-column">
@@ -53,13 +53,13 @@
       <p><b>Email saadetud!</b></p>
     </div>
 
-    <Footer></Footer>
+    <AdminFooter></AdminFooter>
   </div>
 </template>
 
 <script defer>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import AdminHeader from "@/components/AdminHeader.vue";
+import AdminFooter from "@/components/AdminFooter.vue";
 import PostToEdit from "@/components/PostToEdit.vue";
 
 export default {

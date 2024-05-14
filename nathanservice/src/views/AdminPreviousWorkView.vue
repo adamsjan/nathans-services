@@ -8,9 +8,9 @@
   
       <div class="images">
         <div class="content">
-          <PortfolioWork :gallery="'first'" :ids="[20]"></PortfolioWork>
+          <PortfolioWork :gallery="'first'" :edit="true" :ids="[20]"></PortfolioWork>
   
-          <PortfolioModal :gallery="'first'" :ids="[4, 20, 21]"></PortfolioModal>
+          <PortfolioModal :gallery="'first'" :edit="true" :ids="[4, 20, 21]"></PortfolioModal>
         </div>
   
         <div class="content">

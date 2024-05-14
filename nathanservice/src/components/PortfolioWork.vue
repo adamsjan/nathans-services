@@ -3,9 +3,13 @@
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">
-              <Show :id="ids[1]"></Show>
+              <ImageUpload v-if="edit" :id="ids[1]"></ImageUpload>
+              <Show v-else="show" :id="ids[1]"></Show>
               <div class="portfolioOverlay">
-                <h2 class="button"><PostToShow :postId="ids[0]"></PostToShow>
+                <h2 class="button">
+                  <PostToEdit v-if="edit" :postId="ids[0]"></PostToEdit>
+                  <PostToShow v-else :postId="ids[0]"></PostToShow>
+
                 <svg width="100%" height="100%">
                   <rect x="0" y="0" fill="none" width="100%" height="100%" />
                 </svg>
@@ -18,12 +22,16 @@
 <script>
   import PostToShow from '@/components/PostToShow.vue';
   import Show from '@/components/Show.vue';
+import PostToEdit from '@/components/PostToEdit.vue
+import ImageUpload  from '@/components/ImageUpload.vue';
 
 export default {
 
   components: {
     PostToShow,
-    Show
+    Show,
+    PostToEdit,
+    ImageUpload
   },
   props: {
     gallery: { 
@@ -33,7 +41,11 @@ export default {
     ids: {
       type: Array,
       required: true,
-    }
+    },
+    edit: { 
+        type: String,
+        required: false,
+    },
   },
   beforeMount() {
     import('../assets/portfoliowork.css')
