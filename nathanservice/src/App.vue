@@ -94,4 +94,8 @@ button {
     transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
   }
 }
+
+header {
+  min-height: 10%;
+}
 </style>

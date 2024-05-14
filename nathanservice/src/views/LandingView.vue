@@ -81,9 +81,4 @@ export default {
 };
 </script>
 
-<style scoped>
-Header {
-  min-height: 10%;
-}
-</style>
 
