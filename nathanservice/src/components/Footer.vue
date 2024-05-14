@@ -35,9 +35,56 @@ export default {
   components: {
     PostToShow,
   },
-  created() {
-    import('../assets/footer.css')
-  }
 };
 </script>
 
+<style scoped>
+
+@media screen and (min-width: 0px) {
+    hr {
+      display: none;
+    }
+  
+    footer {
+      height: fit-content;
+      background-color: var(--darker);
+      padding: 1% 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .terms {
+      cursor: pointer;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      font-size: small;
+    }
+  
+    footer > div {
+      text-align: center;
+      margin: 5% 0%;
+    }
+  
+    footer > div > p {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: small;
+    }
+  }
+  
+  @media screen and (min-width: 550px) {
+    footer {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+  
+    footer > div {
+      width: 27%;
+      margin: 5% 2%;
+    }
+  }
+</style>
