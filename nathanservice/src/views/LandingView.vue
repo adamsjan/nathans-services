@@ -1,13 +1,15 @@
 <template>
   <Header @loaded="headerLoaded"></Header>
+
+  <main v-if="headerIsLoaded">
   
-    <div class="hero" v-if="headerIsLoaded">
+    <div class="hero" >
       
         <img src="../assets/hero-image.webp" width="800" height="350"/>
         <p class="logo">Nathan's Services</p>
       
     </div>
-    <main>
+  
     <div class="ctas">
       <a class="button" href="#/teenused">
         <svg>
