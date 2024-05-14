@@ -65,7 +65,7 @@ execute(createUserTblQuery).then(result => {
 
 /* Create table to upload images */
 const createImageTblQuery = `
-CREATE TABLE images (
+CREATE TABLE IF NOT EXISTS images (
     id SERIAL PRIMARY KEY,
     url_small VARCHAR(255),
     url_medium VARCHAR(255),

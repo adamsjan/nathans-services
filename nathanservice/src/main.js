@@ -1,6 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+const { createApp } = require('vue');
+const App = require('./App.vue');
+const router = require('./router');
 
 const app = createApp(App);
 app.use(router);
