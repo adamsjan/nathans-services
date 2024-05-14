@@ -1,6 +1,7 @@
 {
     "name": "nathanservice",
     "version": "1.0.0",
+    "type": "module",
     "main": "backend/database.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
