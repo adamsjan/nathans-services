@@ -1,15 +1,13 @@
 <template>
-  <Header @loaded="headerLoaded"></Header>
-
-  <main v-if="headerIsLoaded">
+  <Header></Header>
   
-    <div class="hero" >
+    <div class="hero">
       
         <img src="../assets/hero-image.webp" width="800" height="350"/>
         <p class="logo">Nathan's Services</p>
       
     </div>
-  
+    <main>
     <div class="ctas">
       <a class="button" href="#/teenused">
         <svg>
@@ -63,16 +61,7 @@ export default {
     Header,
     Footer,
   },
-  data() {
-    return {
-      headerIsLoaded: false
-    };
-  },
-  methods: {
-    headerLoaded() {
-      this.headerIsLoaded = true;
-    }
-  },
+  
   created() {
     import ("../assets/landing.css")
   },
@@ -93,6 +82,8 @@ export default {
 </script>
 
 <style scoped>
-
+Header {
+  min-height: 10%;
+}
 </style>
 
