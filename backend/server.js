@@ -15,8 +15,8 @@ const compression = require('compression');
 
 const { createSSRApp } = require('vue');
 const { renderToString } = require('@vue/server-renderer');
-const { createRouter } = require('../nathanservice/router');
-const App = require('../nathanservice/App.vue').default;
+const { createRouter } = require('../nathanservice/src/router');
+const App = require('../nathanservice/src/App.vue').default;
 
 function createApp() {
     const router = createRouter();
