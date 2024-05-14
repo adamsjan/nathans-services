@@ -61,13 +61,8 @@ export default {
     Footer,
   },
   created() {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'style';
-  link.href = '../assets/landing.css';
-  link.type = 'text/css';
-  document.head.appendChild(link);
-},
+    import ("../assets/landing.css")
+  },
   mounted() {
     const btns = document.querySelectorAll(".button");
     btns.forEach((btn) => {
