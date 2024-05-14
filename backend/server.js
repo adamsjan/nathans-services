@@ -12,33 +12,22 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const compression = require('compression');
-import { renderToString } from '@vue/server-renderer';
-import { createApp } from '../nathanservice/main.js';
+
+const { createSSRApp } = require('vue');
+const { renderToString } = require('@vue/server-renderer');
+const { createRouter } = require('../nathanservice/router');
+const App = require('../nathanservice/App.vue').default;
+
+function createApp() {
+    const router = createRouter();
+    const app = createSSRApp(App);
+    app.use(router);
+    return { app, route };
+}
 
 const port = process.env.PORT || 3000;
 
 const app = express();
-
-
-app.get('*', async (req, res) => {
-    const { app, router } = createApp();
-  
-    router.push(req.url);
-    await router.isReady();
-  
-    renderToString(app).then((html) => {
-      res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-          <head><title>My Vue App</title></head>
-          <body>${html}</body>
-        </html>
-      `);
-    }).catch((err) => {
-      res.status(500).end('Internal Server Error');
-      console.error(err);
-    });
-  });
 
 app.use(compression());
 
@@ -439,6 +428,26 @@ app.put('/image/:id', imageUpload.single('image'), async(req, res) => {
         res.status(500).send({ success: false, message: 'Failed to upload image.', error: error.message });
     }
 });
+
+app.get('*', async (req, res) => {
+    const { app, router } = createApp();
+  
+    router.push(req.url);
+    await router.isReady();
+  
+    renderToString(app).then((html) => {
+      res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+          <head><title>My Vue App</title></head>
+          <body>${html}</body>
+        </html>
+      `);
+    }).catch((err) => {
+      res.status(500).end('Internal Server Error');
+      console.error(err);
+    });
+  });
 
 //``````````````
 app.listen(port, () => {
