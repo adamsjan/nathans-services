@@ -2,9 +2,10 @@
   <Header></Header>
   
     <div class="hero">
-      <div class="logo-container" id="MainLogo">
+      
+        <img src="../assets/hero-image.webp"/>
         <p class="logo">Nathan's Services</p>
-      </div>
+      
     </div>
     <main>
     <div class="ctas">
