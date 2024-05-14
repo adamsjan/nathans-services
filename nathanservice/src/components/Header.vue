@@ -39,7 +39,7 @@
 <script>
 export default {
   name: "HeaderComponent",
-  beforeMount() {
+  created() {
     import ("../assets/header.css")
   },
   mounted() {

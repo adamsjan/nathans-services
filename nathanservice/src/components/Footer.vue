@@ -35,7 +35,7 @@ export default {
   components: {
     PostToShow,
   },
-  beforeMount() {
+  created() {
     import('../assets/footer.css')
   }
 };
