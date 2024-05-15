@@ -67,7 +67,6 @@ app.use((req, res, next) => {
 app.get('/auth/authenticate', async(req, res) => {
     console.log('Navigation authentication has been called.');
     const token = req.cookies.jwt; // assign the token named jwt to the token const
-    console.log("token " + token);
     let authenticated = false; // a user is not authenticated until proven the opposite
     try {
         if (token) { //checks if the token exists

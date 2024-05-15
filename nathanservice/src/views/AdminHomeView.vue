@@ -39,43 +39,46 @@
       </div>
       <div class="card">
         <section class="three-divs">
-          <div class="barrel">
-            <ImageUpload :id="1"></ImageUpload>
+          <div class="barrel-container">
+            <div class="barrel">
+              <ImageUpload :id="1"></ImageUpload>
 
-            <div class="text">
-              <h1>
-                <PostToEdit :postId="7"></PostToEdit>
-              </h1>
-              <p>
-                <PostToEdit :postId="8"></PostToEdit>
-              </p>
-            </div>
-            
-          </div>
-
-          <div class="barrel">
-            <ImageUpload :id="2"></ImageUpload>
-
-            <div class="text">
-              <h1>
-                <PostToEdit :postId="9"></PostToEdit>
-              </h1>
-              <p>
-                <PostToEdit :postId="10"></PostToEdit>
-              </p>
+              <div class="text">
+                <h1>
+                  <PostToEdit :postId="7"></PostToEdit>
+                </h1>
+                <p>
+                  <PostToEdit :postId="8"></PostToEdit>
+                </p>
+              </div>
             </div>
           </div>
+          <div class="barrel-container">
+            <div class="barrel">
+              <ImageUpload :id="2"></ImageUpload>
 
-          <div class="barrel">
-            <ImageUpload :id="3"></ImageUpload>
+              <div class="text">
+                <h1>
+                  <PostToEdit :postId="9"></PostToEdit>
+                </h1>
+                <p>
+                  <PostToEdit :postId="10"></PostToEdit>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="barrel-container">
+            <div class="barrel">
+              <ImageUpload :id="3"></ImageUpload>
 
-            <div class="text">
-              <h1>
-                <PostToEdit :postId="11"></PostToEdit>
-              </h1>
-              <p>
-                <PostToEdit :postId="12"></PostToEdit>
-              </p>
+              <div class="text">
+                <h1>
+                  <PostToEdit :postId="11"></PostToEdit>
+                </h1>
+                <p>
+                  <PostToEdit :postId="12"></PostToEdit>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -101,7 +104,7 @@ export default {
     PostToEdit,
     ImageUpload,
     NewImage,
-    Barrel
+    Barrel,
   },
   data() {
     return {
@@ -143,7 +146,6 @@ export default {
 </script>
 
 <style scoped>
-
-  @import '../assets/home.css';
-
+@import "../assets/home.css";
+@import "../assets/home-desktop.css";
 </style>

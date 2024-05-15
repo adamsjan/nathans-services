@@ -4,7 +4,7 @@
 
     <main>
       <div class="divider-section heading">
-        <h1>PARTNERID</h1>
+        <h1>PARTNERS</h1>
       </div>
 
       <section class="three-divs">
@@ -39,6 +39,7 @@ import PostToShow from "@/components/PostToShow.vue";
 import Show from "@/components/Show.vue";
 import Barrel from "@/components/Barrel.vue";
 import PartnerModal from "@/components/PartnerModal.vue";
+import PostToEdit from "@/components/PostToEdit.vue";
 
 export default {
   name: "PartnersView",

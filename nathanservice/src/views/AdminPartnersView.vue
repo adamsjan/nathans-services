@@ -4,7 +4,7 @@
 
     <main>
       <div class="divider-section heading">
-        <h1>PARTNERID</h1>
+        <h1><PostToEdit :id="42"></PostToEdit></h1>
       </div>
 
       <section class="three-divs">
