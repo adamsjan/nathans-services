@@ -12,6 +12,8 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const compression = require('compression');
+const rateLimit = require('express-rate-limit');
+const emailjs = require('emailjs-com');
 
 const port = process.env.PORT || 3000;
 
@@ -166,6 +168,38 @@ app.get('/auth/logout', (req, res) => {
     res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
 });
 
+const contactFormLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10, // Limit each IP to 10 requests per windowMs
+    message: "Too many requests from this IP, please try again later."
+  });
+
+app.post('/send-email', contactFormLimiter, (req, res) => {
+    const { user_name, user_email, topic, message } = req.body;
+
+    // Validate email
+    if (!/\S+@\S+\.\S+/.test(user_email)) {
+        return res.status(400).json({ success: false, message: 'Invalid email address' });
+    }
+
+    emailjs.init("FZG1mXWjxkNibIWvF");
+    const templateParams = {
+      user_name,
+      user_email,
+      topic,
+      message
+    };
+  
+    emailjs.send('service_2rgvnti', 'template_u9m7hlg', templateParams)
+      .then(response => {
+        res.json({ success: true, message: 'Email sent successfully!' });
+      })
+      .catch(error => {
+        res.status(500).json({ success: false, message: 'Failed to send email', error: error.text });
+      });
+  });
+  
+
 const sharp = require('sharp');
 const { BlobServiceClient } = require('@azure/storage-blob');
 const { strict } = require('assert');
@@ -246,7 +280,10 @@ app.get('/image/:id/:size', async (req, res) => {
                 default:
                     return res.status(400).json({ success: false, message: "Invalid size parameter" });
             }
-            console.log("Image url is:", imageUrl);
+            res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
+
+            // Set the correct content type
+            res.set('Content-Type', imageResponse.headers['content-type']);
             res.json({ success: true, url: imageUrl });
         } else {
             res.status(404).json({ success: false, message: "Image not found" });

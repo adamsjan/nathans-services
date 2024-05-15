@@ -44,32 +44,10 @@
             
           </div>
           <div class="barrel-container">
-            <div class="barrel">
-              <ImageUpload :id="4"></ImageUpload>
-
-              <div class="text">
-                <h1>
-                  <PostToEdit :postId="9"></PostToEdit>
-                </h1>
-                <p>
-                  <PostToEdit :postId="10"></PostToEdit>
-                </p>
-              </div>
-            </div>
+            <Barrel :ids="[4,9,10]" :edit="true"></Barrel>
           </div>
           <div class="barrel-container">
-            <div class="barrel">
-              <ImageUpload :id="5"></ImageUpload>
-
-              <div class="text">
-                <h1>
-                  <PostToEdit :postId="11"></PostToEdit>
-                </h1>
-                <p>
-                  <PostToEdit :postId="12"></PostToEdit>
-                </p>
-              </div>
-            </div>
+            <Barrel :ids="[5,11,12]" :edit="true"></Barrel>
           </div>
         </section>
       </div>

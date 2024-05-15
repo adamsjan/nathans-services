@@ -4,26 +4,26 @@
 
     <main>
       <div class="divider-section heading">
-        <h1><PostToEdit :id="87"></PostToEdit></h1>
+        <h1><PostToEdit :id="48"></PostToEdit></h1>
       </div>
 
       <section class="three-divs">
         <div class="partner">
-          <Barrel :ids="[4, 26, 27]"></Barrel>
+          <Barrel :ids="[4, 26, 27]" :edit="true"></Barrel>
 
-          <PartnerModal :ids="[4, 26, 28]"></PartnerModal>
+          <PartnerModal :ids="[4, 26, 28]" :edit="true"></PartnerModal>
         </div>
 
         <div class="partner">
-          <Barrel :ids="[5, 29, 30]"></Barrel>
+          <Barrel :ids="[5, 29, 30]" :edit="true"></Barrel>
 
-          <PartnerModal :ids="[5, 29, 31]"></PartnerModal>
+          <PartnerModal :ids="[5, 29, 31]" :edit="true"></PartnerModal>
         </div>
 
         <div class="partner">
-          <Barrel :ids="[6, 32, 33]"></Barrel>
+          <Barrel :ids="[6, 32, 33]" :edit="true"></Barrel>
 
-          <PartnerModal :ids="[6, 32, 34]"></PartnerModal>
+          <PartnerModal :ids="[6, 32, 34]" :edit="true"></PartnerModal>
         </div>
       </section>
     </main>

@@ -3,14 +3,17 @@
   <div class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-      <Show :id="ids[0]" :alt="'Partner'"></Show>
+      <ImageUpload v-if="edit" :id="ids[0]" :alt="'Partner'"></ImageUpload>
+      <Show v-else :id="ids[0]" :alt="'Partner'"></Show>
 
       <div class="modal-text">
         <h1>
-          <PostToShow :postId="ids[1]"></PostToShow>
+          <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+          <PostToShow v-else :postId="ids[1]"></PostToShow>
         </h1>
         <p>
-          <PostToShow :postId="ids[2]"></PostToShow>
+          <PostToEdit v-if="edit" :postId="ids[2]"></PostToEdit>
+          <PostToShow v-else :postId="ids[2]"></PostToShow>
         </p>
         <a href="google.com" class="button cta-contact-partner">Tutvu partneriga!</a>
       </div>
@@ -24,17 +27,22 @@
 <script>
 import PostToShow from "@/components/PostToShow.vue";
 import Show from "@/components/Show.vue";
+import PostToEdit from "@/components/PostToEdit.vue";
+import ImageUpload from "@/components/ImageUpload.vue";
 
 export default {
   components: {
     Show,
     PostToShow,
+    PostToEdit,
+    ImageUpload
   },
   props: {
     ids: {
       type: Array,
       required: true,
     },
+    edit: Boolean
   },
   data() {
     return {
