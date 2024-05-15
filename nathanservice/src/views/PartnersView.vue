@@ -9,13 +9,13 @@
 
       <section class="three-divs">
         <div class="partner">
-          <Barrel :ids="[4, 26, 27]"></Barrel>
+          <Barrel :ids="[6, 26, 27]"></Barrel>
 
-          <PartnerModal :ids="[4, 26, 28]"></PartnerModal>
+          <PartnerModal :ids="[8, 26, 28]"></PartnerModal>
         </div>
 
         <div class="partner">
-          <Barrel :ids="[5, 29, 30]"></Barrel>
+          <Barrel :ids="[10, 29, 30]"></Barrel>
 
           <PartnerModal :ids="[5, 29, 31]"></PartnerModal>
         </div>
