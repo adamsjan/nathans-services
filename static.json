@@ -3,5 +3,17 @@
     "clean_urls": true,
     "routes": {
       "/**": "index.html"
+    },
+    "headers": {
+      "/**": {
+        "Access-Control-Allow-Origin": "*",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "/**/*.js": {
+        "Content-Type": "application/javascript"
+      },
+      "/**/*.css": {
+        "Content-Type": "text/css"
+      }
     }
   }
