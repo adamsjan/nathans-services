@@ -1,13 +1,16 @@
 <template>
   <div class="barrel">
-    <Show :id="ids[0]" :loadingType="index > 2 ? 'lazy' : 'eager'" />
+    <ImageUpload v-if="edit" :id="ids[0]"></ImageUpload>
+    <Show v-else :id="ids[0]" :loadingType="index > 2 ? 'lazy' : 'eager'" />
 
     <div class="text">
       <h2>
-        <PostToShow :postId="ids[1]"></PostToShow>
+        <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+        <PostToShow v-else :postId="ids[1]"></PostToShow>
       </h2>
       <p>
-        <PostToShow :postId="ids[2]"></PostToShow>
+        <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+        <PostToShow v-else :postId="ids[2]"></PostToShow>
       </p>
     </div>
   </div>
@@ -16,6 +19,8 @@
 <script>
 import PostToShow from '@/components/PostToShow.vue';
 import Show from '@/components/Show.vue';
+import PostToEdit from '@/components/PostToEdit.vue';
+import ImageUpload from '@/components/ImageUpload.vue';
 
 export default {
   name: "Barrel",
@@ -28,6 +33,7 @@ export default {
       type: Array,
       required: true,
     },
+    edit: Boolean
   },
   data() {
     return {

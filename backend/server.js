@@ -124,7 +124,7 @@ app.post('/auth/login', async(req, res) => {
         const token = await generateJWT(user.rows[0].id);
         console.log("Token", token);
         res.status(201)
-            .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
+            .cookie('jwt', token, { maxAge: 6000000, httpOnly: true, secure: true, sameSite: 'Strict'})
             .json({ user_id: user.rows[0].id })
             .send;
     } catch (error) {
@@ -169,6 +169,7 @@ app.get('/auth/logout', (req, res) => {
 
 const sharp = require('sharp');
 const { BlobServiceClient } = require('@azure/storage-blob');
+const { strict } = require('assert');
 
 const azureBlobService = async (file) => {
     const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;

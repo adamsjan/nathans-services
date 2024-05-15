@@ -40,17 +40,8 @@
       <div class="card" id="card-3">
         <section class="three-divs">
           <div class="barrel">
-            <NewImage></NewImage>
-            <ImageUpload :id="1"></ImageUpload>
-
-            <div class="text">
-              <h1>
-                <PostToEdit :postId="7"></PostToEdit>
-              </h1>
-              <p>
-                <PostToEdit :postId="8"></PostToEdit>
-              </p>
-            </div>
+            <Barrel :ids="[1,7,8]" :edit=true></Barrel>
+            
           </div>
 
           <div class="barrel">
@@ -89,6 +80,7 @@
 import PostToEdit from "@/components/PostToEdit.vue";
 import ImageUpload from "@/components/ImageUpload.vue";
 import NewImage from "@/components/NewImage.vue";
+import Barrel from "@/components/Barrel.vue";
 import AdminHeader from "@/components/AdminHeader.vue";
 import AdminFooter from "@/components/AdminFooter.vue";
 
@@ -100,6 +92,7 @@ export default {
     PostToEdit,
     ImageUpload,
     NewImage,
+    Barrel
   },
   data() {
     return {
