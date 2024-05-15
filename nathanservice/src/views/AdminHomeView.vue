@@ -1,165 +1,298 @@
 <template>
   <div class="body">
-    <Header></Header>
+    <AdminHeader></AdminHeader>
 
     <main>
-      <div class="introduction-section">
-        <div class="divider-section heading">
-          <h1><PostToEdit :postId="1"></PostToEdit></h1>
-        </div>
+      <div class="card">
+        <section class="introduction-section">
+          <div class="divider-section heading">
+            <PostToEdit :postId="1"></PostToEdit>
+          </div>
 
-        <div class="who-are-we">
-          <p class="text-new">
-            <PostToEdit :postId="2"></PostToEdit>
-          </p>
-        </div>
+          <div class="who-are-we">
+            <p>
+              <PostToEdit :postId="2"></PostToEdit>
+            </p>
+          </div>
+        </section>
       </div>
       <div class="mission">
-        <div class="divider-section heading">
-          <h1><PostToEdit :postId="3"></PostToEdit></h1>
+        <div class="left heading trapezoid-left">
+          <PostToEdit :postId="3"></PostToEdit>
         </div>
-        <div class="who-are-we">
-          <p class="text-new"><PostToEdit :postId="4"></PostToEdit></p>
+        <div class="right">
+          <div class="text-new"><PostToEdit :postId="4"></PostToEdit></div>
         </div>
       </div>
       <div class="vision">
-        <div class="who-are-we">
-          <p class="text-new">
+        <div class="left">
+          <div class="text-new">
             <PostToEdit :postId="6"></PostToEdit>
-          </p>
+          </div>
         </div>
-        <div class="divider-section heading">
-          <h1><PostToEdit :postId="5"></PostToEdit></h1>
+        <div class="right heading trapezoid-right">
+          <PostToEdit :postId="5"></PostToEdit>
         </div>
       </div>
       <div class="divider-section heading">
-        <h1><PostToEdit :postId="13"></PostToEdit></h1>
+        <PostToEdit :postId="13"></PostToEdit>
       </div>
-      <div class="card">
+      <div class="card" id="card-3">
         <section class="three-divs">
-          <div class="barrel-container">
-            <Barrel :ids="[1, 7, 8]"></Barrel>
+          <div class="barrel">
+            <NewImage></NewImage>
+            <ImageUpload :id="1"></ImageUpload>
+
+            <div class="text">
+              <h1>
+                <PostToEdit :postId="7"></PostToEdit>
+              </h1>
+              <p>
+                <PostToEdit :postId="8"></PostToEdit>
+              </p>
+            </div>
           </div>
 
-          <div class="barrel-container">
-            <Barrel :ids="[4, 9, 10]"></Barrel>
+          <div class="barrel">
+            <ImageUpload :id="2"></ImageUpload>
+
+            <div class="text">
+              <h1>
+                <PostToEdit :postId="9"></PostToEdit>
+              </h1>
+              <p>
+                <PostToEdit :postId="10"></PostToEdit>
+              </p>
+            </div>
           </div>
 
-          <div class="barrel-container">
-            <Barrel :ids="[5, 11, 12]"></Barrel>
+          <div class="barrel">
+            <ImageUpload :id="3"></ImageUpload>
+
+            <div class="text">
+              <h1>
+                <PostToEdit :postId="11"></PostToEdit>
+              </h1>
+              <p>
+                <PostToEdit :postId="12"></PostToEdit>
+              </p>
+            </div>
           </div>
         </section>
       </div>
     </main>
-    <Footer></Footer>
+    <AdminFooter></AdminFooter>
   </div>
 </template>
 
-<script defer>
+<script>
+import PostToEdit from "@/components/PostToEdit.vue";
+import ImageUpload from "@/components/ImageUpload.vue";
+import NewImage from "@/components/NewImage.vue";
 import AdminHeader from "@/components/AdminHeader.vue";
 import AdminFooter from "@/components/AdminFooter.vue";
-import PostToEdit from "@/components/PostToEdit.vue";
-import Barrel from "@/components/Barrel.vue";
 
 export default {
   name: "AdminHomeView",
   components: {
-    AdminHeader,
     AdminFooter,
+    AdminHeader,
     PostToEdit,
-    Barrel,
+    ImageUpload,
+    NewImage,
   },
   data() {
     return {
       posts: [],
+      selectedFile: null,
     };
   },
-  beforeMount() {
-    import("../assets/home.css").then((cssModule) => {
-      const css = cssModule.default || cssModule;
-      const head = document.head || document.getElementsByTagName("head")[0];
-      const style = document.createElement("style");
-      style.type = "text/css";
-      if (style.styleSheet) {
-        style.styleSheet.cssText = css;
-      } else {
-        style.appendChild(document.createTextNode(css));
-      }
-      head.appendChild(style);
+  mounted() {
+    const startAnimation = (entries, observer) => {
+      entries.forEach((entry) => {
+        entry.target.classList.add("scrolled");
+      });
+    };
+
+    // Create the observer
+    const observerForLeftRight = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // It's visible. Add the animation class here!
+          entry.target.querySelector(".left").classList.add("left-animation");
+          entry.target.querySelector(".right").classList.add("right-animation");
+        } else {
+          entry.target
+            .querySelector(".left")
+            .classList.remove("left-animation");
+          entry.target
+            .querySelector(".right")
+            .classList.remove("right-animation");
+        }
+      });
     });
 
-    if (window.innerWidth > 550) {
-      import("../assets/home-desktop.css")
-        .then(() => {
-          // Force browser to re-calculate styles
-          this.$nextTick(() => {
-            document.body.offsetHeight; // This forces the browser to reflow
-          });
-        })
-        .catch((err) => console.error("Failed to load desktop CSS:", err));
-    }
-    // Call the function on initial load
-    this.updateClasses();
+    // Tell the observer which elements to track
+    observerForLeftRight.observe(document.querySelector(".mission"));
+    observerForLeftRight.observe(document.querySelector(".vision"));
   },
-  mounted() {
-    // Add an event listener to update classes on window resize
-    window.addEventListener("resize", this.updateClasses());
-
-    const screenWidth = window.innerWidth;
-
-    if (screenWidth >= 600) {
-      // Create the observer
-      const observerForLeftRight = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // It's visible. Add the animation class here!
-            entry.target.querySelector(".left").classList.add("left-animation");
-            entry.target
-              .querySelector(".right")
-              .classList.add("right-animation");
-          } else {
-            entry.target
-              .querySelector(".left")
-              .classList.remove("left-animation");
-            entry.target
-              .querySelector(".right")
-              .classList.remove("right-animation");
-          }
-        });
-      });
-
-      // Tell the observer which elements to track
-      observerForLeftRight.observe(document.querySelector(".mission"));
-      observerForLeftRight.observe(document.querySelector(".vision"));
-    }
-  },
-  methods: {
-    updateClasses() {
-      const elements = document.querySelectorAll(".mission, .vision");
-      const screenWidth = window.innerWidth;
-
-      if (screenWidth >= 600) {
-        elements.forEach((element) => {
-          if (element.classList.contains("mission")) {
-            element.children[0].className = "left heading trapezoid-left";
-            element.children[1].className = "right";
-          } else {
-            element.children[1].className = "right heading trapezoid-right";
-            element.children[0].className = "left";
-          }
-        });
-      } else {
-        elements.forEach((element) => {
-          if (element.classList.contains("mission")) {
-            element.children[0].className = "divider-section heading";
-            element.children[1].className = "who-are-we";
-          } else {
-            element.children[1].className = "divider-section heading";
-            element.children[0].className = "who-are-we";
-          }
-        });
-      }
-    },
-  },
+  methods: {},
 };
 </script>
+
+<style scoped>
+body {
+  height: 100vh;
+}
+
+.card {
+  min-height: 70vh;
+  width: 100%;
+  position: relative;
+}
+
+.introduction-section {
+  width: 100%;
+  min-height: auto;
+  margin-bottom: 0;
+  color: rgb(36, 18, 25);
+  text-align: left;
+}
+
+.introduction-section > div {
+  font-size: 60px;
+}
+
+.heading {
+  background-color: var(--darker);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.divider-section {
+  width: 100vw;
+  height: 5%;
+  margin: 5% 0%;
+  padding: 8% 5%;
+}
+
+.who-are-we {
+  width: 100%;
+  min-height: auto;
+  padding: 2% 15%;
+}
+
+.trapezoid-left {
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.trapezoid-right {
+  clip-path: polygon(15% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+  transition: flex-grow 0.5s ease-in-out; /* Smooth transition */
+  height: 80%;
+}
+
+.text-new {
+  background-color: white;
+  height: 100%;
+  padding: 5% 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--bold);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .left-animation {
+    animation: flyFromLeft 1s forwards;
+  }
+
+  .right-animation {
+    animation: flyFromRight 1s forwards;
+  }
+
+  .bottom-animation {
+    animation: flyFromBottom 1s forwards;
+  }
+}
+
+@keyframes flyFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes flyFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mission,
+.vision {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.three-divs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 5% 5%;
+}
+
+.barrel {
+  background-color: var(--light);
+  width: 27%;
+}
+
+.text {
+  height: fit-content;
+  padding: 10% 10% 20% 10%;
+}
+
+@media (max-width: 600px) {
+  .right-circle,
+  .left-circle {
+    display: none;
+  }
+
+  .three-divs {
+    flex-direction: column;
+    background-color: #fff;
+  }
+
+  .barrel {
+    width: 100%;
+    height: 100%;
+    margin: 5% 0%;
+  }
+}
+</style>
