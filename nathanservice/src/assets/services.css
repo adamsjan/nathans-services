@@ -86,9 +86,9 @@
     }
     
     .icon svg {
-      height: 100%;
+      height: 1em;
+      width: 1em;
       margin: 20% 20%;
-      
     }
   
     .service-dots-container {
