@@ -112,7 +112,6 @@ export default {
     let allImages;
 
     if (this.edit) {
-      console.log("true", document.querySelectorAll(".open-modal"));
       allImages = document.querySelectorAll(".open-modal");
     } else {
       allImages = document.querySelectorAll(".container");
@@ -121,11 +120,12 @@ export default {
     // When the user clicks on the button, open the modal
     allImages.forEach((image) => {
       image.addEventListener("click", (e) => {
-        console.log("clicked", e.target);
         import("../assets/portfoliomodal.css");
         // Get the button that opens the modal
 
-        let nextElement = this.nextElementSibling;
+        console.log("nxt", e.target.nextElementSibling);
+
+        let nextElement = e.target.nextElementSibling;
         while (nextElement && !nextElement.classList.contains("modal")) {
           nextElement = nextElement.nextElementSibling;
         }
