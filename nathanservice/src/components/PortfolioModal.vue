@@ -5,11 +5,11 @@
             <div class="modal-content">
               <div class="slideShow">
                 <div :class="['mySlides', gallery]">
-                  <Show :id="ids[4]" :alt="Tehtud töö"></Show>
+                  <Show :id="ids[4]" :alt="'Tehtud töö'"></Show>
                 </div>
 
                 <div :class="['mySlides', gallery]">
-                  <Show :id="ids[5]" :alt="Tehtud töö"></Show>
+                  <Show :id="ids[5]" :alt="'Tehtud töö'"></Show>
                 </div>
 
                 <!-- Next and previous buttons -->

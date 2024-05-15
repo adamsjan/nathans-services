@@ -1,7 +1,7 @@
 <template>
   <div class="barrel">
     <ImageUpload v-if="edit" :id="ids[0]"/>
-    <Show v-else :id="ids[0]" :alt="Member" :loadingType="index > 2 ? 'lazy' : 'eager'" />
+    <Show v-else :id="ids[0]" :alt="'Member'" :loadingType="index > 2 ? 'lazy' : 'eager'" />
 
     <div class="text">
       <h2>

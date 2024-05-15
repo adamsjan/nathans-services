@@ -3,8 +3,8 @@
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">
-              <ImageUpload v-if="edit" :id="ids[1]"></ImageUpload>
-              <Show v-else="show" :id="ids[1]"></Show>
+              <ImageUpload v-if="edit" :id="ids[1]" :alt="'Tehtud töö'"></ImageUpload>
+              <Show v-else="show" :id="ids[1]" :alt="'Tehtud töö'"></Show>
               <div class="portfolioOverlay">
                 <h2 class="button">
                   <PostToEdit v-if="edit" :postId="ids[0]"></PostToEdit>
