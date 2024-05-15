@@ -42,25 +42,37 @@ export default {
   },
   props: ["id"],
   methods: {
+    sizeImageSrc() {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 600) {
+        return "small";
+      } else if (screenWidth >= 600 && screenWidth <= 1200) {
+        return "medium";
+      } else {
+        return "large";
+      }
+    },
     async getImage() {
       try {
-        const response = await fetch(`/image/${this.id}`, {
-          method: "GET",
-          "Content-Type": "multipart/form-data",
-          credentials: "include",
-        });
-
-        console.log(response);
+        const size = this.sizeImageSrc();
+        const response = await fetch(
+          `/image/${this.id}/${size}`,
+          {
+            method: "GET",
+            "Content-Type": "multipart/form-data",
+            credentials: "include"
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
-          this.imgSrc = data.url; // Assuming `imageSrc` is a data property in your Vue component
+          this.imgSrc = data.url;
+          this.loading = false;
         }
       } catch (error) {
         console.error("Error getting post:", error);
       }
     },
-
     async uploadFile() {
       const formData = new FormData();
       formData.append("image", this.$refs.fileInput.files[0]);
@@ -81,7 +93,8 @@ export default {
           console.error("Error uploading file:", error.message);
           // Handle error
         });
-    },
+    }
+  
   },
 };
 </script>
