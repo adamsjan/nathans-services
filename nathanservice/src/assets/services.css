@@ -80,14 +80,10 @@
       text-align: center;
       text-decoration: none;
     }
-  
-    .icon {
-      font-size: 50px;
-    }
     
-    .icon svg {
-      height: 1em;
-      width: 1em;
+    .icon {
+      height: 50px;
+      width: 50px;
       margin: 20% 20%;
     }
   
