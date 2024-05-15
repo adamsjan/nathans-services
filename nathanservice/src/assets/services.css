@@ -87,8 +87,9 @@
       margin: 20% 20%;
     }
 
-    .icon, path {
+    .dot-active .icon, .icon:hover {
       stroke: white;
+      fill: transparent;
     }
   
     .service-dots-container {
