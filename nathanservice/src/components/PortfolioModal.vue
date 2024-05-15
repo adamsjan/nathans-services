@@ -1,48 +1,63 @@
 <template>
-    <!-- The Modal -->
-    <div :id="gallery + '-modal'" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-              <div class="slideShow">
-                <div :class="['mySlides', gallery]">
-                  <ImageUpload v-if="edit" :id="ids[4]" :alt="'Tehtud töö'"></ImageUpload>
-                  <Show v-else :id="ids[4]" :alt="'Tehtud töö'"></Show>
-                </div>
+  <!-- The Modal -->
+  <div :id="gallery + '-modal'" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="slideShow">
+        <div :class="['mySlides', gallery]">
+          <ImageUpload
+            v-if="edit"
+            :id="ids[4]"
+            :alt="'Tehtud töö'"
+          ></ImageUpload>
+          <Show v-else :id="ids[4]" :alt="'Tehtud töö'"></Show>
+        </div>
 
-                <div :class="['mySlides', gallery]">
-                  <ImageUpload v-if="edit" :id="ids[5]" :alt="'Tehtud töö'"></ImageUpload>
-                  <Show v-else :id="ids[5]" :alt="'Tehtud töö'"></Show>
-                </div>
+        <div :class="['mySlides', gallery]">
+          <ImageUpload
+            v-if="edit"
+            :id="ids[5]"
+            :alt="'Tehtud töö'"
+          ></ImageUpload>
+          <Show v-else :id="ids[5]" :alt="'Tehtud töö'"></Show>
+        </div>
 
-                <!-- Next and previous buttons -->
-                <div class="prev" @click="plusSlides(-1, `${gallery}`)">&#10094;</div>
-                <div class="next" @click="plusSlides(1, `${gallery}`)">&#10095;</div>
-              </div>
+        <!-- Next and previous buttons -->
+        <div class="prev" @click="plusSlides(-1, `${gallery}`)">&#10094;</div>
+        <div class="next" @click="plusSlides(1, `${gallery}`)">&#10095;</div>
+      </div>
 
-              <div class="modal-text">
-                <h1>
-                  <PostToEdit v-if="edit" :postId="ids[0]"></PostToEdit>
-                  <PostToShow v-else :postId="ids[0]"></PostToShow>
-                </h1>
-                <p>
-                  <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
-                  <PostToShow v-else :postId="ids[1]"></PostToShow></p>
-                <div class="feedback">
-                    <q>
-                      <PostToEdit v-if="edit" :postId="ids[2]"></PostToEdit>
-                  <PostToShow v-else :postId="ids[2]"></PostToShow>
-                    </q>
-                <p><PostToEdit v-if="edit" :postId="ids[3]"></PostToEdit>
-                  <PostToShow v-else :postId="ids[3]"></PostToShow></p>
-              </div>
-                <a href="google.com" class="button cta-contact-partner">Tutvu kliendiga!</a>
-                <a id="reflectedlink" href="http://www.google.com/search">http://www.google.com/search</a>
-                <input id="searchterm"/>
-              </div>
+      <div class="modal-text">
+        <h1>
+          <PostToEdit v-if="edit" :postId="ids[0]"></PostToEdit>
+          <PostToShow v-else :postId="ids[0]"></PostToShow>
+        </h1>
+        <p>
+          <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+          <PostToShow v-else :postId="ids[1]"></PostToShow>
+        </p>
+        <div class="feedback">
+          <q>
+            <PostToEdit v-if="edit" :postId="ids[2]"></PostToEdit>
+            <PostToShow v-else :postId="ids[2]"></PostToShow>
+          </q>
+          <p>
+            <PostToEdit v-if="edit" :postId="ids[3]"></PostToEdit>
+            <PostToShow v-else :postId="ids[3]"></PostToShow>
+          </p>
+        </div>
+        <a href="google.com" class="button cta-contact-partner"
+          >Tutvu kliendiga!</a
+        >
+        <a id="reflectedlink" href="http://www.google.com/search"
+          >http://www.google.com/search</a
+        >
+        <input id="searchterm" />
+      </div>
 
-              <span class="close">&times;</span>
-            </div>
-          </div>
+      <span class="close">&times;</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -57,18 +72,18 @@ export default {
     PostToShow,
     Show,
     PostToEdit,
-    ImageUpload
+    ImageUpload,
   },
   props: {
-    gallery: { 
-        type: String,
-        required: true,
+    gallery: {
+      type: String,
+      required: true,
     },
     ids: {
       type: Array,
       required: true,
     },
-    edit: Boolean
+    edit: Boolean,
   },
   data() {
     return {
@@ -80,11 +95,11 @@ export default {
     };
   },
   mounted() {
-    var link= document.getElementById('reflectedlink');
-    var input= document.getElementById('searchterm');
-    input.onchange=input.onkeyup= function() {
-        link.search= '?q='+encodeURIComponent(input.value);
-        link.firstChild.data= link.href;
+    var link = document.getElementById("reflectedlink");
+    var input = document.getElementById("searchterm");
+    input.onchange = input.onkeyup = function () {
+      link.search = "?q=" + encodeURIComponent(input.value);
+      link.firstChild.data = link.href;
     };
 
     this.showSlides(1, "first"); // Initialize the first gallery
@@ -100,18 +115,22 @@ export default {
       console.log("true", document.querySelectorAll(".open-modal"));
       allImages = document.querySelectorAll(".open-modal");
     } else {
-     allImages = document.querySelectorAll(".container");
+      allImages = document.querySelectorAll(".container");
     }
 
     // When the user clicks on the button, open the modal
     allImages.forEach((image) => {
       image.addEventListener("click", (e) => {
         console.log("clicked", e.target);
-        import('../assets/portfoliomodal.css')
+        import("../assets/portfoliomodal.css");
         // Get the button that opens the modal
 
-        if (image.contains(e.target)) {
-          image.nextElementSibling.style.display = "block";
+        let nextElement = this.nextElementSibling;
+        while (nextElement && !nextElement.classList.contains("x")) {
+          nextElement = nextElement.nextElementSibling;
+        }
+        if (nextElement) {
+          nextElement.style.display = "block";
         }
       });
     });
@@ -156,6 +175,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
