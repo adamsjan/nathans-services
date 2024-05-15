@@ -123,7 +123,7 @@ export default {
         import("../assets/portfoliomodal.css");
         // Get the button that opens the modal
 
-        console.log("nxt", e.target.nextElementSibling);
+        console.log("nxt", e.target);
 
         let nextElement = e.target.nextElementSibling;
         while (nextElement && !nextElement.classList.contains("modal")) {
