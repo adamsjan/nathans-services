@@ -44,6 +44,7 @@ export default {
     Footer,
     PortfolioModal,
     PortfolioWork,
+    PostToShow
   },
 };
 </script>
