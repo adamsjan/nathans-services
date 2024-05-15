@@ -31,7 +31,9 @@
     </div>
   </div>
 
+    <picture>
   <img v-bind:src="imgSrc" alt="Team member" />
+</picture>
 </template>
 
 <script>
