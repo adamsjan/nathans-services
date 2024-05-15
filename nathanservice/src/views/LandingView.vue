@@ -23,7 +23,8 @@
     </div>
 
     <div class="catch">
-      Oleme kõige parem firma üldse<br />Mingi päris tekst
+      Puhas kütus, sujuv tankimine –<br />
+      partner tanklate hoolduses ja kütusemahutite puhastuses!
     </div>
 
     <div class="services">
