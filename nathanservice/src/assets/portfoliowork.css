@@ -60,4 +60,8 @@
         stroke: white;
       }
     }
+
+    .open-modal {
+      cursor: pointer;
+    }
   

@@ -27,5 +27,9 @@
     .partner picture {
       max-height: 300px;
     }
+
+    .open-modal {
+      cursor: pointer;
+    }
     
     }

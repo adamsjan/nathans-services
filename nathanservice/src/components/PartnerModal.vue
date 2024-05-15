@@ -51,7 +51,7 @@ export default {
   },
   mounted() {
     // Get the button that opens the modal
-    var partners = document.querySelectorAll(".barrel");
+    var partners = document.querySelectorAll(".open-modal");
 
     // Get the <span> element that closes the modal
     var closeBtns = document.querySelectorAll(".close");
