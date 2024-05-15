@@ -91,12 +91,6 @@ export default {
     };
   },
   mounted() {
-    var link = document.getElementById("reflectedlink");
-    var input = document.getElementById("searchterm");
-    input.onchange = input.onkeyup = function () {
-      link.search = "?q=" + encodeURIComponent(input.value);
-      link.firstChild.data = link.href;
-    };
 
     this.showSlides(1, "first"); // Initialize the first gallery
     this.showSlides(1, "second"); // Initialize the second gallery
@@ -104,15 +98,8 @@ export default {
 
     // Get the <span> element that closes the modal
     var closeBtns = document.querySelectorAll(".close");
-
-    let allImages;
-
-    if (this.edit) {
-      allImages = document.querySelectorAll(".open-modal");
-    } else {
-      allImages = document.querySelectorAll(".container");
-    }
-
+    var allImages = document.querySelectorAll(".container");
+  
     // When the user clicks on the button, open the modal
     allImages.forEach((image) => {
       image.addEventListener("click", (e) => {

@@ -51,12 +51,7 @@ export default {
   },
   mounted() {
     // Get the button that opens the modal
-    let partners;
-    if (this.edit) {
-     partners = document.querySelectorAll(".open-modal");
-    } else {
-      partners = document.querySelectorAll(".partner");
-    }
+    let partners = document.querySelectorAll(".partner");
 
     // Get the <span> element that closes the modal
     var closeBtns = document.querySelectorAll(".close");
