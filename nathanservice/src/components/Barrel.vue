@@ -1,15 +1,15 @@
 <template>
   <div class="barrel">
-    <ImageUpload v-if="edit" :id="ids[0]"></ImageUpload>
+    <ImageUpload v-if="edit" :id="ids[0]"/>
     <Show v-else :id="ids[0]" :loadingType="index > 2 ? 'lazy' : 'eager'" />
 
     <div class="text">
       <h2>
-        <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+        <PostToEdit v-if="edit" :postId="ids[1]" />
         <PostToShow v-else :postId="ids[1]"></PostToShow>
       </h2>
       <p>
-        <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+        <PostToEdit v-if="edit" :postId="ids[1]" />
         <PostToShow v-else :postId="ids[2]"></PostToShow>
       </p>
     </div>
@@ -27,6 +27,8 @@ export default {
   components: {
     PostToShow,
     Show,
+    PostToEdit,
+    ImageUpload
   },
   props: {
     ids: {
