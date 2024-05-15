@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <AdminHeader></AdminHeader>
+    <Header></Header>
 
     <main>
       <div class="introduction-section">

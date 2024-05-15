@@ -51,11 +51,8 @@ export default {
           }
         );
 
-        console.log("Get image response:", response);
-
         if (response.ok) {
           const data = await response.json();
-          console.log("Get image data", data);
           this.imgSrc = data.url;
           this.loading = false;
         }
