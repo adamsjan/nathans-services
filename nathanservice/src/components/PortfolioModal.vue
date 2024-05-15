@@ -5,11 +5,13 @@
             <div class="modal-content">
               <div class="slideShow">
                 <div :class="['mySlides', gallery]">
-                  <Show :id="ids[4]" :alt="'Tehtud töö'"></Show>
+                  <ImageUpload v-if="edit" :id="ids[4]" :alt="'Tehtud töö'"></ImageUpload>
+                  <Show v-else :id="ids[4]" :alt="'Tehtud töö'"></Show>
                 </div>
 
                 <div :class="['mySlides', gallery]">
-                  <Show :id="ids[5]" :alt="'Tehtud töö'"></Show>
+                  <ImageUpload v-if="edit" :id="ids[5]" :alt="'Tehtud töö'"></ImageUpload>
+                  <Show v-else :id="ids[5]" :alt="'Tehtud töö'"></Show>
                 </div>
 
                 <!-- Next and previous buttons -->
@@ -18,11 +20,20 @@
               </div>
 
               <div class="modal-text">
-                <h1><PostToShow :postId="ids[0]"></PostToShow></h1>
-                <p><PostToShow :postId="ids[1]"></PostToShow></p>
+                <h1>
+                  <PostToEdit v-if="edit" :postId="ids[0]"></PostToEdit>
+                  <PostToShow v-else :postId="ids[0]"></PostToShow>
+                </h1>
+                <p>
+                  <PostToEdit v-if="edit" :postId="ids[1]"></PostToEdit>
+                  <PostToShow v-else :postId="ids[1]"></PostToShow></p>
                 <div class="feedback">
-                    <q><PostToShow :postId="ids[2]"></PostToShow></q>
-                <p><PostToShow :postId="ids[3]"></PostToShow></p>
+                    <q>
+                      <PostToEdit v-if="edit" :postId="ids[2]"></PostToEdit>
+                  <PostToShow v-else :postId="ids[2]"></PostToShow>
+                    </q>
+                <p><PostToEdit v-if="edit" :postId="ids[3]"></PostToEdit>
+                  <PostToShow v-else :postId="ids[3]"></PostToShow></p>
               </div>
                 <a href="google.com" class="button cta-contact-partner">Tutvu kliendiga!</a>
               </div>
@@ -50,7 +61,8 @@ export default {
     ids: {
       type: Array,
       required: true,
-    }
+    },
+    edit: Boolean
   },
   data() {
     return {
