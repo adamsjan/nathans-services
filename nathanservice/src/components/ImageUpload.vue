@@ -25,6 +25,12 @@
     <input type="file" class="image" ref="fileInput" accept="image/*" />
   </div>
 
+  <div class="notification hiddenElement" ref="notification">
+    <div class="col">
+      <p><b>Salvestatud</b></p>
+    </div>
+  </div>
+
   <img v-bind:src="imgSrc" alt="Team member" />
 </template>
 
@@ -66,6 +72,7 @@ export default {
 
         if (response.ok) {
           const data = await response.json();
+
           this.imgSrc = data.url;
           this.loading = false;
         }
@@ -88,6 +95,26 @@ export default {
           console.log(response.data);
           this.getImage();
           // Handle success
+          // Get the textarea element
+          const container = this.$refs.container;
+
+          // Get the notification element
+          const notification = this.$refs.notification;
+
+          // Position the notification above the textarea
+          const textareaRect = container.getBoundingClientRect();
+          notification.style.top =
+            textareaRect.top - notification.offsetHeight - 10 + "px";
+          notification.style.left = textareaRect.left + "px";
+
+          // Show the notification
+          notification.classList.remove("hiddenElement");
+          notification.classList.add("background-success");
+
+          // After a delay, hide the notification
+          setTimeout(() => {
+            notification.classList.add("hiddenElement");
+          }, 3000);
         })
         .catch((error) => {
           console.error("Error uploading file:", error.message);
@@ -100,6 +127,29 @@ export default {
 </script>
 
 <style scoped>
+/* For "copied data" message */
+.notification {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  padding: 2%;
+  margin: 2% 0%;
+  transition: opacity 3s ease-out;
+  /* Add a transition for a smooth fade effect */
+}
+
+.hiddenElement {
+  display: none;
+}
+
+.background-success {
+  background-color: lightgreen;
+}
+
+.background-error {
+  background-color: lightcoral;
+}
+
 .button {
   min-height: 100%;
   min-width: 10%;

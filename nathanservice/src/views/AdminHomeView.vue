@@ -18,24 +18,24 @@
       </div>
       <div class="mission">
         <div class="left heading trapezoid-left">
-          <PostToEdit :postId="3"></PostToEdit>
+          <h1><PostToEdit :postId="3"></PostToEdit></h1>
         </div>
         <div class="right">
-          <div class="text-new"><PostToEdit :postId="4"></PostToEdit></div>
+          <p class="text-new"><PostToEdit :postId="4"></PostToEdit></p>
         </div>
       </div>
       <div class="vision">
         <div class="left">
-          <div class="text-new">
+          <p class="text-new">
             <PostToEdit :postId="6"></PostToEdit>
-          </div>
+          </p>
         </div>
         <div class="right heading trapezoid-right">
-          <PostToEdit :postId="5"></PostToEdit>
+          <h1><PostToEdit :postId="5"></PostToEdit></h1>
         </div>
       </div>
       <div class="divider-section heading">
-        <PostToEdit :postId="13"></PostToEdit>
+        <h1><PostToEdit :postId="13"></PostToEdit></h1>
       </div>
       <div class="card">
         <section class="three-divs">

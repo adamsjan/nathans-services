@@ -79,7 +79,7 @@
     }
 
     .button:hover rect {
-      color: var(--bold);
+      stroke: var(--bold);
     }
     
     .icon {
@@ -205,4 +205,5 @@
         transform: translateX(0);
       }
     }
+
   }

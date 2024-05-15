@@ -143,8 +143,8 @@ export default {
   background-color: white;
   border: solid 2px var(--darker);
   padding: 3px;
-  margin: 0px 3px 0px 3px;
-  width: 100%;
+  margin: 0px 3px;
+  width: 80%;
 }
 
 textarea {
@@ -162,10 +162,9 @@ button {
 }
 
 .saveButton {
-  margin: 20% 20%;
   font-weight: 100;
   font-size: 20px;
-  color: var(--dark);
+  color: var(--darker);
   background-color: var(--light);
   border-radius: 5px;
   width: 100%;
@@ -174,7 +173,7 @@ button {
 
 .saveButton:hover {
   color: var(--light);
-  background-color: var(--dark);
+  background-color: var(--darker);
   cursor: pointer;
 }
 </style>
