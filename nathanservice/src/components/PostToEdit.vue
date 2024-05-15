@@ -151,7 +151,7 @@ textarea {
   width: 100%;
   overflow: hidden;
   resize: none;
-  font-size: 14px;
+  font-size: inherit;
 }
 
 button {

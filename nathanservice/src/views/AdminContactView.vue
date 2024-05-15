@@ -65,8 +65,8 @@ import PostToEdit from "@/components/PostToEdit.vue";
 export default {
   name: "ContactView",
   components: {
-    Header,
-    Footer,
+    AdminHeader,
+    AdminFooter,
     PostToEdit
   }
 };

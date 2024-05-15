@@ -3,7 +3,7 @@
   <div class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-      <Show :id="ids[0]"></Show>
+      <Show :id="ids[0]" :alt="Partner"></Show>
 
       <div class="modal-text">
         <h1>

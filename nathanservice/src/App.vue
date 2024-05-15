@@ -30,7 +30,7 @@ main {
 p,
 h1, h2, label, input, textarea {
     color: var(--darker);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
 }
 

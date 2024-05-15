@@ -29,7 +29,7 @@
     </nav>
 
     <div class="menu-toggle">
-      <svg>
+      <svg class="menu-svg">
         <line x1="0" y1="5" x2="50" y2="5" />
         <line x1="0" y1="15" x2="50" y2="15" />
         <line x1="0" y1="25" x2="50" y2="25" />

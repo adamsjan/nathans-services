@@ -6,7 +6,7 @@
       <div class="card">
         <section class="introduction-section">
           <div class="divider-section heading">
-            <PostToEdit :postId="1"></PostToEdit>
+            <h1><PostToEdit :postId="1"></PostToEdit></h1>
           </div>
 
           <div class="who-are-we">
