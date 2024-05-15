@@ -20,7 +20,7 @@ export default {
     this.getImage();
 },
   props: {
-  id: String,
+  id: Array,
   alt: String,
   loadingType: {
       type: String,
@@ -32,7 +32,7 @@ export default {
       const screenWidth = window.innerWidth;
       if (screenWidth < 600) {
         return "small";
-      } else if (screenWidth >= 600 && screenWidth <= 1200) {
+      } else if (screenWidth >= 600 && screenWidth <= 1300) {
         return "medium";
       } else {
         return "large";

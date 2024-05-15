@@ -52,7 +52,7 @@ export default {
       const screenWidth = window.innerWidth;
       if (screenWidth < 600) {
         return "small";
-      } else if (screenWidth >= 600 && screenWidth <= 1200) {
+      } else if (screenWidth >= 600 && screenWidth <= 1300) {
         return "medium";
       } else {
         return "large";

@@ -40,22 +40,12 @@
       <div class="card">
         <section class="three-divs">
           <div class="barrel-container">
-            <div class="barrel">
-              <ImageUpload :id="1"></ImageUpload>
-
-              <div class="text">
-                <h1>
-                  <PostToEdit :postId="7"></PostToEdit>
-                </h1>
-                <p>
-                  <PostToEdit :postId="8"></PostToEdit>
-                </p>
-              </div>
-            </div>
+            <Barrel :ids="[1,7,8]" :edit="true"></Barrel>
+            
           </div>
           <div class="barrel-container">
             <div class="barrel">
-              <ImageUpload :id="2"></ImageUpload>
+              <ImageUpload :id="4"></ImageUpload>
 
               <div class="text">
                 <h1>
@@ -69,7 +59,7 @@
           </div>
           <div class="barrel-container">
             <div class="barrel">
-              <ImageUpload :id="3"></ImageUpload>
+              <ImageUpload :id="5"></ImageUpload>
 
               <div class="text">
                 <h1>

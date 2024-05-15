@@ -1,5 +1,6 @@
 <template>
     <!-- Container for the image gallery -->
+    <p>Modaalakna muutmiseks vajuta pildile</p>
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">
