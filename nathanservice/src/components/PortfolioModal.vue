@@ -49,10 +49,6 @@
         <a href="google.com" class="button cta-contact-partner"
           >Tutvu kliendiga!</a
         >
-        <a id="reflectedlink" href="http://www.google.com/search"
-          >http://www.google.com/search</a
-        >
-        <input id="searchterm" />
       </div>
 
       <span class="close">&times;</span>
@@ -122,8 +118,6 @@ export default {
       image.addEventListener("click", (e) => {
         import("../assets/portfoliomodal.css");
         // Get the button that opens the modal
-
-        console.log("nxt", e);
 
         let nextElement = image.nextElementSibling;
         while (nextElement && !nextElement.classList.contains("modal")) {

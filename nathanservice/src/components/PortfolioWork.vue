@@ -1,6 +1,6 @@
 <template>
     <!-- Container for the image gallery -->
-    <div v-if="edit" class="open-modal">Modaalakna muutmiseks vajuta pildile</div>
+    <div v-if="edit" class="open-modal">Ava modaalaken</div>
     <div :id="gallery" :class="['container', gallery]">
             <!-- Full-width images with number text -->
             <div class="image">

@@ -35,7 +35,8 @@
   import AdminFooter from "@/components/AdminFooter.vue";
   import PortfolioModal from "@/components/PortfolioModal.vue";
   import PortfolioWork from "@/components/PortfolioWork.vue";
-  
+  import PostToEdit from "@/components/PostToEdit.vue";
+
   export default {
     name: "PreviousWorkView",
     components: {
@@ -43,6 +44,7 @@
       AdminFooter,
       PortfolioModal,
       PortfolioWork,
+      PostToEdit
     },
   };
   </script>

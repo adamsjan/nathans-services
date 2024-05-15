@@ -3,7 +3,7 @@
 
   <main>
     <div class="divider-section heading">
-      <h1>TEHTUD TÖÖD</h1>
+      <h1><PostToShow :id="47"></PostToShow></h1>
     </div>
 
     <div class="images">
@@ -35,6 +35,7 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import PortfolioModal from "@/components/PortfolioModal.vue";
 import PortfolioWork from "@/components/PortfolioWork.vue";
+import PostToShow from "@/components/PostToShow.vue";
 
 export default {
   name: "PreviousWorkView",
