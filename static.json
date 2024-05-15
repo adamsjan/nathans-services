@@ -4,16 +4,21 @@
     "routes": {
       "/**": "index.html"
     },
-    "headers": {
-      "/**": {
-        "Access-Control-Allow-Origin": "*",
-        "X-Content-Type-Options": "nosniff"
-      },
-      "/**/*.js": {
-        "Content-Type": "application/javascript"
-      },
-      "/**/*.css": {
-        "Content-Type": "text/css"
-      }
+    "/**": {
+      "Access-Control-Allow-Origin": "*",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "/**/*.js": {
+      "Content-Type": "application/javascript"
+      
+    },
+    "/**/*.css": {
+      "Content-Type": "text/css"
+    },
+    "/**/*.png": {
+      "Cache-Control": "max-age=31536000, immutable"
+    },
+    "/**/*.jpg": {
+      "Cache-Control": "max-age=31536000, immutable"
     }
   }

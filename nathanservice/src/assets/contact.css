@@ -74,24 +74,6 @@
       width: 50%;
     }
   
-    .button {
-      color: var(--darker);
-      background: rgba(255, 0, 0, 0);
-  
-      rect {
-        stroke: var(--darker);
-      }
-    }
-  
-    .button:hover {
-      color: white;
-      background: var(--darker);
-  
-      rect {
-        stroke: white;
-      }
-    }
-  
     /* For sent message */
     .notification {
       opacity: 1;

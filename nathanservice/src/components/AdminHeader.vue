@@ -2,12 +2,30 @@
   <header class="sticky-header">
     <nav class="web-nav">
       <router-link class="nav-button" to="/admin-home" exact>MEIST</router-link>
-      <router-link class="nav-button" to="/admin-services">TEENUSED</router-link>
+      <router-link class="nav-button" to="/admin-services"
+        >TEENUSED</router-link
+      >
       <router-link class="nav-button" to="/admin-previous-work"
         >TEHTUD TÖÖD</router-link
       >
       <router-link class="nav-button" to="/admin-contact">KONTAKT</router-link>
-      <router-link class="nav-button" to="/admin-partners">PARTNERID</router-link>
+      <router-link class="nav-button" to="/admin-partners"
+        >PARTNERID</router-link
+      >
+      <span class="logOutButton"
+        ><svg
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"
+          />
+          <path
+            d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z"
+          /></svg
+      ></span>
     </nav>
 
     <div class="menu-toggle">
@@ -21,13 +39,21 @@
 
     <nav class="mobile-nav">
       <span class="mobile-button close-button">&times;</span>
-      <router-link class="mobile-button" to="/admin-home" exact>MEIST</router-link>
-      <router-link class="mobile-button" to="/admin-services">TEENUSED</router-link>
+      <router-link class="mobile-button" to="/admin-home" exact
+        >MEIST</router-link
+      >
+      <router-link class="mobile-button" to="/admin-services"
+        >TEENUSED</router-link
+      >
       <router-link class="mobile-button" to="/admin-previous-work"
         >TEHTUD TÖÖD</router-link
       >
-      <router-link class="mobile-button" to="/admin-contact">KONTAKT</router-link>
-      <router-link class="mobile-button" to="/admin-partners">PARTNERID</router-link>
+      <router-link class="mobile-button" to="/admin-contact"
+        >KONTAKT</router-link
+      >
+      <router-link class="mobile-button" to="/admin-partners"
+        >PARTNERID</router-link
+      >
     </nav>
   </header>
 
@@ -66,7 +92,6 @@ export default {
 
     // Get the elements that closes the modal
     var cancel = document.querySelector(".cancel-button");
-    var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on the button, open the modal
     btn.onclick = function () {

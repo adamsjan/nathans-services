@@ -8,8 +8,8 @@
           <h1>VÕTA MEIEGA ÜHENDUST!</h1>
           <p>Küsi hinnapakkumist ja arutame sinu ideed!</p>
 
-          <p><PostToEdit :postId="38"></PostToEdit></p>
-          <p><PostToEdit :postId="39"></PostToEdit></p>
+          <p><PostToShow :postId="38"></PostToShow></p>
+          <p><PostToShow :postId="39"></PostToShow></p>
 
           <p>Või võta meiega ühendust kontaktvormi kaudu!</p>
         </div>
