@@ -51,7 +51,7 @@ export default {
   },
   mounted() {
     // Get the button that opens the modal
-    let partners = document.querySelectorAll(".partner");
+    var partners = document.querySelectorAll(".barrel");
 
     // Get the <span> element that closes the modal
     var closeBtns = document.querySelectorAll(".close");
@@ -60,12 +60,8 @@ export default {
     document.addEventListener("click", (e) => {
       import('../assets/partnermodal.css');
       partners.forEach((partner) => {
-        let nextElement = partner.nextElementSibling;
-        while (nextElement && !nextElement.classList.contains("modal")) {
-          nextElement = nextElement.nextElementSibling;
-        }
-        if (nextElement) {
-          nextElement.style.display = "block";
+        if (partner.contains(e.target)) {
+          partner.nextElementSibling.style.display = "block";
         }
       });
     });
