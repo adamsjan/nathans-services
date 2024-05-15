@@ -47,11 +47,15 @@
 // @ is an alias to /src
 import PostToShow from "@/components/PostToShow.vue";
 import Show from "@/components/Show.vue";
+import PostToEdit from "@/components/PostToEdit.vue";
+import ImageUpload from "@/components/ImageUpload.vue";
 
 export default {
   components: {
     PostToShow,
-    Show
+    Show,
+    PostToEdit,
+    ImageUpload
   },
   props: {
     gallery: { 
