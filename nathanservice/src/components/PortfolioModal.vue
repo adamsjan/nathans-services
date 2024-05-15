@@ -126,7 +126,7 @@ export default {
         // Get the button that opens the modal
 
         let nextElement = this.nextElementSibling;
-        while (nextElement && !nextElement.classList.contains("x")) {
+        while (nextElement && !nextElement.classList.contains("modal")) {
           nextElement = nextElement.nextElementSibling;
         }
         if (nextElement) {
