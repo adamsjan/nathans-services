@@ -86,7 +86,7 @@ export default {
         link.search= '?q='+encodeURIComponent(input.value);
         link.firstChild.data= link.href;
     };
-    
+
     this.showSlides(1, "first"); // Initialize the first gallery
     this.showSlides(1, "second"); // Initialize the second gallery
     this.showSlides(1, "third"); // Initialize the third gallery
@@ -102,9 +102,12 @@ export default {
      allImages = document.querySelectorAll(".container");
     }
 
+    console.log(allImages);
+
     // When the user clicks on the button, open the modal
     allImages.forEach((image) => {
       image.addEventListener("click", (e) => {
+        console.log("clicked", e.target);
         import('../assets/portfoliomodal.css')
         // Get the button that opens the modal
 
