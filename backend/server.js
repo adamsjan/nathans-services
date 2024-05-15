@@ -283,6 +283,7 @@ app.get('/image/:id/:size', async (req, res) => {
             res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
 
             // Set the correct content type
+            console.log("REsult", result);
             res.set('Content-Type', result.headers['content-type']);
             res.json({ success: true, url: imageUrl });
         } else {
