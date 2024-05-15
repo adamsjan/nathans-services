@@ -3,7 +3,7 @@
 
   <main>
     <div class="divider-section heading">
-      <h1><PostToShow :id="47"></PostToShow></h1>
+      <h1><PostToShow :postId="47"></PostToShow></h1>
     </div>
 
     <div class="images">
