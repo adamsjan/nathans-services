@@ -86,6 +86,10 @@
       width: 50px;
       margin: 20% 20%;
     }
+
+    .icon, path {
+      stroke: white;
+    }
   
     .service-dots-container {
       width: 100%;
