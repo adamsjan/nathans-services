@@ -65,7 +65,7 @@ export default {
     document.addEventListener("click", (e) => {
       import('../assets/partnermodal.css');
       partners.forEach((partner) => {
-        let nextElement = image.nextElementSibling;
+        let nextElement = partner.nextElementSibling;
         while (nextElement && !nextElement.classList.contains("modal")) {
           nextElement = nextElement.nextElementSibling;
         }
