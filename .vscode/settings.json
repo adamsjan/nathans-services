@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/d3559f17-97c1-4081-af1c-7eb2841c46ca/resourceGroups/AppServiceQS-rg/providers/Microsoft.Web/sites/nathans-services",
-    "appService.deploySubpath": "."
-}
