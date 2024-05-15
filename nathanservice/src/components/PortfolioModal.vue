@@ -93,16 +93,18 @@ export default {
 
     // Get the <span> element that closes the modal
     var closeBtns = document.querySelectorAll(".close");
+
+    this.$nextTick(() => {
     let allImages;
 
     if (this.edit) {
       allImages = document.querySelectorAll(".open-modal");
-    }
-    else {
+    } else {
      allImages = document.querySelectorAll(".container");
     }
 
     console.log(allImages);
+  });
 
     // When the user clicks on the button, open the modal
     allImages.forEach((image) => {
