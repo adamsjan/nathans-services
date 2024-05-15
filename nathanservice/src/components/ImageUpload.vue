@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" ref="container">
     <button @click="uploadFile" class="button" title="Laadi see pilt üles">
       <svg
         class="w-6 h-6 text-gray-800 dark:text-white"

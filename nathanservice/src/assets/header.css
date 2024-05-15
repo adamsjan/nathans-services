@@ -86,6 +86,16 @@
     .logout-svg, .logout-svg * {
       stroke: white;
     }
+
+    #logoutModal .modal-content {
+      flex-direction: column;
+    }
+
+    #logoutModal .modal-content .modal-choices {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   
   @media screen and (min-width: 600px) {

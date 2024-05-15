@@ -76,8 +76,10 @@
     <div class="modal-content">
       <h3>Kas kõik on salvestatud?</h3>
       <p>Välja logides ei salvestata muudatusi automaatselt</p>
+      <div class="modal-choices">
       <button type="button" @click="LogOut">Logi välja</button>
       <button type="button" class="cancel-button">Tühista</button>
+      </div>
     </div>
   </div>
 </template>

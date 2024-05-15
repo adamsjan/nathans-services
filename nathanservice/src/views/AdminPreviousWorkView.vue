@@ -3,26 +3,26 @@
   
     <main>
       <div class="divider-section heading">
-        <h1>TEHTUD TÖÖD</h1>
+        <h1><PostToEdit :id="47"></PostToEdit></h1>
       </div>
   
       <div class="images">
         <div class="content">
-          <PortfolioWork :gallery="'first'" :edit="true" :ids="[20]"></PortfolioWork>
-  
-          <PortfolioModal :gallery="'first'" :edit="true" :ids="[4, 20, 21]"></PortfolioModal>
+          <PortfolioWork :gallery="'first'" :ids="[20,6]"></PortfolioWork>
+
+        <PortfolioModal :gallery="'first'" :ids="[20, 21, 41, 42, 6,7]"></PortfolioModal>
         </div>
   
         <div class="content">
-          <PortfolioWork :gallery="'second'" :ids="[22]"></PortfolioWork>
-  
-          <PortfolioModal :gallery="'second'" :ids="[6, 22, 23]"></PortfolioModal>
+          <PortfolioWork :gallery="'second'" :ids="[22,8]"></PortfolioWork>
+
+        <PortfolioModal :gallery="'second'" :ids="[22, 23,43, 44,8,9]"></PortfolioModal>
         </div>
   
         <div class="content">
-          <PortfolioWork :gallery="'third'" :ids="[24]"></PortfolioWork>
-  
-          <PortfolioModal :gallery="'third'" :ids="[8, 24, 25]"></PortfolioModal>
+          <PortfolioWork :gallery="'third'" :ids="[24,10]"></PortfolioWork>
+
+          <PortfolioModal :gallery="'third'" :ids="[24, 25,45,46,10,11]"></PortfolioModal>
         </div>
       </div>
     </main>
