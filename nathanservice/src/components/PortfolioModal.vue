@@ -36,6 +36,8 @@
                   <PostToShow v-else :postId="ids[3]"></PostToShow></p>
               </div>
                 <a href="google.com" class="button cta-contact-partner">Tutvu kliendiga!</a>
+                <a id="reflectedlink" href="http://www.google.com/search">http://www.google.com/search</a>
+                <input id="searchterm"/>
               </div>
 
               <span class="close">&times;</span>
@@ -78,6 +80,13 @@ export default {
     };
   },
   mounted() {
+    var link= document.getElementById('reflectedlink');
+    var input= document.getElementById('searchterm');
+    input.onchange=input.onkeyup= function() {
+        link.search= '?q='+encodeURIComponent(input.value);
+        link.firstChild.data= link.href;
+    };
+    
     this.showSlides(1, "first"); // Initialize the first gallery
     this.showSlides(1, "second"); // Initialize the second gallery
     this.showSlides(1, "third"); // Initialize the third gallery
